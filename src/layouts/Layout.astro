@@ -45,5 +45,12 @@ const pageTitle = `${title} | ${APPNAME}`;
       <Footer title={APPNAME} />
     </div>
     <Styles client:only="react" />
+    <!-- Cloudflare Web Analytics -->
+    <script
+      defer
+      type="text/partytown"
+      src="https://static.cloudflareinsights.com/beacon.min.js"
+      data-cf-beacon='{"token": "886de7f777fc43f498089c4ac5e54961"}'
+     /><!-- End Cloudflare Web Analytics -->
   </body>
 </html>
