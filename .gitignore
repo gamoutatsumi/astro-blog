@@ -20,4 +20,4 @@ pnpm-debug.log*
 .DS_Store
 
 .astro
-!.tool-versions
+!.node-version
