@@ -9,7 +9,15 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "lint": "eslint ./src/"
+    "lint": "npm-run-all lint:*",
+    "lint:eslint": "eslint ./src",
+    "lint:prettier": "prettier -c ./src",
+    "lint:types": "npm-run-all lint:types:*",
+    "lint:types:astro": "astro check",
+    "lint:types:tsc": "tsc --noEmit",
+    "fix": "npm-run-all fix:*",
+    "fix:prettier": "prettier -w ./src",
+    "fix:eslint": "eslint --fix ./src"
   },
   "dependencies": {
     "@astrojs/image": "0.13.0",

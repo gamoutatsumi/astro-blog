@@ -15,12 +15,9 @@
         "./src/layouts/*"
       ],
       "astro:*": [
-        ".astro/types.d.ts"
+        "./.astro/types.d.ts"
       ]
-    },
-    "types": [
-      "./src/env.d.ts"
-    ]
+    }
   },
   "include": [
     "./astro.config.ts",
