@@ -1,0 +1,32 @@
+---
+import { getCollection, CollectionEntry } from "astro:content";
+import Layout from "@layouts/List.astro";
+import { Card } from "@components/Card";
+import type { Page, GetStaticPaths } from "astro";
+
+export interface Props {
+  page: Page<CollectionEntry<"posts">>;
+}
+
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  const entries = (await getCollection("posts")).filter(
+    (entry) => !entry.data.isDraft
+  );
+  const categories = entries.map((entry) => entry.slug.split("/")[0]);
+  return categories.map((category) =>
+    paginate(
+      entries.filter((entry) => entry.slug.split("/")[0] === category),
+      { pageSize: 10, params: { category } }
+    )
+  );
+};
+const { page } = Astro.props;
+---
+
+<Layout title="home">
+  {page.data.map((entry) => <Card entry={entry} />)}
+  <div class="d-inline-flex justify-content-between">
+    {page.url.prev ? <a href={page.url.prev}>Previous</a> : <div />}
+    {page.url.next ? <a href={page.url.next}>Next</a> : null}
+  </div>
+</Layout>

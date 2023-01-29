@@ -1,0 +1,51 @@
+---
+import { dateTransform } from "@utils/dateTransform";
+import Layout from "./Layout.astro";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+export interface Props {
+  title: string;
+  metadata: {
+    publishDate: Date;
+    tags: string[];
+    category: string;
+  };
+}
+
+const { title, metadata } = Astro.props;
+---
+
+<Layout title={title}>
+  <div class="card-header">
+    <h1 class="card-title">{title}</h1>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap">
+      <div class="d-inline-flex gap-1">
+        <p class="d-inline">tags:</p>
+        <ul class="list-inline d-inline-flex gap-2">
+          {
+            metadata.tags.map((tag) => (
+              <li class="card px-1">
+                <a href={`/tags/${tag}`}>{tag}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="d-inline-flex gap-1">
+        <p class="d-inline">category:</p>
+        <p>
+          <a class="card px-1" href={`/posts/${metadata.category}`}
+            >{metadata.category}</a
+          >
+        </p>
+      </div>
+      <p title={dateTransform(metadata.publishDate, true)} class="d-inline">
+        {dateTransform(metadata.publishDate)}
+      </p>
+    </div>
+  </div>
+  <div class="card-body">
+    <slot />
+  </div>
+</Layout>
