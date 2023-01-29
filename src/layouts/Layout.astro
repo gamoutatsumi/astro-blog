@@ -11,8 +11,8 @@ export interface Props {
 }
 
 const { title } = Astro.props;
-const pageTitle = `${title} | ${import.meta.env.PUBLIC_APPNAME}`;
-const APPNAME = import.meta.env.PUBLIC_APPNAME;
+const APPNAME = "通算n度目のブログ";
+const pageTitle = `${title} | ${APPNAME}`;
 ---
 
 <!DOCTYPE html>
@@ -20,7 +20,7 @@ const APPNAME = import.meta.env.PUBLIC_APPNAME;
   <head>
     <SEO
       title={pageTitle}
-      twitter={{ creator: "@gamoutatsumi" }}
+      twitter={{ creator: "@gamoutatsumi", title: pageTitle }}
       extend={{
         link: [{ rel: "icon", href: "/favicon.ico" }],
         meta: [{ name: "twitter:title", content: title }],
@@ -28,9 +28,7 @@ const APPNAME = import.meta.env.PUBLIC_APPNAME;
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
   </head>
   <body>
     <Header title={APPNAME} />
@@ -38,13 +36,13 @@ const APPNAME = import.meta.env.PUBLIC_APPNAME;
       <div
         class="container-md d-md-flex flex-row justify-content-between mt-5 gap-5 align-items-start mb-auto"
       >
-        <div class="card flex-grow-1 shadow-sm">
+        <div class="card col-md-12 shadow-sm">
           <main>
             <slot />
           </main>
         </div>
       </div>
-      <Footer />
+      <Footer title={APPNAME} />
     </div>
     <Styles client:only="react" />
   </body>
