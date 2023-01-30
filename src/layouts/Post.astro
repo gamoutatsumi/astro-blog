@@ -1,22 +1,26 @@
 ---
 import { dateTransform } from "@utils/dateTransform";
+import type { CollectionEntry } from "astro:content";
 import Layout from "./Layout.astro";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export interface Props {
   title: string;
-  metadata: {
-    publishDate: Date;
-    tags: string[];
+  body: string;
+  metadata: CollectionEntry<"posts">["data"] & {
     category: string;
   };
 }
 
-const { title, metadata } = Astro.props;
+const { title, metadata, body } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout
+  title={title}
+  image={metadata.image}
+  description={body.replaceAll("\n", "").substring(0, 80)}
+>
   <div class="card-header">
     <h1 class="card-title">{title}</h1>
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap">

@@ -26,6 +26,10 @@ const { entry, category } = Astro.props;
 const { Content } = await entry.render();
 ---
 
-<Layout title={entry.data.title} metadata={{ ...entry.data, category }}>
+<Layout
+  title={entry.data.title}
+  metadata={{ ...entry.data, category }}
+  body={entry.body}
+>
   <Content />
 </Layout>

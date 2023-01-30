@@ -8,9 +8,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export interface Props {
   title: string;
+  image?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, image, description } = Astro.props;
 const APPNAME = "通算n度目のブログ";
 const pageTitle = `${title} | ${APPNAME}`;
 ---
@@ -21,9 +23,17 @@ const pageTitle = `${title} | ${APPNAME}`;
     <SEO
       title={pageTitle}
       twitter={{ creator: "@gamoutatsumi", title: pageTitle }}
+      description={description ?? "@gamoutatsumi のブログ" }
       extend={{
         link: [{ rel: "icon", href: "/favicon.ico" }],
-        meta: [{ name: "twitter:title", content: title }],
+        meta: [
+          { name: "twitter:title", content: title },
+          { name: "twitter:image", content: image ?? "/profile.jpg" },
+          {
+            name: "twitter:description",
+            content: description ?? "@gamoutatsumi のブログ",
+          },
+        ],
       }}
     />
     <meta charset="UTF-8" />
@@ -46,11 +56,13 @@ const pageTitle = `${title} | ${APPNAME}`;
     </div>
     <Styles client:only="react" />
     <!-- Cloudflare Web Analytics -->
+{import.meta.env.PROD && (
     <script
       defer
       type="text/partytown"
       src="https://static.cloudflareinsights.com/beacon.min.js"
       data-cf-beacon='{"token": "886de7f777fc43f498089c4ac5e54961"}'
-     /><!-- End Cloudflare Web Analytics -->
+     />
+)}<!-- End Cloudflare Web Analytics -->
   </body>
 </html>
