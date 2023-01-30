@@ -1,3 +1,11 @@
 module.export = {
-  plugins: ["./node_modules/prettier-plugin-astro"],
+  plugins: [require.resolve("prettier-plugin-astro")],
+  overrides: [
+    {
+      files: "*.astro",
+      options: {
+        parser: "astro",
+      },
+    },
+  ],
 };

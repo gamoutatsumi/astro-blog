@@ -6,6 +6,7 @@ import { getCollection, CollectionEntry } from "astro:content";
 export interface Props {
   entry: CollectionEntry<"posts">;
   category: string;
+  slug: string;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -17,18 +18,18 @@ export const getStaticPaths: GetStaticPaths = async () => {
       const slug = entry.slug.split("/")[1];
       return {
         params: { slug, category },
-        props: { entry, category },
+        props: { entry, category, slug },
       };
     });
 };
 
-const { entry, category } = Astro.props;
+const { entry, category, slug } = Astro.props;
 const { Content } = await entry.render();
 ---
 
 <Layout
   title={entry.data.title}
-  metadata={{ ...entry.data, category }}
+  metadata={{ ...entry.data, category, slug }}
   body={entry.body}
 >
   <Content />

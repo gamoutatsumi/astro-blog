@@ -8,7 +8,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout title={title} pageType="website">
   <div class="card-body">
     <div class="d-flex flex-column gap-3">
       <slot />

@@ -16,7 +16,7 @@
     "lint:types:astro": "astro check",
     "lint:types:tsc": "tsc --noEmit",
     "fix": "npm-run-all fix:*",
-    "fix:prettier": "prettier -w ./src",
+    "fix:prettier": "prettier --plugin-search-dir=. -w ./src",
     "fix:eslint": "eslint --fix ./src"
   },
   "dependencies": {
@@ -30,6 +30,8 @@
     "astro-seo": "0.7.0",
     "autoprefixer": "10.4.13",
     "bootstrap": "5.2.3",
+    "canvas": "^2.11.0",
+    "kuromoji": "^0.1.2",
     "postcss": "8.4.21",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -40,6 +42,7 @@
   "packageManager": "pnpm@7.26.2",
   "devDependencies": {
     "@types/bootstrap": "5.2.6",
+    "@types/kuromoji": "^0.1.1",
     "@types/node": "16.18.11",
     "@types/react": "18.0.27",
     "@types/react-dom": "18.0.10",

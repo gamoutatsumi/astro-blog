@@ -10,6 +10,7 @@ export interface Props {
   body: string;
   metadata: CollectionEntry<"posts">["data"] & {
     category: string;
+    slug: string;
   };
 }
 
@@ -18,7 +19,8 @@ const { title, metadata, body } = Astro.props;
 
 <Layout
   title={title}
-  image={metadata.image}
+  pageType="article"
+  image={`/ogp/${metadata.category}/${metadata.slug}.jpg`}
   description={body.replaceAll("\n", "").substring(0, 80)}
 >
   <div class="card-header">

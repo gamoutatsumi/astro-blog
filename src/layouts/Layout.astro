@@ -10,9 +10,10 @@ export interface Props {
   title: string;
   image?: string;
   description?: string;
+  pageType?: "website" | "article";
 }
 
-const { title, image, description } = Astro.props;
+const { title, image, description, pageType } = Astro.props;
 const APPNAME = "通算n度目のブログ";
 const pageTitle = `${title} | ${APPNAME}`;
 ---
@@ -22,13 +23,31 @@ const pageTitle = `${title} | ${APPNAME}`;
   <head>
     <SEO
       title={pageTitle}
-      twitter={{ creator: "@gamoutatsumi", title: pageTitle }}
-      description={description ?? "@gamoutatsumi のブログ" }
+      twitter={{
+        creator: "@gamoutatsumi",
+        title: pageTitle,
+        image: new URL(image ?? "/profile.jpg", Astro.url).toString(),
+        description: description ?? "@gamoutatsumi のブログ",
+      }}
+      openGraph={{
+        basic: {
+          title,
+          image: new URL(image ?? "/profile.jpg", Astro.url).toString(),
+          type: pageType ?? "website",
+        },
+        image: { alt: pageTitle },
+      }}
+      description={description ?? "@gamoutatsumi のブログ"}
       extend={{
-        link: [{ rel: "icon", href: new URL('/favicon.ico', Astro.url).toString() }],
+        link: [
+          { rel: "icon", href: new URL("/favicon.ico", Astro.url).toString() },
+        ],
         meta: [
           { name: "twitter:title", content: title },
-          { name: "twitter:image", content: new URL(image ?? "/profile.jpg", Astro.url).toString() },
+          {
+            name: "twitter:image",
+            content: new URL(image ?? "/profile.jpg", Astro.url).toString(),
+          },
           {
             name: "twitter:description",
             content: description ?? "@gamoutatsumi のブログ",
@@ -56,13 +75,15 @@ const pageTitle = `${title} | ${APPNAME}`;
     </div>
     <Styles client:only="react" />
     <!-- Cloudflare Web Analytics -->
-{import.meta.env.PROD && (
-    <script
-      defer
-      type="text/partytown"
-      src="https://static.cloudflareinsights.com/beacon.min.js"
-      data-cf-beacon='{"token": "886de7f777fc43f498089c4ac5e54961"}'
-     />
-)}<!-- End Cloudflare Web Analytics -->
+    {
+      import.meta.env.PROD && (
+        <script
+          defer
+          type="text/partytown"
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "886de7f777fc43f498089c4ac5e54961"}`}
+        />
+      )
+    }<!-- End Cloudflare Web Analytics -->
   </body>
 </html>
