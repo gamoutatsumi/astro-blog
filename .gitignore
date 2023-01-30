@@ -21,3 +21,5 @@ pnpm-debug.log*
 
 .astro
 !.node-version
+
+!src/pages/tags
