@@ -25,10 +25,10 @@ const pageTitle = `${title} | ${APPNAME}`;
       twitter={{ creator: "@gamoutatsumi", title: pageTitle }}
       description={description ?? "@gamoutatsumi のブログ" }
       extend={{
-        link: [{ rel: "icon", href: "/favicon.ico" }],
+        link: [{ rel: "icon", href: new URL('/favicon.ico', Astro.url).toString() }],
         meta: [
           { name: "twitter:title", content: title },
-          { name: "twitter:image", content: image ?? "/profile.jpg" },
+          { name: "twitter:image", content: new URL(image ?? "/profile.jpg", Astro.url).toString() },
           {
             name: "twitter:description",
             content: description ?? "@gamoutatsumi のブログ",
