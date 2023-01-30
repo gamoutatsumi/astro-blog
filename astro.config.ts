@@ -18,7 +18,15 @@ export default defineConfig({
   integrations: [
     react(),
     mdx(),
-    sitemap({ customPages: ["https://blog.gamou.dev"] }),
+    sitemap({
+      customPages: ["https://blog.gamou.dev"],
+      serialize(item) {
+        if (/\/posts\/nsfw/.test(item.url)) {
+          return undefined;
+        }
+        return item;
+      },
+    }),
     partytown({
       config: {},
     }),
