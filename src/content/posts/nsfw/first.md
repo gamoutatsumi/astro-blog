@@ -1,6 +1,6 @@
 ---
 title: エロゲ語りするカテゴリ
-publishDate: "2023-01-30T09:09:14.174Z"
+publishDate: "Mon, 30 Jan 2023 09:12:07 GMT"
 tags:
   - "null"
 isDraft: false

@@ -1,6 +1,6 @@
 ---
 title: 通算n度目かのfirst post
-publishDate: "2023-01-29T02:52:41.601Z"
+publishDate: "Sun, 29 Jan 2023 02:52:41 GMT"
 tags:
   - "null"
 isDraft: false
