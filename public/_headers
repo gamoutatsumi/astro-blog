@@ -1,2 +1,4 @@
 https://astro-blog-dfh.pages.dev/*
   X-Robots-Tag: noindex
+https://blog.gamou.dev/posts/nsfw/*
+  X-Robots-Tag: noindex
