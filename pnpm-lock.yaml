@@ -4,6 +4,7 @@ specifiers:
   '@astrojs/mdx': 0.15.1
   '@astrojs/partytown': 1.0.3
   '@astrojs/react': 2.0.1
+  '@astrojs/rss': ^2.1.0
   '@astrojs/sitemap': 1.0.0
   '@heroicons/react': 2.0.14
   '@popperjs/core': 2.11.6
@@ -49,6 +50,7 @@ dependencies:
   '@astrojs/mdx': 0.15.1_astro@2.0.2+rollup@3.12.0
   '@astrojs/partytown': 1.0.3
   '@astrojs/react': 2.0.1_fxtgt6bjwd6p4cwoordejim2zi
+  '@astrojs/rss': 2.1.0
   '@astrojs/sitemap': 1.0.0
   '@heroicons/react': 2.0.14_react@18.2.0
   '@popperjs/core': 2.11.6
@@ -208,6 +210,13 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@astrojs/rss/2.1.0:
+    resolution: {integrity: sha512-PrqtIDDAyu4MyIvhBZEQhftui5fqyO9JPvOe4QnVDhErMIYWXd0pVPpqdnE0SKZ5xykMkphYPAQdWDr7VeCzBg==}
+    dependencies:
+      fast-xml-parser: 4.0.15
+      kleur: 4.1.5
     dev: false
 
   /@astrojs/sitemap/1.0.0:
@@ -3090,6 +3099,13 @@ packages:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
     dev: true
 
+  /fast-xml-parser/4.0.15:
+    resolution: {integrity: sha512-bF4/E33/K/EZDHV23IJpSK2SU7rZTaSkDH5G85nXX8SKlQ9qBpWQhyPpm2nlTBewDJgtpd6+1x4TNpKmocmthQ==}
+    hasBin: true
+    dependencies:
+      strnum: 1.0.5
+    dev: false
+
   /fastq/1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}
     dependencies:
@@ -5934,6 +5950,10 @@ packages:
     resolution: {integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==}
     engines: {node: '>=8'}
     dev: true
+
+  /strnum/1.0.5:
+    resolution: {integrity: sha512-J8bbNyKKXl5qYcR36TIO8W3mVGVHrmmxsd5PAItGkmyzwJvybiw2IVq5nqd0i4LSNSkB/sx9VHllbfFdr9k1JA==}
+    dev: false
 
   /style-to-object/0.4.1:
     resolution: {integrity: sha512-HFpbb5gr2ypci7Qw+IOhnP2zOU7e77b+rzM+wTzXzfi1PrtBCX0E7Pk4wL4iTLnhzZ+JgEGAhX81ebTg/aYjQw==}
