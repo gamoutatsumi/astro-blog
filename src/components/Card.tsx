@@ -6,7 +6,7 @@ type CardProps = {
 };
 export const Card = ({ entry }: CardProps) => {
   const date = entry.data.publishDate;
-  const link = `/posts/${entry.slug}`;
+  const link = `/${entry.slug}`;
   const category = entry.slug.split("/")[0];
   return (
     <div className="card">
@@ -35,7 +35,7 @@ export const Card = ({ entry }: CardProps) => {
             <p>{dateTransform(date)}</p>
             <div className="d-flex gap-2">
               category:
-              <a href={`/posts/${category}`} className="card px-1 d-inline">
+              <a href={`/${category}`} className="card px-1 d-inline">
                 {category}
               </a>
             </div>

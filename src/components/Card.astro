@@ -9,7 +9,7 @@ export type Props = {
 
 const { entry } = Astro.props;
 const date = entry.data.publishDate;
-const link = `/posts/${entry.slug}`;
+const link = `/${entry.slug}`;
 const category = entry.slug.split("/")[0];
 ---
 
@@ -43,7 +43,7 @@ const category = entry.slug.split("/")[0];
         <p>{dateTransform(date)}</p>
         <div class="d-flex gap-2">
           category:
-          <a href={`/posts/${category}`} class="card px-1 d-inline">
+          <a href={`/${category}`} class="card px-1 d-inline">
             {category}
           </a>
         </div>

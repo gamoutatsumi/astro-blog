@@ -41,7 +41,7 @@ const { title, metadata, body } = Astro.props;
       <div class="d-inline-flex gap-1">
         <p class="d-inline">category:</p>
         <p>
-          <a class="card px-1" href={`/posts/${metadata.category}`}
+          <a class="card px-1" href={`/${metadata.category}`}
             >{metadata.category}</a
           >
         </p>

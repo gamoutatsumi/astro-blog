@@ -24,7 +24,7 @@ export default defineConfig({
     sitemap({
       customPages: ["https://blog.gamou.dev"],
       serialize(item) {
-        if (/\/posts\/nsfw/.test(item.url)) {
+        if (/\/nsfw/.test(item.url)) {
           return undefined;
         }
         return item;
