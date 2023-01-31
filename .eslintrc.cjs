@@ -32,7 +32,7 @@ module.exports = {
       "@typescript-eslint/parser": [".ts", ".tsx"],
       "astro-eslint-parser": [".astro"],
     },
-    "import/resolver": "typescript",
+    "import/resolver": { typescript: {} },
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {

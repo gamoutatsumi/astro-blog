@@ -13,6 +13,9 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
+import image from "@astrojs/image";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://blog.gamou.dev",
   integrations: [
@@ -30,5 +33,6 @@ export default defineConfig({
     partytown({
       config: {},
     }),
+    image({ serviceEntryPoint: "@astrojs/image/sharp" }),
   ],
 });

@@ -1,10 +1,20 @@
 ---
+import { getImage } from "@astrojs/image";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { SEO } from "astro-seo";
 import { Styles } from "./styles";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
+const { title, image, description, pageType } = Astro.props;
+
+const proliantImg = await getImage({
+  src: import("@images/proliant.jpg"),
+  format: "webp",
+  alt: "proliant",
+  width: 300,
+});
 
 export interface Props {
   title: string;
@@ -13,7 +23,6 @@ export interface Props {
   pageType?: "website" | "article";
 }
 
-const { title, image, description, pageType } = Astro.props;
 const APPNAME = "通算n度目のブログ";
 const pageTitle = `${title} | ${APPNAME}`;
 ---
@@ -26,13 +35,13 @@ const pageTitle = `${title} | ${APPNAME}`;
       twitter={{
         creator: "@gamoutatsumi",
         title: pageTitle,
-        image: new URL(image ?? "/profile.jpg", Astro.url).toString(),
+        image: new URL(image ?? proliantImg.src ?? "", Astro.url).toString(),
         description: description ?? "@gamoutatsumi のブログ",
       }}
       openGraph={{
         basic: {
           title,
-          image: new URL(image ?? "/profile.jpg", Astro.url).toString(),
+          image: new URL(image ?? proliantImg.src ?? "", Astro.url).toString(),
           type: pageType ?? "website",
         },
         image: { alt: pageTitle },
@@ -46,7 +55,10 @@ const pageTitle = `${title} | ${APPNAME}`;
           { name: "twitter:title", content: title },
           {
             name: "twitter:image",
-            content: new URL(image ?? "/profile.jpg", Astro.url).toString(),
+            content: new URL(
+              image ?? proliantImg.src ?? "",
+              Astro.url
+            ).toString(),
           },
           {
             name: "twitter:description",

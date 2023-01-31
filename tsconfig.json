@@ -11,7 +11,8 @@
       "astro:*": ["./.astro/types.d.ts"],
       "@images/*": ["./src/images/*"],
       "@lib/*": ["./src/lib/*"]
-    }
+    },
+    "types": ["@astrojs/image/client", "@astrojs/image"]
   },
   "include": ["./astro.config.ts", ".*.cjs", "src/", "./.astro/"],
   "exclude": ["node_modules"]

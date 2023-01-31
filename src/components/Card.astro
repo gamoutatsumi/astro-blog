@@ -1,0 +1,75 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { dateTransform } from "@utils/dateTransform";
+import { Image } from "@astrojs/image/components";
+
+export type Props = {
+  entry: CollectionEntry<"posts">;
+};
+
+const { entry } = Astro.props;
+const date = entry.data.publishDate;
+const link = `/posts/${entry.slug}`;
+const category = entry.slug.split("/")[0];
+---
+
+<div class="card">
+  <div class="row g-0">
+    <a class="col-md-4" href={link}>
+      <Image
+        src={entry.data.image}
+        alt={entry.data.title}
+        class="w-100 h-100"
+        aspectRatio="660:438"
+        width={660}
+        height={438}
+        format="webp"
+      />
+    </a>
+    <div class="col-md-8">
+      <div class="card-body d-flex flex-column gap-1">
+        <div
+          style={{
+            WebkitLineClamp: 2,
+            display: "-webkit-box",
+            overflow: "hidden",
+            WebkitBoxOrient: "horizontal",
+          }}
+        >
+          <a class="card-title" href={link}>
+            {entry.data.title}
+          </a>
+        </div>
+        <p>{dateTransform(date)}</p>
+        <div class="d-flex gap-2">
+          category:
+          <a href={`/posts/${category}`} class="card px-1 d-inline">
+            {category}
+          </a>
+        </div>
+        <div class="d-flex gap-2">
+          tags:
+          <ul class="list-inline d-flex gap-2">
+            {
+              entry.data.tags.map((tag) => (
+                <li class="card px-1">
+                  <a href={`/tags/${tag}`}>{tag}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div
+          style={{
+            WebkitLineClamp: 3,
+            display: "-webkit-box",
+            overflow: "hidden",
+            WebkitBoxOrient: "vertical",
+          }}
+        >
+          <p>{entry.body}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
