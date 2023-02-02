@@ -3,9 +3,6 @@ import { getImage } from "astro:assets";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { SEO } from "astro-seo";
-import { Styles } from "./styles";
-
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const { title, image, description, pageType } = Astro.props;
 
@@ -75,9 +72,9 @@ const pageTitle = `${title} | ${APPNAME}`;
     <Header title={APPNAME} />
     <div class="d-flex flex-column min-vh-100">
       <div
-        class="container-md d-md-flex flex-row justify-content-between mt-5 gap-5 align-items-start mb-auto"
+        class="container-md d-md-flex justify-content-between align-items-start mt-5 mb-auto flex-row gap-5"
       >
-        <div class="card col-md-12 shadow-sm">
+        <div class="col-md-12 card shadow-sm">
           <main>
             <slot />
           </main>
@@ -85,7 +82,6 @@ const pageTitle = `${title} | ${APPNAME}`;
       </div>
       <Footer title={APPNAME} />
     </div>
-    <Styles client:only="react" />
     <!-- Cloudflare Web Analytics -->
     {
       import.meta.env.PROD && (

@@ -1,6 +1,6 @@
 module.exports = {
   root: true,
-  plugins: ["@typescript-eslint", "mdx", "import"],
+  plugins: ["@typescript-eslint", "mdx", "import", "tailwindcss"],
   extends: [
     "airbnb",
     "airbnb-typescript",
@@ -13,6 +13,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "prettier",
+    "plugin:tailwindcss/recommended",
   ],
   rules: {
     "import/prefer-default-export": "off",
@@ -33,6 +34,9 @@ module.exports = {
       "astro-eslint-parser": [".astro"],
     },
     "import/resolver": { typescript: {} },
+    tailwindcss: {
+      config: "tailwind.config.cjs",
+    },
   },
   parser: "@typescript-eslint/parser",
   parserOptions: {

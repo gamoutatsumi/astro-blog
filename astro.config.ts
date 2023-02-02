@@ -10,6 +10,9 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
+import tailwind from "@astrojs/tailwind";
+
+// https://astro.build/config
 export default defineConfig({
   site: "https://blog.gamou.dev",
   integrations: [
@@ -26,5 +29,6 @@ export default defineConfig({
     partytown({
       config: {},
     }),
+    tailwind()
   ],
 });
