@@ -14,8 +14,8 @@ const category = entry.slug.split("/")[0];
 ---
 
 <div class="card">
-  <div class="row g-0">
-    <a class="col-md-4" href={link}>
+  <div class="row-auto">
+    <a class="md:col-start-1" href={link}>
       <Image
         src={entry.data.image}
         alt={entry.data.title}
@@ -25,8 +25,8 @@ const category = entry.slug.split("/")[0];
         format="webp"
       />
     </a>
-    <div class="col-md-8">
-      <div class="card-body d-flex flex-column gap-1">
+    <div class="md:col-start-8">
+      <div class="card-body flex flex-col gap-1">
         <div
           style={{
             WebkitLineClamp: 2,
@@ -42,7 +42,7 @@ const category = entry.slug.split("/")[0];
         <p>{dateTransform(date)}</p>
         <div class="d-flex gap-2">
           category:
-          <a href={`/${category}`} class="card px-1 d-inline">
+          <a href={`/${category}`} class="d-inline card px-1">
             {category}
           </a>
         </div>
