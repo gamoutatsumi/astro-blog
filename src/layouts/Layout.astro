@@ -76,7 +76,9 @@ const pageTitle = `${title} | ${APPNAME}`;
       >
         <div class="card shadow-sm md:col-start-12">
           <main>
-            <slot />
+            <div class="md:container md:mx-auto">
+              <slot />
+            </div>
           </main>
         </div>
       </div>

@@ -14,7 +14,7 @@ const category = entry.slug.split("/")[0];
 ---
 
 <div class="card">
-  <div class="row-auto">
+  <div class="flex">
     <a class="md:col-start-1" href={link}>
       <Image
         src={entry.data.image}
@@ -40,15 +40,15 @@ const category = entry.slug.split("/")[0];
           </a>
         </div>
         <p>{dateTransform(date)}</p>
-        <div class="d-flex gap-2">
+        <div class="flex gap-2">
           category:
-          <a href={`/${category}`} class="d-inline card px-1">
+          <a href={`/${category}`} class="card inline px-1">
             {category}
           </a>
         </div>
-        <div class="d-flex gap-2">
+        <div class="flex gap-2">
           tags:
-          <ul class="list-inline d-flex gap-2">
+          <ul class="flex list-none gap-2">
             {
               entry.data.tags.map((tag) => (
                 <li class="card px-1">
