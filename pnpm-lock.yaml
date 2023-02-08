@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@astrojs/image': 0.13.1
+  '@astrojs/image': 0.14.1
   '@astrojs/mdx': 0.16.0
   '@astrojs/partytown': 1.0.3
   '@astrojs/react': 2.0.2
@@ -49,7 +49,7 @@ specifiers:
   zod: 3.20.2
 
 dependencies:
-  '@astrojs/image': 0.13.1_astro@2.0.8+sharp@0.31.3
+  '@astrojs/image': 0.14.1_astro@2.0.8+sharp@0.31.3
   '@astrojs/mdx': 0.16.0_astro@2.0.8+rollup@3.14.0
   '@astrojs/partytown': 1.0.3
   '@astrojs/react': 2.0.2_fxtgt6bjwd6p4cwoordejim2zi
@@ -124,10 +124,10 @@ packages:
     resolution: {integrity: sha512-C4kTwirys+HafufMqaxCbML2wqkGaXJM+5AekXh/v1IIOnMIdcEON9GBYsG6qa8aAmLhZ58aUZGPhzcA3Dx7Uw==}
     dev: false
 
-  /@astrojs/image/0.13.1_astro@2.0.8+sharp@0.31.3:
-    resolution: {integrity: sha512-H+3I0i8KU+oTc3HsVncE8VGEQkEJEXXi79EnK7nRBf6WS8pWAjVaGBKXkk7jZQv8rM/Qc+Bnvl+lGLQCF1ziOA==}
+  /@astrojs/image/0.14.1_astro@2.0.8+sharp@0.31.3:
+    resolution: {integrity: sha512-tRswPnPJVqStGXh+5mWtvh7+qi+jABcGkm9BFdP2Hh8Ya8KAgO0ICPjDG3Fppcz5G2JIZ50B3ajXiyWuuRIQJw==}
     peerDependencies:
-      astro: ^2.0.4
+      astro: ^2.0.7
       sharp: '>=0.31.0'
     peerDependenciesMeta:
       sharp:
@@ -141,7 +141,6 @@ packages:
       magic-string: 0.27.0
       mime: 3.0.0
       sharp: 0.31.3
-      slash: 4.0.0
     dev: false
 
   /@astrojs/language-server/0.28.3:
