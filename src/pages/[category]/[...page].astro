@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import Layout from "@layouts/List.astro";
-import { Card } from "@components/Card";
 import type { Page, GetStaticPaths } from "astro";
 
 export interface Props {
@@ -24,10 +23,4 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 const { page } = Astro.props;
 ---
 
-<Layout title="home">
-  {page.data.map((entry) => <Card entry={entry} />)}
-  <div class="d-inline-flex justify-content-between">
-    {page.url.prev ? <a href={page.url.prev}>Previous</a> : <div />}
-    {page.url.next ? <a href={page.url.next}>Next</a> : null}
-  </div>
-</Layout>
+<Layout title="home" page={page} />
