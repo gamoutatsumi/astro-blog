@@ -6,7 +6,7 @@ specifiers:
   '@astrojs/partytown': 1.0.3
   '@astrojs/react': 2.0.2
   '@astrojs/rss': 2.1.0
-  '@astrojs/sitemap': 1.0.1
+  '@astrojs/sitemap': 1.2.1
   '@heroicons/react': 2.0.16
   '@popperjs/core': 2.11.6
   '@types/bootstrap': 5.2.6
@@ -54,7 +54,7 @@ dependencies:
   '@astrojs/partytown': 1.0.3
   '@astrojs/react': 2.0.2_ffd5foczrxyy7gyjqbwgwcqlbq
   '@astrojs/rss': 2.1.0
-  '@astrojs/sitemap': 1.0.1
+  '@astrojs/sitemap': 1.2.1
   '@heroicons/react': 2.0.16_react@18.2.0
   '@popperjs/core': 2.11.6
   astro: 2.1.3_b2c2n2ibe5ay5qvxfwzmujzuhi
@@ -282,8 +282,8 @@ packages:
       kleur: 4.1.5
     dev: false
 
-  /@astrojs/sitemap/1.0.1:
-    resolution: {integrity: sha512-qexepZPH6/dLToI/njxr2FjvyxJU0HBAnQRNzEggF0ok811oSNC6su1DkyW2VKp0TNPbWoujuSbcb1yFOjnAqA==}
+  /@astrojs/sitemap/1.2.1:
+    resolution: {integrity: sha512-nlKP1qc1ENZ61w+ep5RdsObjYWso4QdLGC5WyzssnKkgVDijHT61s/tHFfBWHhxqdjcw4x1V1um/eSQZPDTR3Q==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.21.4
@@ -1402,7 +1402,7 @@ packages:
   /@types/better-sqlite3/7.6.3:
     resolution: {integrity: sha512-YS64N9SNDT/NAvou3QNdzAu3E2om/W/0dhORimtPGLef+zSK5l1vDzfsWb4xgXOgfhtOI5ZDTRxnvRPb22AIVQ==}
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 16.18.16
     dev: true
 
   /@types/bootstrap/5.2.6:
@@ -1476,9 +1476,6 @@ packages:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
     dev: false
 
-  /@types/node/18.11.18:
-    resolution: {integrity: sha512-DHQpWGjyQKSHj3ebjFI/wRKcqQcdR+MoFBygntYOZytCqNfkd2ZC4ARDJ2DQqhjH5p85Nnd3jhUJIXrszFX/JA==}
-
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: true
@@ -1509,7 +1506,7 @@ packages:
   /@types/sax/1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 18.11.18
+      '@types/node': 16.18.16
     dev: false
 
   /@types/scheduler/0.16.2:
