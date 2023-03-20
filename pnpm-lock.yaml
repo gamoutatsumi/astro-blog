@@ -7,7 +7,7 @@ specifiers:
   '@astrojs/react': 2.0.2
   '@astrojs/rss': 2.1.0
   '@astrojs/sitemap': 1.0.1
-  '@heroicons/react': 2.0.15
+  '@heroicons/react': 2.0.16
   '@popperjs/core': 2.11.6
   '@types/bootstrap': 5.2.6
   '@types/kuromoji': 0.1.1
@@ -55,7 +55,7 @@ dependencies:
   '@astrojs/react': 2.0.2_ffd5foczrxyy7gyjqbwgwcqlbq
   '@astrojs/rss': 2.1.0
   '@astrojs/sitemap': 1.0.1
-  '@heroicons/react': 2.0.15_react@18.2.0
+  '@heroicons/react': 2.0.16_react@18.2.0
   '@popperjs/core': 2.11.6
   astro: 2.0.10_kop4hsnyssyv5mfeqautw6zuei
   astro-seo: 0.7.0
@@ -972,8 +972,8 @@ packages:
       - supports-color
     dev: true
 
-  /@heroicons/react/2.0.15_react@18.2.0:
-    resolution: {integrity: sha512-CZ2dGWgWG3/z5LEoD5D3MEr1syn45JM/OB2aDpw531Ryecgkz2V7TWQ808P0lva7zP003PVW6WlwbofsYyga3A==}
+  /@heroicons/react/2.0.16_react@18.2.0:
+    resolution: {integrity: sha512-x89rFxH3SRdYaA+JCXwfe+RkE1SFTo9GcOkZettHer71Y3T7V+ogKmfw5CjTazgS3d0ClJ7p1NA+SP7VQLQcLw==}
     peerDependencies:
       react: '>= 16'
     dependencies:
