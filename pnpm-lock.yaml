@@ -17,7 +17,7 @@ specifiers:
   '@typescript-eslint/eslint-plugin': 5.55.0
   '@typescript-eslint/parser': 5.55.0
   astro: 2.1.3
-  astro-seo: 0.7.0
+  astro-seo: 0.7.1
   autoprefixer: 10.4.13
   bootstrap: 5.2.3
   canvas: 2.11.0
@@ -58,7 +58,7 @@ dependencies:
   '@heroicons/react': 2.0.16_react@18.2.0
   '@popperjs/core': 2.11.6
   astro: 2.1.3_b2c2n2ibe5ay5qvxfwzmujzuhi
-  astro-seo: 0.7.0
+  astro-seo: 0.7.1
   autoprefixer: 10.4.13_postcss@8.4.21
   bootstrap: 5.2.3_@popperjs+core@2.11.6
   canvas: 2.11.0
@@ -1843,8 +1843,8 @@ packages:
       - supports-color
     dev: true
 
-  /astro-seo/0.7.0:
-    resolution: {integrity: sha512-G7zJUr4lfKLeqfWx2g5rfuBsOsIOfqxIOqErQfrMsMchDFfLFxNKAuW8yAo8hynJJwBvtGyS/vOXgGdMVVCFrA==}
+  /astro-seo/0.7.1:
+    resolution: {integrity: sha512-8Yo1nQrl2iB5zj+VUAHrvGIck8bZ4WAmXQgJOeF9FuAZGQD5qK6DtSZaRbpBXsFfZYHA6tE8pjs3btHhLbC1zQ==}
     dev: false
 
   /astro/2.1.3_b2c2n2ibe5ay5qvxfwzmujzuhi:
