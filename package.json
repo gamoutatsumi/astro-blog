@@ -40,7 +40,7 @@
     "rollup": "3.14.0",
     "sass": "1.58.0",
     "sharp": "0.31.3",
-    "zod": "3.20.2"
+    "zod": "3.21.4"
   },
   "packageManager": "pnpm@7.26.3",
   "devDependencies": {
