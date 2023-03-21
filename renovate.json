@@ -1,6 +1,11 @@
 {
+  "baseBranches": ["develop"],
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base", "config:js-app"],
   "timezone": "Asia/Tokyo",
-  "labels": ["renovate"]
+  "labels": ["renovate"],
+  "schedule": ["every weekend"],
+  "minor": {
+    "groupName": "all dependencies"
+  }
 }
