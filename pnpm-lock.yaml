@@ -39,7 +39,7 @@ specifiers:
   prettier-plugin-astro: 0.8.0
   react: 18.2.0
   react-dom: 18.2.0
-  rollup: 3.20.0
+  rollup: 3.20.2
   sass: 1.59.3
   sharp: 0.31.3
   simple-git-hooks: 2.8.1
@@ -64,7 +64,7 @@ dependencies:
   postcss: 8.4.21
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  rollup: 3.20.0
+  rollup: 3.20.2
   sass: 1.59.3
   sharp: 0.31.3
   zod: 3.21.4
@@ -5606,8 +5606,8 @@ packages:
       estree-walker: 0.6.1
     dev: true
 
-  /rollup/3.20.0:
-    resolution: {integrity: sha512-YsIfrk80NqUDrxrjWPXUa7PWvAfegZEXHuPsEZg58fGCdjL1I9C1i/NaG+L+27kxxwkrG/QEDEQc8s/ynXWWGQ==}
+  /rollup/3.20.2:
+    resolution: {integrity: sha512-3zwkBQl7Ai7MFYQE0y1MeQ15+9jsi7XxfrqwTb/9EK8D9C9+//EBR4M+CuA1KODRaNbFez/lWxA5vhEGZp4MUg==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -6439,7 +6439,7 @@ packages:
       esbuild: 0.17.12
       postcss: 8.4.21
       resolve: 1.22.1
-      rollup: 3.20.0
+      rollup: 3.20.2
       sass: 1.59.3
     optionalDependencies:
       fsevents: 2.3.2
