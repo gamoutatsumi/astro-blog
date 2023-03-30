@@ -10,7 +10,7 @@ specifiers:
   '@popperjs/core': 2.11.6
   '@types/bootstrap': 5.2.6
   '@types/kuromoji': 0.1.1
-  '@types/node': 16.18.18
+  '@types/node': 16.18.23
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.56.0
@@ -55,7 +55,7 @@ dependencies:
   '@astrojs/sitemap': 1.2.1
   '@heroicons/react': 2.0.16_react@18.2.0
   '@popperjs/core': 2.11.6
-  astro: 2.1.3_beopqwxpsgukp2zqwrxsjnixbm
+  astro: 2.1.3_qd5l4ezyq6eh4ykk5j4pqg5rlm
   astro-seo: 0.7.1
   autoprefixer: 10.4.14_postcss@8.4.21
   bootstrap: 5.2.3_@popperjs+core@2.11.6
@@ -72,7 +72,7 @@ dependencies:
 devDependencies:
   '@types/bootstrap': 5.2.6
   '@types/kuromoji': 0.1.1
-  '@types/node': 16.18.18
+  '@types/node': 16.18.23
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.56.0_2hcjazgfnbtq42tcc73br2vup4
@@ -131,7 +131,7 @@ packages:
         optional: true
     dependencies:
       '@altano/tiny-async-pool': 1.0.2
-      astro: 2.1.3_beopqwxpsgukp2zqwrxsjnixbm
+      astro: 2.1.3_qd5l4ezyq6eh4ykk5j4pqg5rlm
       http-cache-semantics: 4.1.0
       image-size: 1.0.2
       kleur: 4.1.5
@@ -164,7 +164,7 @@ packages:
       astro: ^2.1.0
     dependencies:
       '@astrojs/prism': 2.1.1
-      astro: 2.1.3_beopqwxpsgukp2zqwrxsjnixbm
+      astro: 2.1.3_qd5l4ezyq6eh4ykk5j4pqg5rlm
       github-slugger: 1.5.0
       image-size: 1.0.2
       import-meta-resolve: 2.2.1
@@ -1295,7 +1295,7 @@ packages:
   /@types/better-sqlite3/7.6.3:
     resolution: {integrity: sha512-YS64N9SNDT/NAvou3QNdzAu3E2om/W/0dhORimtPGLef+zSK5l1vDzfsWb4xgXOgfhtOI5ZDTRxnvRPb22AIVQ==}
     dependencies:
-      '@types/node': 16.18.18
+      '@types/node': 16.18.23
     dev: true
 
   /@types/bootstrap/5.2.6:
@@ -1359,8 +1359,8 @@ packages:
       '@types/unist': 2.0.6
     dev: false
 
-  /@types/node/16.18.18:
-    resolution: {integrity: sha512-fwGw1uvQAzabxL1pyoknPlJIF2t7+K90uTqynleKRx24n3lYcxWa3+KByLhgkF8GEAK2c7hC8Ki0RkNM5H15jQ==}
+  /@types/node/16.18.23:
+    resolution: {integrity: sha512-XAMpaw1s1+6zM+jn2tmw8MyaRDIJfXxqmIQIS0HfoGYPuf7dUWeiUKopwq13KFX9lEp1+THGtlaaYx39Nxr58g==}
 
   /@types/node/17.0.45:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
@@ -1396,7 +1396,7 @@ packages:
   /@types/sax/1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 16.18.18
+      '@types/node': 16.18.23
     dev: false
 
   /@types/scheduler/0.16.2:
@@ -1759,7 +1759,7 @@ packages:
     resolution: {integrity: sha512-8Yo1nQrl2iB5zj+VUAHrvGIck8bZ4WAmXQgJOeF9FuAZGQD5qK6DtSZaRbpBXsFfZYHA6tE8pjs3btHhLbC1zQ==}
     dev: false
 
-  /astro/2.1.3_beopqwxpsgukp2zqwrxsjnixbm:
+  /astro/2.1.3_qd5l4ezyq6eh4ykk5j4pqg5rlm:
     resolution: {integrity: sha512-5LFo/ixDXs84tgrSbzz0X5c7nzLfkag7w4tgOpBRL/DkveP83v+nSe3KjqwYLPL5vNY9UvryKHsfC0uu4TQz0g==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -1820,7 +1820,7 @@ packages:
       typescript: 5.0.2
       unist-util-visit: 4.1.1
       vfile: 5.3.6
-      vite: 4.2.0_qh643lj7mzmpf5hdq37wb4kvhm
+      vite: 4.2.0_75fkbp376xtexkobdyklzhwsnu
       vitefu: 0.2.4_vite@4.2.0
       yargs-parser: 21.1.1
       zod: 3.21.4
@@ -6410,7 +6410,7 @@ packages:
       unist-util-stringify-position: 3.0.2
       vfile-message: 3.1.3
 
-  /vite/4.2.0_qh643lj7mzmpf5hdq37wb4kvhm:
+  /vite/4.2.0_75fkbp376xtexkobdyklzhwsnu:
     resolution: {integrity: sha512-AbDTyzzwuKoRtMIRLGNxhLRuv1FpRgdIw+1y6AQG73Q5+vtecmvzKo/yk8X/vrHDpETRTx01ABijqUHIzBXi0g==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -6435,7 +6435,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 16.18.18
+      '@types/node': 16.18.23
       esbuild: 0.17.12
       postcss: 8.4.21
       resolve: 1.22.1
@@ -6453,7 +6453,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.2.0_qh643lj7mzmpf5hdq37wb4kvhm
+      vite: 4.2.0_75fkbp376xtexkobdyklzhwsnu
     dev: false
 
   /vscode-css-languageservice/6.2.1:
