@@ -5,7 +5,7 @@ specifiers:
   '@astrojs/partytown': 1.1.1
   '@astrojs/react': 2.1.0
   '@astrojs/rss': 2.3.2
-  '@astrojs/sitemap': 1.2.1
+  '@astrojs/sitemap': 1.2.2
   '@heroicons/react': 2.0.16
   '@popperjs/core': 2.11.6
   '@types/bootstrap': 5.2.6
@@ -52,7 +52,7 @@ dependencies:
   '@astrojs/partytown': 1.1.1
   '@astrojs/react': 2.1.0_ddal5w4bzhvnvvplv3twufcima
   '@astrojs/rss': 2.3.2
-  '@astrojs/sitemap': 1.2.1
+  '@astrojs/sitemap': 1.2.2
   '@heroicons/react': 2.0.16_react@18.2.0
   '@popperjs/core': 2.11.6
   astro: 2.1.3_qd5l4ezyq6eh4ykk5j4pqg5rlm
@@ -222,8 +222,8 @@ packages:
       kleur: 4.1.5
     dev: false
 
-  /@astrojs/sitemap/1.2.1:
-    resolution: {integrity: sha512-nlKP1qc1ENZ61w+ep5RdsObjYWso4QdLGC5WyzssnKkgVDijHT61s/tHFfBWHhxqdjcw4x1V1um/eSQZPDTR3Q==}
+  /@astrojs/sitemap/1.2.2:
+    resolution: {integrity: sha512-rjgFEPzETMVYgOMECIFP2vCkwzF9nLB31/6XWN548IeU/IlFgYR28RbsGTIjUElDak/9AF3jzjtzyldAZger3Q==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.21.4

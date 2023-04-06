@@ -24,7 +24,7 @@
     "@astrojs/partytown": "1.1.1",
     "@astrojs/react": "2.1.0",
     "@astrojs/rss": "2.3.2",
-    "@astrojs/sitemap": "1.2.1",
+    "@astrojs/sitemap": "1.2.2",
     "@heroicons/react": "2.0.16",
     "@popperjs/core": "2.11.6",
     "astro": "2.1.3",
