@@ -5,8 +5,8 @@ dependencies:
     specifier: 0.16.5
     version: 0.16.5(astro@2.2.0)(sharp@0.31.3)
   '@astrojs/partytown':
-    specifier: 1.1.1
-    version: 1.1.1
+    specifier: 1.2.0
+    version: 1.2.0
   '@astrojs/react':
     specifier: 2.1.1
     version: 2.1.1(@types/react-dom@18.0.11)(@types/react@18.0.33)(react-dom@18.2.0)(react@18.2.0)
@@ -229,8 +229,8 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/partytown@1.1.1:
-    resolution: {integrity: sha512-IaKzYieiuxnSRGSuAivV92kDTa0ENbei4Y0yEAowhyzV6MxJJImYEUKycSo/HUJwPQQmsPmBbp/IA4pyoL1Wxg==}
+  /@astrojs/partytown@1.2.0:
+    resolution: {integrity: sha512-AjrroKpBJR4rs0CLlmLqZ82Dfa3fFvN9mQZ3cfOXQYo85Rc/85R01MZiS1S1G5IzqWi2TDWIMH6R1cm12aGKDg==}
     dependencies:
       '@builder.io/partytown': 0.7.5
       mrmime: 1.0.1
