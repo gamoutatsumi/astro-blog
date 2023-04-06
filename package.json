@@ -66,7 +66,7 @@
     "prettier": "2.8.7",
     "prettier-plugin-astro": "0.8.0",
     "simple-git-hooks": "2.8.1",
-    "typescript": "5.0.2",
+    "typescript": "5.0.3",
     "wrangler": "2.13.0"
   }
 }
