@@ -35,8 +35,8 @@ dependencies:
     specifier: 5.2.3
     version: 5.2.3(@popperjs/core@2.11.6)
   canvas:
-    specifier: 2.11.0
-    version: 2.11.0
+    specifier: 2.11.2
+    version: 2.11.2
   kuromoji:
     specifier: 0.1.2
     version: 0.1.2
@@ -2060,8 +2060,8 @@ packages:
     resolution: {integrity: sha512-zgAo8D5kbOyUcRAgSmgyuvBkjrGk5CGYG5TYgFdpQv+ywcyEpo1LOWoG8YmoflGnh+V+UsNuKYedsoYs0hzV5A==}
     dev: false
 
-  /canvas@2.11.0:
-    resolution: {integrity: sha512-bdTjFexjKJEwtIo0oRx8eD4G2yWoUOXP9lj279jmQ2zMnTQhT8C3512OKz3s+ZOaQlLbE7TuVvRDYDB3Llyy5g==}
+  /canvas@2.11.2:
+    resolution: {integrity: sha512-ItanGBMrmRV7Py2Z+Xhs7cT+FNt5K0vPL4p9EZ/UX/Mu7hFbkxSjKF2KVtPwX7UYWp7dRKnrTvReflgrItJbdw==}
     engines: {node: '>=6'}
     requiresBuild: true
     dependencies:
