@@ -27,7 +27,7 @@
     "@astrojs/sitemap": "1.2.2",
     "@heroicons/react": "2.0.17",
     "@popperjs/core": "2.11.7",
-    "astro": "2.2.0",
+    "astro": "2.2.2",
     "astro-seo": "0.7.2",
     "autoprefixer": "10.4.14",
     "bootstrap": "5.2.3",
