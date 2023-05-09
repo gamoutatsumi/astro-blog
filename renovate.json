@@ -6,6 +6,9 @@
   "labels": ["renovate"],
   "schedule": ["every weekend"],
   "minor": {
-    "groupName": "all dependencies"
+    "groupName": "all minor updates"
+  },
+  "patch": {
+    "groupName": "all patch updates"
   }
 }
