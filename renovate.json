@@ -10,5 +10,6 @@
   },
   "patch": {
     "groupName": "all patch updates"
-  }
+  },
+  "postUpdateOptions": ["pnpmDedupe"]
 }
