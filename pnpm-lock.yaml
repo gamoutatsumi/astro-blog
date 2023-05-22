@@ -24,7 +24,7 @@ dependencies:
     version: 2.11.7
   astro:
     specifier: 2.5.1
-    version: 2.5.1(@types/node@18.16.12)(sass@1.62.1)(sharp@0.32.1)
+    version: 2.5.1(@types/node@18.16.14)(sass@1.62.1)(sharp@0.32.1)
   astro-seo:
     specifier: 0.7.2
     version: 0.7.2
@@ -70,8 +70,8 @@ devDependencies:
     specifier: 0.1.1
     version: 0.1.1
   '@types/node':
-    specifier: 18.16.12
-    version: 18.16.12
+    specifier: 18.16.14
+    version: 18.16.14
   '@types/react':
     specifier: 18.2.6
     version: 18.2.6
@@ -166,7 +166,7 @@ packages:
         optional: true
     dependencies:
       '@altano/tiny-async-pool': 1.0.2
-      astro: 2.5.1(@types/node@18.16.12)(sass@1.62.1)(sharp@0.32.1)
+      astro: 2.5.1(@types/node@18.16.14)(sass@1.62.1)(sharp@0.32.1)
       http-cache-semantics: 4.1.1
       image-size: 1.0.2
       kleur: 4.1.5
@@ -200,7 +200,7 @@ packages:
       astro: ^2.5.0
     dependencies:
       '@astrojs/prism': 2.1.2
-      astro: 2.5.1(@types/node@18.16.12)(sass@1.62.1)(sharp@0.32.1)
+      astro: 2.5.1(@types/node@18.16.14)(sass@1.62.1)(sharp@0.32.1)
       github-slugger: 1.5.0
       import-meta-resolve: 2.2.2
       rehype-raw: 6.1.1
@@ -1250,7 +1250,7 @@ packages:
   /@types/concat-stream@2.0.0:
     resolution: {integrity: sha512-t3YCerNM7NTVjLuICZo5gYAXYoDvpuuTceCcFQWcDQz26kxUR5uIWolxbIR5jRNIXpMqhOpW/b8imCR1LEmuJw==}
     dependencies:
-      '@types/node': 18.16.12
+      '@types/node': 18.16.14
     dev: true
 
   /@types/debug@4.1.7:
@@ -1317,8 +1317,8 @@ packages:
     resolution: {integrity: sha512-w+tIMs3rq2afQdsPJlODhoUEKzFP1ayaoyl1CcnwtIlsVe7K7bA1NGm4s3PraqTLlXnbIN84zuBlxBWo1u9BLw==}
     dev: false
 
-  /@types/node@18.16.12:
-    resolution: {integrity: sha512-tIRrjbY9C277MOfP8M3zjMIhtMlUJ6YVqkGgLjz+74jVsdf4/UjC6Hku4+1N0BS0qyC0JAS6tJLUk9H6JUKviQ==}
+  /@types/node@18.16.14:
+    resolution: {integrity: sha512-+ImzUB3mw2c5ISJUq0punjDilUQ5GnUim0ZRvchHIWJmOC0G+p0kzhXBqj6cDjK0QdPFwzrHWgrJp3RPvCG5qg==}
 
   /@types/parse5@6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -1346,7 +1346,7 @@ packages:
   /@types/sax@1.2.4:
     resolution: {integrity: sha512-pSAff4IAxJjfAXUG6tFkO7dsSbTmf8CtUpfhhZ5VhkRpC4628tJhh3+V6H1E+/Gs9piSzYKT5yzHO5M4GG9jkw==}
     dependencies:
-      '@types/node': 18.16.12
+      '@types/node': 18.16.14
     dev: false
 
   /@types/scheduler@0.16.3:
@@ -1740,7 +1740,7 @@ packages:
     resolution: {integrity: sha512-YnSqj4E6vbF7wRk3gcxOPHBjenhfgaINEJlTsnu4sovAyfyGEdQksbioYKoZ+vERRDaYvEricfSzC6fc9lieww==}
     dev: false
 
-  /astro@2.5.1(@types/node@18.16.12)(sass@1.62.1)(sharp@0.32.1):
+  /astro@2.5.1(@types/node@18.16.14)(sass@1.62.1)(sharp@0.32.1):
     resolution: {integrity: sha512-tOVlDWxxE8VBGoolW0AS0kUo7ynAMjfOPKK0XyqprAtcN7pvYZ29gLG6RJTitDhzzP3HDt+Vecg9PuUOtHrITg==}
     engines: {node: '>=16.12.0', npm: '>=6.14.0'}
     hasBin: true
@@ -1802,7 +1802,7 @@ packages:
       typescript: 5.0.4
       unist-util-visit: 4.1.2
       vfile: 5.3.7
-      vite: 4.3.5(@types/node@18.16.12)(sass@1.62.1)
+      vite: 4.3.5(@types/node@18.16.14)(sass@1.62.1)
       vitefu: 0.2.4(vite@4.3.5)
       yargs-parser: 21.1.1
       zod: 3.21.4
@@ -6444,7 +6444,7 @@ packages:
       '@types/concat-stream': 2.0.0
       '@types/debug': 4.1.7
       '@types/is-empty': 1.2.1
-      '@types/node': 18.16.12
+      '@types/node': 18.16.14
       '@types/unist': 2.0.6
       concat-stream: 2.0.0
       debug: 4.3.4
@@ -6637,7 +6637,7 @@ packages:
       unist-util-stringify-position: 3.0.3
       vfile-message: 3.1.4
 
-  /vite@4.3.5(@types/node@18.16.12)(sass@1.62.1):
+  /vite@4.3.5(@types/node@18.16.14)(sass@1.62.1):
     resolution: {integrity: sha512-0gEnL9wiRFxgz40o/i/eTBwm+NEbpUeTWhzKrZDSdKm6nplj+z4lKz8ANDgildxHm47Vg8EUia0aicKbawUVVA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     hasBin: true
@@ -6662,7 +6662,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 18.16.12
+      '@types/node': 18.16.14
       esbuild: 0.17.18
       postcss: 8.4.23
       rollup: 3.23.0
@@ -6679,7 +6679,7 @@ packages:
       vite:
         optional: true
     dependencies:
-      vite: 4.3.5(@types/node@18.16.12)(sass@1.62.1)
+      vite: 4.3.5(@types/node@18.16.14)(sass@1.62.1)
     dev: false
 
   /vscode-css-languageservice@6.2.5:
