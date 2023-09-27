@@ -15,8 +15,8 @@ dependencies:
     specifier: 2.3.2
     version: 2.3.2(@types/react-dom@18.2.8)(@types/react@18.2.23)(react-dom@18.2.0)(react@18.2.0)
   '@astrojs/rss':
-    specifier: 2.4.2
-    version: 2.4.2
+    specifier: 2.4.4
+    version: 2.4.4
   '@astrojs/sitemap':
     specifier: 1.4.0
     version: 1.4.0
@@ -269,10 +269,10 @@ packages:
       - supports-color
     dev: false
 
-  /@astrojs/rss@2.4.2:
-    resolution: {integrity: sha512-euhFRVi0Oybn/uuY/RGoZRVQWC1p6qaO9YH58BScQQ51LysZ0cyR5EYsqmFoGI0/1BDNeclzF3BhpdLyAkVBNw==}
+  /@astrojs/rss@2.4.4:
+    resolution: {integrity: sha512-HQFoHyHVoODyeyAFoVPej8OOZowiuXvB5AFIzY4AiPCdwlBz5JGpzW5vPARG/FCqAI9AS3Wi0sU/RZh3Cu8SWQ==}
     dependencies:
-      fast-xml-parser: 4.2.2
+      fast-xml-parser: 4.3.1
       kleur: 4.1.5
     dev: false
 
@@ -3323,8 +3323,8 @@ packages:
     resolution: {integrity: sha512-DCXu6Ifhqcks7TZKY3Hxp3y6qphY5SJZmrWMDrKcERSOXWQdMhU9Ig/PYrzyw/ul9jOIyh0N4M0tbC5hodg8dw==}
     dev: true
 
-  /fast-xml-parser@4.2.2:
-    resolution: {integrity: sha512-DLzIPtQqmvmdq3VUKR7T6omPK/VCRNqgFlGtbESfyhcH2R4I8EzK1/K6E8PkRCK2EabWrUHK32NjYRbEFnnz0Q==}
+  /fast-xml-parser@4.3.1:
+    resolution: {integrity: sha512-viVv3xb8D+SiS1W4cv4tva3bni08kAkx0gQnWrykMM8nXPc1FxqZPU00dCEVjkiCg4HoXd2jC4x29Nzg/l2DAA==}
     hasBin: true
     dependencies:
       strnum: 1.0.5
