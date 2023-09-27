@@ -24,8 +24,8 @@ dependencies:
     specifier: 2.0.18
     version: 2.0.18(react@18.2.0)
   '@popperjs/core':
-    specifier: 2.11.7
-    version: 2.11.7
+    specifier: 2.11.8
+    version: 2.11.8
   astro:
     specifier: 2.10.15
     version: 2.10.15(@types/node@18.18.0)(sass@1.68.0)(sharp@0.32.1)
@@ -37,7 +37,7 @@ dependencies:
     version: 10.4.14(postcss@8.4.23)
   bootstrap:
     specifier: 5.3.2
-    version: 5.3.2(@popperjs/core@2.11.7)
+    version: 5.3.2(@popperjs/core@2.11.8)
   canvas:
     specifier: 2.11.2
     version: 2.11.2
@@ -1221,8 +1221,8 @@ packages:
       picocolors: 1.0.0
       tslib: 2.6.2
 
-  /@popperjs/core@2.11.7:
-    resolution: {integrity: sha512-Cr4OjIkipTtcXKjAsm8agyleBuDHvxzeBoa1v543lbv1YaIwQjESsVcmjiWiPEbC1FIeHOG/Op9kdCmAmiS3Kw==}
+  /@popperjs/core@2.11.8:
+    resolution: {integrity: sha512-P1st0aksCrn9sGZhp8GMYwBnQsbvAWsZAX44oXNNvLHGqAOcoVxmjZiohstwQ7SqKnbR47akdNi+uleWD8+g6A==}
 
   /@types/acorn@4.0.6:
     resolution: {integrity: sha512-veQTnWP+1D/xbxVrPC3zHnCZRjSrKfhbMUlEA43iMZLu7EsnTtkJklIuwrCPbOi8YkvDQAiW05VQQFvvz9oieQ==}
@@ -1262,7 +1262,7 @@ packages:
   /@types/bootstrap@5.2.6:
     resolution: {integrity: sha512-BlAc3YATdasbHoxMoBWODrSF6qwQO/E9X8wVxCCSa6rWjnaZfpkr2N6pUMCY6jj2+wf0muUtLySbvU9etX6YqA==}
     dependencies:
-      '@popperjs/core': 2.11.7
+      '@popperjs/core': 2.11.8
     dev: true
 
   /@types/concat-stream@2.0.0:
@@ -1954,12 +1954,12 @@ packages:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
     dev: true
 
-  /bootstrap@5.3.2(@popperjs/core@2.11.7):
+  /bootstrap@5.3.2(@popperjs/core@2.11.8):
     resolution: {integrity: sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
     dependencies:
-      '@popperjs/core': 2.11.7
+      '@popperjs/core': 2.11.8
     dev: false
 
   /boxen@6.2.1:
