@@ -43,7 +43,7 @@
   },
   "packageManager": "pnpm@8.8.0",
   "devDependencies": {
-    "@types/bootstrap": "5.2.6",
+    "@types/bootstrap": "5.2.7",
     "@types/kuromoji": "0.1.1",
     "@types/node": "18.18.0",
     "@types/react": "18.2.23",
