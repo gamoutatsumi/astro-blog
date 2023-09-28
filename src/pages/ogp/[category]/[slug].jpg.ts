@@ -95,7 +95,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
 };
 
-export const get = async ({
+export const GET = async ({
   params,
 }: {
   params: { slug: string; category: string };
