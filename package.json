@@ -22,7 +22,7 @@
   "dependencies": {
     "@astrojs/image": "0.18.0",
     "@astrojs/partytown": "2.0.0",
-    "@astrojs/react": "2.3.2",
+    "@astrojs/react": "3.0.2",
     "@astrojs/rss": "2.4.4",
     "@astrojs/sitemap": "1.4.0",
     "@heroicons/react": "2.0.18",
