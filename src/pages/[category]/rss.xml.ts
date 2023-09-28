@@ -15,7 +15,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
 };
 
-export const get = async (context: APIContext) => {
+export const GET = async (context: APIContext) => {
   const entries = await getCollection("posts");
   const items = entries
     .filter((entry) => entry.slug.split("/")[0] === context.params.category)
