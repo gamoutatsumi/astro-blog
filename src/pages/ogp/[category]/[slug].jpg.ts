@@ -3,7 +3,8 @@ import type { GetStaticPaths } from "astro";
 import { getCollection, getEntryBySlug } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { tokenizer } from "@utils/kuromoji";
-import { createCanvas, registerFont, CanvasRenderingContext2D } from "canvas";
+import { createCanvas, registerFont } from "canvas";
+import type { CanvasRenderingContext2D } from "canvas";
 
 export interface Props {
   entry: CollectionEntry<"posts">;
@@ -107,7 +108,5 @@ export const GET = async ({
   if (entry === undefined) {
     return { body: "Not Found" };
   }
-  return {
-    body: await drawOGImage(entry.data.title),
-  };
+  return new Response(await drawOGImage(entry.data.title));
 };
