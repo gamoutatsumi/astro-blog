@@ -54,8 +54,8 @@ dependencies:
     specifier: 18.2.0
     version: 18.2.0(react@18.2.0)
   rollup:
-    specifier: 3.29.3
-    version: 3.29.3
+    specifier: 3.29.4
+    version: 3.29.4
   sass:
     specifier: 1.68.0
     version: 1.68.0
@@ -6044,8 +6044,8 @@ packages:
       estree-walker: 0.6.1
     dev: true
 
-  /rollup@3.29.3:
-    resolution: {integrity: sha512-T7du6Hum8jOkSWetjRgbwpM6Sy0nECYrYRSmZjayFcOddtKJWU4d17AC3HNUk7HRuqy4p+G7aEZclSHytqUmEg==}
+  /rollup@3.29.4:
+    resolution: {integrity: sha512-oWzmBZwvYrU0iJHtDmhsm662rC15FRXmcjCk1xD771dFDx5jJ02ufAQQTn0etB2emNk4J9EZg/yWKpsn9BWGRw==}
     engines: {node: '>=14.18.0', npm: '>=8.0.0'}
     hasBin: true
     optionalDependencies:
@@ -7039,7 +7039,7 @@ packages:
       '@types/node': 18.18.0
       esbuild: 0.18.20
       postcss: 8.4.30
-      rollup: 3.29.3
+      rollup: 3.29.4
       sass: 1.68.0
     optionalDependencies:
       fsevents: 2.3.2
