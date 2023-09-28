@@ -1,5 +1,5 @@
 ---
-import { getImage } from "@astrojs/image";
+import { getImage } from "astro:assets";
 import { Header } from "@components/Header";
 import { Footer } from "@components/Footer";
 import { SEO } from "astro-seo";
@@ -27,7 +27,7 @@ const APPNAME = "通算n度目のブログ";
 const pageTitle = `${title} | ${APPNAME}`;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <SEO
@@ -57,7 +57,7 @@ const pageTitle = `${title} | ${APPNAME}`;
             name: "twitter:image",
             content: new URL(
               image ?? proliantImg.src ?? "",
-              Astro.url
+              Astro.url,
             ).toString(),
           },
           {

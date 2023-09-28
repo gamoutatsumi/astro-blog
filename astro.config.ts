@@ -1,4 +1,4 @@
-import { defineConfig, squooshImageService } from "astro/config";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 import react from "@astrojs/react";
@@ -10,12 +10,8 @@ import sitemap from "@astrojs/sitemap";
 import partytown from "@astrojs/partytown";
 
 // https://astro.build/config
-import image from "@astrojs/image";
-
-// https://astro.build/config
 export default defineConfig({
   site: "https://blog.gamou.dev",
-  image: { service: squooshImageService() },
   integrations: [
     react(),
     sitemap({
@@ -30,6 +26,5 @@ export default defineConfig({
     partytown({
       config: {},
     }),
-    image({ serviceEntryPoint: "@astrojs/image/sharp" }),
   ],
 });
