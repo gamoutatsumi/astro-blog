@@ -1,6 +1,7 @@
 import path from "path";
 import type { GetStaticPaths } from "astro";
-import { getCollection, CollectionEntry, getEntryBySlug } from "astro:content";
+import { getCollection, getEntryBySlug } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { tokenizer } from "@utils/kuromoji";
 import { createCanvas, registerFont, CanvasRenderingContext2D } from "canvas";
 
@@ -19,7 +20,7 @@ const BLOG_NAME = "@gamoutatsumi";
 const wrapText = async (
   ctx: CanvasRenderingContext2D,
   text: string,
-  maxWidth: number
+  maxWidth: number,
 ): Promise<string[]> => {
   const kuromoji = await tokenizer();
   return kuromoji
@@ -29,7 +30,7 @@ const wrapText = async (
       (lines, segment) => {
         const tmpLines = lines;
         const { width } = ctx.measureText(
-          tmpLines[tmpLines.length - 1] + segment.trim()
+          tmpLines[tmpLines.length - 1] + segment.trim(),
         );
         if (width > maxWidth) {
           tmpLines.push("");
@@ -37,7 +38,7 @@ const wrapText = async (
         tmpLines[tmpLines.length - 1] += segment;
         return tmpLines;
       },
-      [""]
+      [""],
     );
 };
 
@@ -56,7 +57,7 @@ const drawTitle = async (ctx: CanvasRenderingContext2D, title: string) => {
     ctx.fillText(
       line,
       (CANVAS_WIDTH - width) / 2,
-      (CANVAS_HEIGHT + (1 - lines.length) * FONT_HEIGHT) / 2 + i * FONT_HEIGHT
+      (CANVAS_HEIGHT + (1 - lines.length) * FONT_HEIGHT) / 2 + i * FONT_HEIGHT,
     );
   });
 };
@@ -101,7 +102,7 @@ export const get = async ({
 }) => {
   const entry = await getEntryBySlug(
     "posts",
-    `${params.category}/${params.slug}`
+    `${params.category}/${params.slug}`,
   );
   if (entry === undefined) {
     return { body: "Not Found" };
