@@ -68,8 +68,8 @@ dependencies:
 
 devDependencies:
   '@types/bootstrap':
-    specifier: 5.2.6
-    version: 5.2.6
+    specifier: 5.2.7
+    version: 5.2.7
   '@types/kuromoji':
     specifier: 0.1.1
     version: 0.1.1
@@ -1274,8 +1274,8 @@ packages:
       '@babel/types': 7.23.0
     dev: false
 
-  /@types/bootstrap@5.2.6:
-    resolution: {integrity: sha512-BlAc3YATdasbHoxMoBWODrSF6qwQO/E9X8wVxCCSa6rWjnaZfpkr2N6pUMCY6jj2+wf0muUtLySbvU9etX6YqA==}
+  /@types/bootstrap@5.2.7:
+    resolution: {integrity: sha512-vWs0HzobIB8Af2F0B1GXpaVLSVn1NWULDYgTIWp08Et/r2B3aAwwhFBeOs/rRFWJA38EZTXkWP3tepIjpQkpLg==}
     dependencies:
       '@popperjs/core': 2.11.8
     dev: true
