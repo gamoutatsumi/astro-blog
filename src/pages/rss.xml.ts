@@ -2,7 +2,7 @@ import type { APIContext } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
 
-export const get = async (context: APIContext) => {
+export const GET = async (context: APIContext) => {
   const entries = await getCollection("posts");
   const items = entries
     .filter((entry) => entry.slug.split("/")[0] !== "nsfw")

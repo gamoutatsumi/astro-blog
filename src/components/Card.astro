@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { dateTransform } from "@utils/dateTransform";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 
 export type Props = {
   entry: CollectionEntry<"posts">;
@@ -20,7 +20,6 @@ const category = entry.slug.split("/")[0];
         src={entry.data.image}
         alt={entry.data.title}
         class="w-100 h-100"
-        aspectRatio="660:438"
         width={660}
         height={438}
         format="webp"
