@@ -38,7 +38,6 @@
     "react-dom": "18.2.0",
     "rollup": "3.29.4",
     "sass": "1.68.0",
-    "sharp": "0.32.6",
     "zod": "3.22.2"
   },
   "packageManager": "pnpm@8.8.0",
