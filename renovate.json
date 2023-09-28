@@ -5,6 +5,13 @@
   "timezone": "Asia/Tokyo",
   "labels": ["renovate"],
   "schedule": ["every weekend"],
+  "packageRules": [
+    {
+      "groupName": "astro monorepo",
+      "matchPackagePatterns": ["^@astrojs/"],
+      "matchPackageNames": ["astro"]
+    }
+  ],
   "minor": {
     "groupName": "all minor updates"
   },
