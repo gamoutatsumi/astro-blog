@@ -57,7 +57,7 @@ dependencies:
     specifier: 1.68.0
     version: 1.68.0
   sharp:
-    specifier: ^0.32.6
+    specifier: 0.32.6
     version: 0.32.6
   zod:
     specifier: 3.22.2
