@@ -24,8 +24,8 @@ dependencies:
     specifier: 2.11.8
     version: 2.11.8
   astro:
-    specifier: 3.1.4
-    version: 3.1.4(@types/node@18.18.0)(sass@1.68.0)
+    specifier: 3.2.0
+    version: 3.2.0(@types/node@18.18.0)(sass@1.68.0)
   astro-seo:
     specifier: 0.8.0
     version: 0.8.0
@@ -166,13 +166,13 @@ packages:
     resolution: {integrity: sha512-NQ4ppp1CM0HNkKbJNM4saVSfmUYzGlRalF6wx7F6T/MYHYSWGuojY89/oFTy4t8VlOGUCUijlsVNNeziWaUo5g==}
     dev: false
 
-  /@astrojs/markdown-remark@3.2.0(astro@3.1.4):
+  /@astrojs/markdown-remark@3.2.0(astro@3.2.0):
     resolution: {integrity: sha512-jigyLfefUZPKgVmmraCkVpdUuFH1R3SrpgQO13axsgwLDBgkggaQpNR5Ag4O9PDualeBtbdt30aYSfvnBKx9Hg==}
     peerDependencies:
       astro: ^3.1.0
     dependencies:
       '@astrojs/prism': 3.0.0
-      astro: 3.1.4(@types/node@18.18.0)(sass@1.68.0)
+      astro: 3.2.0(@types/node@18.18.0)(sass@1.68.0)
       github-slugger: 2.0.0
       import-meta-resolve: 3.0.0
       mdast-util-definitions: 6.0.0
@@ -1437,7 +1437,7 @@ packages:
   /@types/hast@2.3.4:
     resolution: {integrity: sha512-wLEm0QvaoawEDoTRwzTXp4b4jpwiJDvR5KMnFnVodm3scufTlBOWRD6N1OBf9TZMhjlNsSfcO5V+7AF4+Vy+9g==}
     dependencies:
-      '@types/unist': 2.0.6
+      '@types/unist': 3.0.0
 
   /@types/is-empty@1.2.1:
     resolution: {integrity: sha512-a3xgqnFTuNJDm1fjsTjHocYJ40Cz3t8utYpi5GNaxzrJC2HSD08ym+whIL7fNqiqBCdM9bcqD1H/tORWAFXoZw==}
@@ -1478,7 +1478,7 @@ packages:
   /@types/nlcst@1.0.0:
     resolution: {integrity: sha512-3TGCfOcy8R8mMQ4CNSNOe3PG66HttvjcLzCoOpvXvDtfWOTi+uT/rxeOKm/qEwbM4SNe1O/PjdiBK2YcTjU4OQ==}
     dependencies:
-      '@types/unist': 2.0.6
+      '@types/unist': 3.0.0
     dev: false
 
   /@types/node@17.0.45:
@@ -1533,7 +1533,6 @@ packages:
 
   /@types/unist@3.0.0:
     resolution: {integrity: sha512-MFETx3tbTjE7Uk6vvnWINA/1iJ7LuMdO4fcq8UfF0pRbj01aGLduVvQcRyswuACJdpnHgg8E3rQLhaRdNEJS0w==}
-    dev: false
 
   /@typescript-eslint/eslint-plugin@6.7.3(@typescript-eslint/parser@6.7.3)(eslint@8.50.0)(typescript@5.2.2):
     resolution: {integrity: sha512-vntq452UHNltxsaaN+L9WyuMch8bMd9CqJ3zhzTPXXidwbf5mqqKCVXEuvRZUqLJSTLeWE65lQwyXsRGnXkCTA==}
@@ -1958,14 +1957,14 @@ packages:
     resolution: {integrity: sha512-7gq6lhibCM8FuzZIJlbLLWP5EJ9KL2/4XqeFrAg9O6ZK2xMFxJ5ubKf+a0VJwwTu8W8Xr421CmpiXu6Hq7n/7Q==}
     dev: false
 
-  /astro@3.1.4(@types/node@18.18.0)(sass@1.68.0):
-    resolution: {integrity: sha512-MKGJXHkkYK4QpqYHydPu+eeLBGU3cHx9Xdrtk6RFvu3dVkxuJsYm6L+lgIeH0hrTF9qlaDih/KbNnTKrCXdidw==}
+  /astro@3.2.0(@types/node@18.18.0)(sass@1.68.0):
+    resolution: {integrity: sha512-sDQnSFV46ZzNkVU6co5f8wilZFmGiWsqnIVoMhd5/XPU76iZdA40WqFyBOhGaji7hGuqbcjN8MGobMg53lsoUg==}
     engines: {node: '>=18.14.1', npm: '>=6.14.0'}
     hasBin: true
     dependencies:
       '@astrojs/compiler': 2.1.0
       '@astrojs/internal-helpers': 0.2.0
-      '@astrojs/markdown-remark': 3.2.0(astro@3.1.4)
+      '@astrojs/markdown-remark': 3.2.0(astro@3.2.0)
       '@astrojs/telemetry': 3.0.2
       '@babel/core': 7.23.0
       '@babel/generator': 7.23.0
@@ -4996,8 +4995,8 @@ packages:
   /micromark-extension-mdxjs@1.0.0:
     resolution: {integrity: sha512-TZZRZgeHvtgm+IhtgC2+uDMR7h8eTKF0QUX9YsgoL9+bADBpBY6SiLvWqnBlLbCEevITmTqmEuY3FoxMKVs1rQ==}
     dependencies:
-      acorn: 8.8.2
-      acorn-jsx: 5.3.2(acorn@8.8.2)
+      acorn: 8.10.0
+      acorn-jsx: 5.3.2(acorn@8.10.0)
       micromark-extension-mdx-expression: 1.0.4
       micromark-extension-mdx-jsx: 1.0.3
       micromark-extension-mdx-md: 1.0.0
@@ -5398,7 +5397,7 @@ packages:
     resolution: {integrity: sha512-/5CMN3T0R4XTj4DcGaexo+roZSdSFW/0AOOTROrjxzCG1wrWXEsGbRKevjlIL+ZDE4sZlJr5ED4YW0yqmkK+eA==}
     dependencies:
       hosted-git-info: 2.8.9
-      resolve: 1.22.2
+      resolve: 1.22.6
       semver: 5.7.1
       validate-npm-package-license: 3.0.4
     dev: true
@@ -6019,14 +6018,6 @@ packages:
       unified: 10.1.2
     dev: false
 
-  /rehype-stringify@9.0.3:
-    resolution: {integrity: sha512-kWiZ1bgyWlgOxpqD5HnxShKAdXtb2IUljn3hQAhySeak6IOQPPt6DeGnsIh4ixm7yKJWzm8TXFuC/lPfcWHJqw==}
-    dependencies:
-      '@types/hast': 2.3.4
-      hast-util-to-html: 8.0.4
-      unified: 10.1.2
-    dev: false
-
   /rehype-stringify@9.0.4:
     resolution: {integrity: sha512-Uk5xu1YKdqobe5XpSskwPvo1XeHUUucWEQSl8hTrXt5selvca1e8K1EZ37E6YoZ4BT8BCqCdVfQW7OfHfthtVQ==}
     dependencies:
@@ -6040,7 +6031,7 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       rehype-parse: 8.0.4
-      rehype-stringify: 9.0.3
+      rehype-stringify: 9.0.4
       unified: 10.1.2
     dev: false
 
@@ -6120,7 +6111,6 @@ packages:
       is-core-module: 2.13.0
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
-    dev: false
 
   /resolve@2.0.0-next.4:
     resolution: {integrity: sha512-iMDbmAWtfU+MHpxt/I5iWI7cY6YVEZUQ3MBgPQ++XD1PELuJHIl82xBmObyP2KyQmkNB2dsqF7seoQQiAn5yDQ==}
