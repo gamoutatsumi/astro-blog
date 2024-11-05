@@ -175,39 +175,55 @@
                         corepack_22
                       ])
                     ]);
-                  inputsFrom =
-                    [ ]
-                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ];
+                  # inputsFrom =
+                  #   [ ]
+                  #   ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ];
                 };
             };
           }
           // lib.optionalAttrs (inputs.pre-commit-hooks ? flakeModule) {
-            pre-commit = {
-              check = {
-                enable = true;
-              };
-              settings = {
-                src = ./.;
-                hooks = {
-                  treefmt = {
-                    enable = true;
-                    packageOverrides.treefmt = config.treefmt.build.wrapper;
-                  };
-                };
-              };
-            };
+            # pre-commit = {
+            #   check = {
+            #     enable = true;
+            #   };
+            #   settings = {
+            #     src = ./.;
+            #     hooks = {
+            #       treefmt = {
+            #         enable = true;
+            #         packageOverrides.treefmt = config.treefmt.build.wrapper;
+            #       };
+            #       eslint = {
+            #         enable = true;
+            #         settings = {
+            #           binPath = ./node_modules/.bin/eslint;
+            #         };
+            #       };
+            #     };
+            #   };
+            # };
           }
           // lib.optionalAttrs (inputs.treefmt-nix ? flakeModule) {
             formatter = config.treefmt.build.wrapper;
             treefmt = {
               projectRootFile = "flake.nix";
               flakeCheck = false;
+              settings = {
+                formatter = {
+                  prettier = {
+                    settingsFile = "./.prettierrc.cjs";
+                  };
+                };
+              };
               programs = {
                 # keep-sorted start block=yes
                 keep-sorted = {
                   enable = true;
                 };
                 nixfmt = {
+                  enable = true;
+                };
+                prettier = {
                   enable = true;
                 };
                 shfmt = {

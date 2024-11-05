@@ -3,7 +3,11 @@ import type { GetStaticPaths } from "astro";
 import { getCollection, getEntryBySlug } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { tokenizer } from "@utils/kuromoji";
-import { createCanvas, registerFont, CanvasRenderingContext2D } from "canvas";
+import {
+  createCanvas,
+  registerFont,
+  CanvasRenderingContext2D,
+} from "@napi-rs/canvas";
 
 export interface Props {
   entry: CollectionEntry<"posts">;
