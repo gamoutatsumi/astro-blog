@@ -5,7 +5,7 @@ import type { CollectionEntry } from "astro:content";
 import { tokenizer } from "@utils/kuromoji";
 import {
   createCanvas,
-  registerFont,
+  GlobalFonts,
   CanvasRenderingContext2D,
 } from "@napi-rs/canvas";
 
@@ -74,9 +74,9 @@ const drawName = (ctx: CanvasRenderingContext2D) => {
 };
 
 const drawOGImage = async (title: string): Promise<Buffer> => {
-  registerFont(path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"), {
-    family: "Noto Sans JP",
-  });
+  GlobalFonts.registerFromPath(
+    path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"),
+  );
   const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   const ctx = canvas.getContext("2d");
   fill(ctx);
