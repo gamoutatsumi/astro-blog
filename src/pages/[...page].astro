@@ -11,7 +11,7 @@ export interface Props {
 export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
   const blogEntries = (await getCollection("posts"))
     .filter(
-      (entry) => !entry.data.isDraft && entry.slug.split("/")[0] !== "nsfw"
+      (entry) => !entry.data.isDraft && entry.slug.split("/")[0] !== "nsfw",
     )
     .sort((a, b) => (a.data.publishDate < b.data.publishDate ? 1 : -1));
   return paginate(blogEntries, { pageSize: 10 });

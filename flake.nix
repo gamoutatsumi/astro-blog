@@ -213,7 +213,7 @@
               settings = {
                 formatter = {
                   prettier = {
-                    settingsFile = "./.prettierrc.cjs";
+                    settingsFile = "./.prettierrc.mjs";
                   };
                 };
               };

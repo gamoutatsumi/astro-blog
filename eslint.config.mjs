@@ -23,6 +23,7 @@ export default [
   },
   ...fixupConfigRules(
     compat.extends(
+      "eslint:recommended",
       "plugin:@typescript-eslint/recommended",
       "plugin:@typescript-eslint/recommended-requiring-type-checking",
       "plugin:mdx/recommended",
@@ -68,22 +69,6 @@ export default [
 
     rules: {
       "import/prefer-default-export": "off",
-      "react/jsx-uses-react": "off",
-      "react/react-in-jsx-scope": "off",
-
-      "react/jsx-filename-extension": [
-        1,
-        {
-          extensions: [".js", ".jsx", ".ts", ".tsx", ".astro"],
-        },
-      ],
-
-      "react/function-component-definition": [
-        2,
-        {
-          namedComponents: "arrow-function",
-        },
-      ],
     },
   },
   {
@@ -98,10 +83,6 @@ export default [
         parser: "@typescript-eslint/parser",
         extraFileExtensions: [".astro"],
       },
-    },
-
-    rules: {
-      "react/no-unknown-property": "off",
     },
   },
 ];
