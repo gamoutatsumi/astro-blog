@@ -3,6 +3,11 @@ name: Deploy to Cloudflare Pages
 on:
   push:
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -12,35 +17,23 @@ jobs:
       statuses: write
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: ".node-version"
-      - uses: pnpm/action-setup@v2
+      - uses: pnpm/action-setup@v4
         with:
           run_install: false
-      - name: Get pnpm store directory
-        id: pnpm-cache
-        shell: bash
-        run: |
-          echo "STORE_PATH=$(pnpm store path)" >> $GITHUB_OUTPUT
-      - uses: actions/cache@v3
+      - uses: actions/setup-node@v4
         with:
-          path: ${{ steps.pnpm-cache.outputs.STORE_PATH }}
-          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-store-
+          node-version: "22"
+          cache: "pnpm"
       - run: pnpm install
       - run: pnpm build
       - id: cloudflare_pages_deploy
-        uses: cloudflare/pages-action@1
+        uses: cloudflare/wrangler-action@v3
         with:
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
           apiToken: ${{ secrets.CF_API_TOKEN }}
-          projectName: gtatsumi-astro-blog
-          directory: ./dist
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: pages deploy ./dist --project-name=gtatsumi-astro-blog
       - name: Add publish URL as commit status
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const sha = context.payload.pull_request?.head.sha ?? context.sha;
@@ -51,5 +44,5 @@ jobs:
               description: 'Cloudflare Pages deployment',
               state: 'success',
               sha,
-              target_url: "${{ steps.cloudflare_pages_deploy.outputs.url }}",
+              target_url: "${{ steps.cloudflare_pages_deploy.outputs.pages-deployment-alias-url }}",
             });
