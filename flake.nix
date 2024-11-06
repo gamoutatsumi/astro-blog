@@ -165,6 +165,7 @@
                       nil
                       nixfmt-rfc-style
                       efm-langserver
+                      pinact
                     ])
                     ++ (with upkgs; [
                       eslint_d
