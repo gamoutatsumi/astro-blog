@@ -67,10 +67,10 @@ importers:
         version: 3.23.8
     devDependencies:
       '@astrojs/ts-plugin':
-        specifier: ^1.10.4
+        specifier: 1.10.4
         version: 1.10.4
       '@eslint/compat':
-        specifier: ^1.2.2
+        specifier: 1.2.2
         version: 1.2.2(eslint@9.14.0)
       '@types/bootstrap':
         specifier: 5.2.10
