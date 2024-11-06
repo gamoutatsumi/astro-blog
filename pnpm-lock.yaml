@@ -65,6 +65,9 @@ importers:
         specifier: 3.23.8
         version: 3.23.8
     devDependencies:
+      "@astrojs/ts-plugin":
+        specifier: ^1.10.4
+        version: 1.10.4
       "@types/bootstrap":
         specifier: 5.2.7
         version: 5.2.7
@@ -234,6 +237,12 @@ packages:
         integrity: sha512-/ca/+D8MIKEC8/A9cSaPUqQNZm+Es/ZinRv0ZAzvu2ios7POQSsVD+VOj7/hypWNsNM3T7RpfgNq7H2TU1KEHA==,
       }
     engines: { node: ^18.17.1 || ^20.3.0 || >=21.0.0 }
+
+  "@astrojs/ts-plugin@1.10.4":
+    resolution:
+      {
+        integrity: sha512-rapryQINgv5VLZF884R/wmgX3mM9eH1PC/I3kkPV9rP6lEWrRN1YClF3bGcDHFrf8EtTLc0Wqxne1Uetpevozg==,
+      }
 
   "@astrojs/yaml2ts@0.2.2":
     resolution:
@@ -7138,6 +7147,16 @@ snapshots:
       which-pm-runs: 1.1.0
     transitivePeerDependencies:
       - supports-color
+
+  "@astrojs/ts-plugin@1.10.4":
+    dependencies:
+      "@astrojs/compiler": 2.10.3
+      "@astrojs/yaml2ts": 0.2.2
+      "@jridgewell/sourcemap-codec": 1.5.0
+      "@volar/language-core": 2.4.8
+      "@volar/typescript": 2.4.8
+      semver: 7.6.3
+      vscode-languageserver-textdocument: 1.0.12
 
   "@astrojs/yaml2ts@0.2.2":
     dependencies:
