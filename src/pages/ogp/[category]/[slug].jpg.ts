@@ -1,8 +1,9 @@
 import path from "path";
-import type { GetStaticPaths } from "astro";
-import { getCollection, CollectionEntry, getEntryBySlug } from "astro:content";
+import type { APIContext, GetStaticPaths } from "astro";
+import { getCollection, getEntry } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 import { tokenizer } from "@utils/kuromoji";
-import { createCanvas, registerFont, CanvasRenderingContext2D } from "canvas";
+import { createCanvas, GlobalFonts, type SKRSContext2D } from "@napi-rs/canvas";
 
 export interface Props {
   entry: CollectionEntry<"posts">;
@@ -17,9 +18,9 @@ const FONT_HEIGHT = FONT_SIZE * SPACING;
 const BLOG_NAME = "@gamoutatsumi";
 
 const wrapText = async (
-  ctx: CanvasRenderingContext2D,
+  ctx: SKRSContext2D,
   text: string,
-  maxWidth: number
+  maxWidth: number,
 ): Promise<string[]> => {
   const kuromoji = await tokenizer();
   return kuromoji
@@ -29,7 +30,7 @@ const wrapText = async (
       (lines, segment) => {
         const tmpLines = lines;
         const { width } = ctx.measureText(
-          tmpLines[tmpLines.length - 1] + segment.trim()
+          tmpLines[tmpLines.length - 1] + segment.trim(),
         );
         if (width > maxWidth) {
           tmpLines.push("");
@@ -37,16 +38,16 @@ const wrapText = async (
         tmpLines[tmpLines.length - 1] += segment;
         return tmpLines;
       },
-      [""]
+      [""],
     );
 };
 
-const fill = (ctx: CanvasRenderingContext2D) => {
+const fill = (ctx: SKRSContext2D) => {
   ctx.fillStyle = "#111";
   ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 };
 
-const drawTitle = async (ctx: CanvasRenderingContext2D, title: string) => {
+const drawTitle = async (ctx: SKRSContext2D, title: string) => {
   ctx.font = `${FONT_SIZE}px Noto Sans JP`;
   ctx.textBaseline = "middle";
   ctx.fillStyle = "#fff";
@@ -56,12 +57,12 @@ const drawTitle = async (ctx: CanvasRenderingContext2D, title: string) => {
     ctx.fillText(
       line,
       (CANVAS_WIDTH - width) / 2,
-      (CANVAS_HEIGHT + (1 - lines.length) * FONT_HEIGHT) / 2 + i * FONT_HEIGHT
+      (CANVAS_HEIGHT + (1 - lines.length) * FONT_HEIGHT) / 2 + i * FONT_HEIGHT,
     );
   });
 };
 
-const drawName = (ctx: CanvasRenderingContext2D) => {
+const drawName = (ctx: SKRSContext2D) => {
   ctx.font = `40px Noto Sans JP`;
   ctx.textBaseline = "bottom";
   const { width } = ctx.measureText(BLOG_NAME);
@@ -69,15 +70,15 @@ const drawName = (ctx: CanvasRenderingContext2D) => {
 };
 
 const drawOGImage = async (title: string): Promise<Buffer> => {
-  registerFont(path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"), {
-    family: "Noto Sans JP",
-  });
+  GlobalFonts.registerFromPath(
+    path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"),
+  );
   const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   const ctx = canvas.getContext("2d");
   fill(ctx);
   await drawTitle(ctx, title);
   drawName(ctx);
-  return canvas.toBuffer("image/jpeg", { quality: 0.8 });
+  return canvas.toBuffer("image/jpeg");
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -94,19 +95,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     });
 };
 
-export const get = async ({
-  params,
-}: {
-  params: { slug: string; category: string };
-}) => {
-  const entry = await getEntryBySlug(
-    "posts",
-    `${params.category}/${params.slug}`
-  );
+export const GET = async ({ params }: APIContext): Promise<Response> => {
+  const entry = await getEntry("posts", `${params.category}/${params.slug}`);
   if (entry === undefined) {
-    return { body: "Not Found" };
+    return new Response("Not Found", { status: 404 });
   }
-  return {
-    body: await drawOGImage(entry.data.title),
-  };
+  return new Response(await drawOGImage(entry.data.title), { status: 200 });
 };
