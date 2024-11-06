@@ -3,6 +3,11 @@ name: Deploy to Cloudflare Pages
 on:
   push:
 
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
