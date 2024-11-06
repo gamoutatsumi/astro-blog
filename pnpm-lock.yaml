@@ -76,8 +76,8 @@ importers:
         specifier: 5.2.7
         version: 5.2.7
       '@types/kuromoji':
-        specifier: 0.1.1
-        version: 0.1.1
+        specifier: 0.1.3
+        version: 0.1.3
       '@types/node':
         specifier: 22.9.0
         version: 22.9.0
@@ -1214,8 +1214,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/kuromoji@0.1.1':
-    resolution: {integrity: sha512-/KvQj9P9gT9c+ycG4USpj6IoeFfWTijAc+p9AtMEuFNa9UzA5mMpo0iTmQ5vG8Md4nerdCnPx4MEJT36fDOUWA==}
+  '@types/kuromoji@0.1.3':
+    resolution: {integrity: sha512-u+YwX6eJj6Fmm0F5qunsyA+X8HSiyRNNE5ON3itD3tERax4meq9tv+S7bjTMXkPjqbdBGUmH2maGDCuEvpODwg==}
 
   '@types/mdast@3.0.15':
     resolution: {integrity: sha512-LnwD+mUEfxWMa1QpDraczIn6k0Ee3SMicuYSSzS6ZYl2gKS09EClnJYGd8Du6rfc5r/GZEk5o1mRb8TaTj03sQ==}
@@ -5103,7 +5103,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/kuromoji@0.1.1':
+  '@types/kuromoji@0.1.3':
     dependencies:
       '@types/doublearray': 0.0.32
 
