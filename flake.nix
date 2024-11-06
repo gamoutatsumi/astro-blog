@@ -214,6 +214,10 @@
                 formatter = {
                   prettier = {
                     settingsFile = "./.prettierrc.mjs";
+                    excludes = [
+                      "node_modules"
+                      "pnpm-lock.yaml"
+                    ];
                   };
                 };
               };
