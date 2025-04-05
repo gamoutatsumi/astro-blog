@@ -12,8 +12,7 @@
   "packageRules": [
     {
       "groupName": "astro monorepo",
-      "matchPackagePatterns": ["^@astrojs/"],
-      "matchPackageNames": ["astro"]
+      "matchPackageNames": ["astro", "/^@astrojs//"]
     }
   ],
   "minor": {
