@@ -1,19 +1,19 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "plugins": [{ "name": "@astrojs/ts-plugin" }],
-    "jsx": "react-jsx",
-    "jsxImportSource": "react",
-    "baseUrl": "./",
-    "paths": {
-      "@utils/*": ["./src/utils/*"],
-      "@components/*": ["./src/components/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "astro:*": ["./.astro/types.d.ts"],
-      "@images/*": ["./src/images/*"],
-      "@lib/*": ["./src/lib/*"]
-    }
-  },
-  "include": ["./astro.config.ts", ".*.cjs", "src/", "./.astro/"],
-  "exclude": ["node_modules"]
+	"extends": "astro/tsconfigs/strict",
+	"compilerOptions": {
+		"plugins": [{ "name": "@astrojs/ts-plugin" }],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"baseUrl": "./",
+		"paths": {
+			"@utils/*": ["./src/utils/*"],
+			"@components/*": ["./src/components/*"],
+			"@layouts/*": ["./src/layouts/*"],
+			"astro:*": ["./.astro/types.d.ts"],
+			"@images/*": ["./src/images/*"],
+			"@lib/*": ["./src/lib/*"]
+		}
+	},
+	"include": ["./astro.config.ts", ".*.cjs", "src/", "./.astro/"],
+	"exclude": ["node_modules"]
 }

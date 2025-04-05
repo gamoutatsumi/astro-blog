@@ -26,9 +26,6 @@
         nixpkgs = {
           follows = "nixpkgs";
         };
-        nixpkgs-stable = {
-          follows = "nixpkgs";
-        };
         flake-compat = {
           follows = "flake-compat";
         };
@@ -66,7 +63,7 @@
       {
         systems = import systems;
         imports =
-          [ flake-parts.flakeModules.easyOverlay ]
+          [ ]
           ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ inputs.pre-commit-hooks.flakeModule ]
           ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ];
 
@@ -78,7 +75,11 @@
             ...
           }:
           let
-            upkgs = import nixpkgs-unstable { inherit system; };
+            upkgs = import nixpkgs-unstable {
+              inherit system;
+              overlays = [ (final: prev: { nodejs = prev.nodejs_22; }) ];
+            };
+            treefmtBuild = config.treefmt.build;
           in
           {
             devShells = {
@@ -116,15 +117,17 @@
                       eslint_d
                       prettierd
                       astro-language-server
+                      vtsls
+                      nodejs
                       (with nodePackages; [
-                        nodejs_22
-                        corepack_22
-                        typescript-language-server
+                        pnpm
+                        vscode-json-languageserver
                       ])
                     ]);
                   inputsFrom =
                     [ ]
-                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ];
+                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ]
+                    ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ treefmtBuild.devShell ];
                 };
             };
           }
@@ -138,37 +141,32 @@
                 hooks = {
                   treefmt = {
                     enable = true;
-                    packageOverrides.treefmt = config.treefmt.build.wrapper;
+                    packageOverrides = {
+                      treefmt = treefmtBuild.wrapper;
+                    };
                   };
                 };
               };
             };
           }
           // lib.optionalAttrs (inputs.treefmt-nix ? flakeModule) {
-            formatter = config.treefmt.build.wrapper;
+            formatter = treefmtBuild.wrapper;
             treefmt = {
               projectRootFile = "flake.nix";
               flakeCheck = false;
               settings = {
-                formatter = {
-                  prettier = {
-                    settingsFile = "./.prettierrc.mjs";
-                    excludes = [
-                      "node_modules"
-                      "pnpm-lock.yaml"
-                    ];
-                  };
-                };
+                formatter = { };
               };
               programs = {
                 # keep-sorted start block=yes
+                biome = {
+                  enable = true;
+                  package = upkgs.biome;
+                };
                 keep-sorted = {
                   enable = true;
                 };
                 nixfmt = {
-                  enable = true;
-                };
-                prettier = {
                   enable = true;
                 };
                 shfmt = {
