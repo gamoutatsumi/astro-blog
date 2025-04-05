@@ -156,10 +156,10 @@
                 pkgs.mkShell {
                   buildInputs =
                     buildInputs
-                    ++ (lib.optionals (system == "aarch64-darwin") (
+                    ++ (lib.optionals (pkgs.stdenv.isDarwin) (
                       with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]
                     ));
-                  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}:${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
+                  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}" + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
                   packages =
                     (with pkgs; [
                       nil

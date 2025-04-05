@@ -22,5 +22,8 @@
   "patch": {
     "groupName": "all patch updates"
   },
-  "postUpdateOptions": ["pnpmDedupe"]
+  "postUpdateOptions": ["pnpmDedupe"],
+  "nix": {
+  "enabled": true
+}
 }
