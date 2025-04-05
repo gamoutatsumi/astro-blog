@@ -65,7 +65,7 @@
     "prettier-plugin-astro": "0.14.1",
     "simple-git-hooks": "2.12.1",
     "typescript": "5.8.3",
-    "wrangler": "3.114.4"
+    "wrangler": "4.7.2"
   },
   "packageManager": "pnpm@9.15.9"
 }
