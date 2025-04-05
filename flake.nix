@@ -114,8 +114,6 @@
                       pinact
                     ])
                     ++ (with upkgs; [
-                      eslint_d
-                      prettierd
                       astro-language-server
                       vtsls
                       nodejs
