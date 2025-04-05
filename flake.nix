@@ -3,43 +3,6 @@
 
   inputs = {
     # keep-sorted start block=yes
-    cachix = {
-      url = "github:cachix/cachix";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-        git-hooks = {
-          follows = "pre-commit-hooks";
-        };
-        flake-compat = {
-          follows = "flake-compat";
-        };
-        devenv = {
-          follows = "devenv";
-        };
-      };
-    };
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-        cachix = {
-          follows = "cachix";
-        };
-        pre-commit-hooks = {
-          follows = "pre-commit-hooks";
-        };
-        nix = {
-          follows = "nix";
-        };
-        flake-compat = {
-          follows = "flake-compat";
-        };
-      };
-    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
     };
@@ -48,23 +11,6 @@
       inputs = {
         nixpkgs-lib = {
           follows = "nixpkgs";
-        };
-      };
-    };
-    nix = {
-      url = "github:domenkozar/nix/devenv-2.24";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-        flake-parts = {
-          follows = "flake-parts";
-        };
-        flake-compat = {
-          follows = "flake-compat";
-        };
-        pre-commit-hooks = {
-          follows = "pre-commit-hooks";
         };
       };
     };
@@ -122,8 +68,7 @@
         imports =
           [ flake-parts.flakeModules.easyOverlay ]
           ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ inputs.pre-commit-hooks.flakeModule ]
-          ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ]
-          ++ lib.optionals (inputs.devenv ? flakeModule) [ inputs.devenv.flakeModule ];
+          ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ];
 
         perSystem =
           {
@@ -156,10 +101,10 @@
                 pkgs.mkShell {
                   buildInputs =
                     buildInputs
-                    ++ (lib.optionals (pkgs.stdenv.isDarwin) (
-                      with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]
-                    ));
-                  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}" + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
+                    ++ (lib.optionals (pkgs.stdenv.isDarwin) (with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]));
+                  LD_LIBRARY_PATH =
+                    "${pkgs.lib.makeLibraryPath buildInputs}"
+                    + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
                   packages =
                     (with pkgs; [
                       nil
