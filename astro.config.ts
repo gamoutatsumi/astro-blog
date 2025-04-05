@@ -1,30 +1,33 @@
-import { defineConfig } from 'astro/config'
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
-import react from '@astrojs/react'
+import react from "@astrojs/react";
 
 // https://astro.build/config
-import sitemap from '@astrojs/sitemap'
+import sitemap from "@astrojs/sitemap";
 
 // https://astro.build/config
-import partytown from '@astrojs/partytown'
+import partytown from "@astrojs/partytown";
+
+import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://blog.gamou.dev',
+  site: "https://blog.gamou.dev",
   integrations: [
     react(),
+    UnoCSS({ injectReset: true }),
     sitemap({
-      customPages: ['https://blog.gamou.dev'],
+      customPages: ["https://blog.gamou.dev"],
       serialize(item) {
         if (/\/nsfw/.test(item.url)) {
-          return undefined
+          return undefined;
         }
-        return item
+        return item;
       },
     }),
     partytown({
       config: {},
     }),
   ],
-})
+});
