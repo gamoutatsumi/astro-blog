@@ -9,9 +9,7 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title} pageType="website">
-  <div class="p-4">
-    <div class="flex flex-col gap-3">
+    <div class="m-4 h-25vh grid md:grid-cols-4">
       <slot />
     </div>
-  </div>
 </Layout>

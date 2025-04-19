@@ -2,7 +2,7 @@
 title: 通算n度目かのfirst post
 publishDate: "Sun, 29 Jan 2023 02:52:41 GMT"
 tags:
-  - "null"
+  - "other"
 isDraft: false
 ---
 

@@ -25,21 +25,21 @@ const { title, metadata, body } = Astro.props;
     <h1 class="font-bold text-xl">{title}</h1>
     <div class="flex justify-between flex-wrap md:flex-nowrap">
       <div class="inline-flex gap-1">
-        <p class="d-inline">tags:</p>
-        <ul class="list-none flex gap-2">
+        <p class="inline">tags:</p>
+        <ul class="list-none flex">
           {
             metadata.tags.map((tag) => (
-              <li class="shadow-sm px-2">
-                <a href={`/tags/${tag}`}>{tag}</a>
+              <li>
+                <a class="px-2 bg-gray-2 rounded-md hover:underline" href={`/tags/${tag}`}>{tag}</a>
               </li>
             ))
           }
         </ul>
       </div>
       <div class="inline-flex gap-1">
-        <p class="d-inline">category:</p>
+        <p class="inline">category:</p>
         <p>
-          <a class="shadow-sm px-1" href={`/${metadata.category}`}
+          <a class="px-2 bg-gray-2 rounded-md hover:underline" href={`/${metadata.category}`}
             >{metadata.category}</a
           >
         </p>

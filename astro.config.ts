@@ -11,6 +11,8 @@ import partytown from "@astrojs/partytown";
 
 import UnoCSS from "unocss/astro";
 
+import mcp from "astro-mcp";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.gamou.dev",
@@ -29,5 +31,6 @@ export default defineConfig({
     partytown({
       config: {},
     }),
+    mcp(),
   ],
 });
