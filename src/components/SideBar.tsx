@@ -8,8 +8,8 @@ export const SideBar = () => (
         href="https://twitter.com/gamoutatsumi?ref_src=twsrc%5Etfw"
       >
         Tweets by gamoutatsumi
-      </a>{' '}
+      </a>{" "}
       <script async src="https://platform.twitter.com/widgets.js" />
     </div>
   </div>
-)
+);

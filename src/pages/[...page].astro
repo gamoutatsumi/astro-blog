@@ -1,8 +1,8 @@
 ---
-import { getCollection, CollectionEntry } from "astro:content";
-import Layout from "@layouts/List.astro";
+import { CollectionEntry, getCollection } from "astro:content";
 import Card from "@components/Card.astro";
-import type { Page, GetStaticPaths } from "astro";
+import Layout from "@layouts/List.astro";
+import type { GetStaticPaths, Page } from "astro";
 
 export interface Props {
   page: Page<CollectionEntry<"posts">>;

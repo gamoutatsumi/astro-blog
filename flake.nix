@@ -1,5 +1,5 @@
 {
-  description = "Oreore flake";
+  description = "Tatsumi GAMOU's Blog";
 
   inputs = {
     # keep-sorted start block=yes
@@ -137,6 +137,10 @@
               settings = {
                 src = ./.;
                 hooks = {
+                  biome = {
+                    enable = true;
+                    package = upkgs.biome;
+                  };
                   treefmt = {
                     enable = true;
                     packageOverrides = {
@@ -153,7 +157,14 @@
               projectRootFile = "flake.nix";
               flakeCheck = false;
               settings = {
-                formatter = { };
+                formatter = {
+                  biome = {
+                    includes = [
+                      "*.astro"
+                      "*.xml"
+                    ];
+                  };
+                };
               };
               programs = {
                 # keep-sorted start block=yes

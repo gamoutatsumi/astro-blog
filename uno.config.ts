@@ -1,3 +1,11 @@
-import { defineConfine } from "unocss";
+import {
+  defineConfig,
+  presetIcons,
+  presetMini,
+  presetTypography,
+  presetWebFonts,
+} from "unocss";
 
-export default defineConfig({});
+export default defineConfig({
+  presets: [presetIcons(), presetMini(), presetWebFonts(), presetTypography()],
+});

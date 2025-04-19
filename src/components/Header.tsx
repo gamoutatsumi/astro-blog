@@ -1,6 +1,6 @@
 type Props = {
-  title: string
-}
+  title: string;
+};
 export const Header = ({ title }: Props) => (
   <header>
     <nav className="navbar navbar-extend-md navbar-light container-fluid bg-primary">
@@ -11,4 +11,4 @@ export const Header = ({ title }: Props) => (
       </div>
     </nav>
   </header>
-)
+);

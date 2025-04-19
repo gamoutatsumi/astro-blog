@@ -38,9 +38,6 @@ importers:
       autoprefixer:
         specifier: 10.4.21
         version: 10.4.21(postcss@8.5.3)
-      bootstrap:
-        specifier: 5.3.5
-        version: 5.3.5(@popperjs/core@2.11.8)
       kuromoji:
         specifier: 0.1.2
         version: 0.1.2
@@ -69,9 +66,6 @@ importers:
       '@astrojs/ts-plugin':
         specifier: 1.10.4
         version: 1.10.4
-      '@types/bootstrap':
-        specifier: 5.2.10
-        version: 5.2.10
       '@types/kuromoji':
         specifier: 0.1.3
         version: 0.1.3
@@ -102,6 +96,9 @@ importers:
       unocss:
         specifier: 66.1.0-beta.9
         version: 66.1.0-beta.9(postcss@8.5.3)(vite@6.2.5(@types/node@22.14.0)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
+      unocss-language-server:
+        specifier: ^0.1.7
+        version: 0.1.7
       wrangler:
         specifier: 4.7.2
         version: 4.7.2
@@ -1196,9 +1193,6 @@ packages:
   '@types/babel__traverse@7.20.6':
     resolution: {integrity: sha512-r1bzfrm0tomOI8g1SzvCaQHo6Lcv6zu0EA+W2kHrt8dyrHQxGzBBL4kdkzIS+jBMV+EYcMAEAqXqYaLJq5rOZg==}
 
-  '@types/bootstrap@5.2.10':
-    resolution: {integrity: sha512-F2X+cd6551tep0MvVZ6nM8v7XgGN/twpdNDjqS1TUM7YFNEtQYWk+dKAnH+T1gr6QgCoGMPl487xw/9hXooa2g==}
-
   '@types/debug@4.1.12':
     resolution: {integrity: sha512-vIChWdVG3LG1SMxEvI/AK+FWJthlrqlTu7fbrlywTkkaONwk/UAGaULXRlf8vkzFBLVm0zkMdCquhL5aOjhXPQ==}
 
@@ -1253,6 +1247,9 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
+
+  '@unocss/autocomplete@66.1.0-beta.9':
+    resolution: {integrity: sha512-IpCm6i18zId4UvGYqMBWXsZJ5CxKUH0FQeqInyruciKt/BdMKGKdpkOZi76iEd976I+e+NbZ1L8afbmXqCeA8g==}
 
   '@unocss/cli@66.1.0-beta.9':
     resolution: {integrity: sha512-uB8ZMcETtIdNt8c6l8aES5yWwc9c0W8Oj7+eLY7ZFQQKEb3Gmr0qjmV3VMOXLHjmm7RW10dd87/odi4N+/umcg==}
@@ -1491,11 +1488,6 @@ packages:
   blake3-wasm@2.1.5:
     resolution: {integrity: sha512-F1+K8EbfOZE49dtoPtmxUQrpXaBIl3ICvasLh+nJta0xkz+9kF/7uet9fLnwKqhDrmj6g+6K3Tw9yQPUg2ka5g==}
 
-  bootstrap@5.3.5:
-    resolution: {integrity: sha512-ct1CHKtiobRimyGzmsSldEtM03E8fcEX4Tb3dGXz1V8faRwM50+vfHwTzOxB3IlKO7m+9vTH3s/3C6T2EAPeTA==}
-    peerDependencies:
-      '@popperjs/core': ^2.11.8
-
   boxen@8.0.1:
     resolution: {integrity: sha512-F3PH5k5juxom4xktynS7MoFY+NUWH5LC4CnH11YB8NPew+HLpmBLCybSAEyb2F+4pRXhuhWqFesoQd6DAyc2hw==}
     engines: {node: '>=18'}
@@ -1577,6 +1569,19 @@ packages:
 
   color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+
+  color-name@2.0.0:
+    resolution: {integrity: sha512-SbtvAMWvASO5TE2QP07jHBMXKafgdZz8Vrsrn96fiL+O92/FN/PLARzUW5sKt013fjAprK2d2iCn2hk2Xb5oow==}
+    engines: {node: '>=12.20'}
+
+  color-parse@2.0.2:
+    resolution: {integrity: sha512-eCtOz5w5ttWIUcaKLiktF+DxZO1R9KLNY/xhbV6CkhM7sR3GhVghmt6X6yOnzeaM24po+Z9/S1apbXMwA3Iepw==}
+
+  color-rgba@3.0.0:
+    resolution: {integrity: sha512-PPwZYkEY3M2THEHHV6Y95sGUie77S7X8v+h1r6LSAPF3/LL2xJ8duUXSrkic31Nzc4odPwHgUbiX/XuTYzQHQg==}
+
+  color-space@2.3.1:
+    resolution: {integrity: sha512-5DJdKYwoDji3ik/i0xSn+SiwXsfwr+1FEcCMUz2GS5speGCfGSbBMOLd84SDUBOuX8y4CvdFJmOBBJuC4wp7sQ==}
 
   color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}
@@ -1814,6 +1819,9 @@ packages:
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
 
+  fzf@0.5.2:
+    resolution: {integrity: sha512-Tt4kuxLXFKHy8KT40zwsUPUkg1CrsgY25FxA2U/j/0WgEDCk3ddc/zLTCCcbSHX9FcKtLuVaDGtGE/STWC+j3Q==}
+
   gensync@1.0.0-beta.2:
     resolution: {integrity: sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==}
     engines: {node: '>=6.9.0'}
@@ -2047,6 +2055,10 @@ packages:
 
   lru-cache@10.4.3:
     resolution: {integrity: sha512-JNAzZcXrCt42VGLuYz0zfAzDfAvJWW6AfYlDBQyDV5DClI2m5sAmK+OIO7s59XfsRsWHp02jAJrRadPRGTt6SQ==}
+
+  lru-cache@11.1.0:
+    resolution: {integrity: sha512-QIXZUBJUx+2zHUdQujWejBkcD9+cs94tLn0+YL8UrCh+D5sCXZ4c7LaEH48pNwRY3MLDgqUFyhlCyjJPf1WP0A==}
+    engines: {node: 20 || >=22}
 
   lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -2762,6 +2774,10 @@ packages:
 
   unist-util-visit@5.0.0:
     resolution: {integrity: sha512-MR04uvD+07cwl/yhVuVWAtw+3GOR/knlL55Nd/wAdblk27GCVt3lqpTivy/tkJcZoNPzTwS1Y+KMojlLDhoTzg==}
+
+  unocss-language-server@0.1.7:
+    resolution: {integrity: sha512-JilDbq67MnI3PmsqpKNZIMju9lPcVc7pGlGPB0oteUGP4FLCyvLlwNcyqIXqafLtA9ftMPei9RDUi3JIyexrVA==}
+    hasBin: true
 
   unocss@66.1.0-beta.9:
     resolution: {integrity: sha512-icEcB/JPUeKA61RB6U9tQI+DKyn5WpasLXRGAbp8OPUdaSnRPtzIzxzgHUisVBc7AjiSpxeCaqx1eZLrJzASXg==}
@@ -4064,10 +4080,6 @@ snapshots:
     dependencies:
       '@babel/types': 7.26.0
 
-  '@types/bootstrap@5.2.10':
-    dependencies:
-      '@popperjs/core': 2.11.8
-
   '@types/debug@4.1.12':
     dependencies:
       '@types/ms': 0.7.34
@@ -4125,6 +4137,11 @@ snapshots:
       vite: 6.2.5(@types/node@22.14.0)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1)
     transitivePeerDependencies:
       - vue
+
+  '@unocss/autocomplete@66.1.0-beta.9':
+    dependencies:
+      fzf: 0.5.2
+      lru-cache: 11.1.0
 
   '@unocss/cli@66.1.0-beta.9':
     dependencies:
@@ -4559,10 +4576,6 @@ snapshots:
 
   blake3-wasm@2.1.5: {}
 
-  bootstrap@5.3.5(@popperjs/core@2.11.8):
-    dependencies:
-      '@popperjs/core': 2.11.8
-
   boxen@8.0.1:
     dependencies:
       ansi-align: 3.0.1
@@ -4647,6 +4660,19 @@ snapshots:
       color-name: 1.1.4
 
   color-name@1.1.4: {}
+
+  color-name@2.0.0: {}
+
+  color-parse@2.0.2:
+    dependencies:
+      color-name: 2.0.0
+
+  color-rgba@3.0.0:
+    dependencies:
+      color-parse: 2.0.2
+      color-space: 2.3.1
+
+  color-space@2.3.1: {}
 
   color-string@1.9.1:
     dependencies:
@@ -4881,6 +4907,8 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  fzf@0.5.2: {}
 
   gensync@1.0.0-beta.2: {}
 
@@ -5141,6 +5169,8 @@ snapshots:
   longest-streak@3.1.0: {}
 
   lru-cache@10.4.3: {}
+
+  lru-cache@11.1.0: {}
 
   lru-cache@5.1.1:
     dependencies:
@@ -6152,6 +6182,19 @@ snapshots:
       '@types/unist': 3.0.3
       unist-util-is: 6.0.0
       unist-util-visit-parents: 6.0.1
+
+  unocss-language-server@0.1.7:
+    dependencies:
+      '@unocss/autocomplete': 66.1.0-beta.9
+      '@unocss/config': 66.1.0-beta.9
+      '@unocss/core': 66.1.0-beta.9
+      '@unocss/extractor-arbitrary-variants': 66.1.0-beta.9
+      '@unocss/preset-wind3': 66.1.0-beta.9
+      color-rgba: 3.0.0
+      magic-string: 0.30.17
+      unconfig: 7.3.1
+      vscode-languageserver: 9.0.1
+      vscode-languageserver-textdocument: 1.0.12
 
   unocss@66.1.0-beta.9(postcss@8.5.3)(vite@6.2.5(@types/node@22.14.0)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3)):
     dependencies:

@@ -1,13 +1,13 @@
-import type { CollectionEntry } from 'astro:content'
-import { dateTransform } from '@utils/dateTransform'
+import type { CollectionEntry } from "astro:content";
+import { dateTransform } from "@utils/dateTransform";
 
 type CardProps = {
-  entry: CollectionEntry<'posts'>
-}
+  entry: CollectionEntry<"posts">;
+};
 export const Card = ({ entry }: CardProps) => {
-  const date = entry.data.publishDate
-  const link = `/${entry.slug}`
-  const category = entry.slug.split('/')[0]
+  const date = entry.data.publishDate;
+  const link = `/${entry.slug}`;
+  const category = entry.slug.split("/")[0];
   return (
     <div className="card">
       <div className="row g-0">
@@ -23,9 +23,9 @@ export const Card = ({ entry }: CardProps) => {
             <div
               style={{
                 WebkitLineClamp: 2,
-                display: '-webkit-box',
-                overflow: 'hidden',
-                WebkitBoxOrient: 'horizontal',
+                display: "-webkit-box",
+                overflow: "hidden",
+                WebkitBoxOrient: "horizontal",
               }}
             >
               <a className="card-title" href={link}>
@@ -52,9 +52,9 @@ export const Card = ({ entry }: CardProps) => {
             <div
               style={{
                 WebkitLineClamp: 3,
-                display: '-webkit-box',
-                overflow: 'hidden',
-                WebkitBoxOrient: 'vertical',
+                display: "-webkit-box",
+                overflow: "hidden",
+                WebkitBoxOrient: "vertical",
               }}
             >
               <p>{entry.body}</p>
@@ -63,5 +63,5 @@ export const Card = ({ entry }: CardProps) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
