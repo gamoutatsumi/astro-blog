@@ -5,8 +5,6 @@ import { Header } from "@components/Header";
 import { SEO } from "astro-seo";
 import { Styles } from "./styles";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-
 const { title, image, description, pageType } = Astro.props;
 
 const proliantImg = await getImage({
@@ -73,11 +71,11 @@ const pageTitle = `${title} | ${APPNAME}`;
   </head>
   <body>
     <Header title={APPNAME} />
-    <div class="d-flex flex-column min-vh-100">
+    <div class="flex flex-col min-h-screen">
       <div
-        class="container-md d-md-flex flex-row justify-content-between mt-5 gap-5 align-items-start mb-auto"
+        class="container-md md:flex flex-row justify-between mt-5 gap-5 items-start mb-auto"
       >
-        <div class="card col-md-12 shadow-sm">
+        <div class="shadow-md md:w-full">
           <main>
             <slot />
           </main>

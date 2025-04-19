@@ -9,17 +9,17 @@ export const Card = ({ entry }: CardProps) => {
   const link = `/${entry.slug}`;
   const category = entry.slug.split("/")[0];
   return (
-    <div className="card">
-      <div className="row g-0">
-        <a className="col-md-4" href={link}>
+    <div className="shadow-md rounded-md">
+      <div className="flex flex-wrap gap-0">
+        <a className="md:w-1/3" href={link}>
           <img
             src={entry.data.image}
             alt={entry.data.title}
             className="w-100"
           />
         </a>
-        <div className="col-md-8">
-          <div className="card-body d-flex flex-column gap-1">
+        <div className="md:w-2/3">
+          <div className="p-4 flex flex-col gap-4">
             <div
               style={{
                 WebkitLineClamp: 2,
@@ -28,22 +28,22 @@ export const Card = ({ entry }: CardProps) => {
                 WebkitBoxOrient: "horizontal",
               }}
             >
-              <a className="card-title" href={link}>
+              <a className="font-bold text-lg" href={link}>
                 {entry.data.title}
               </a>
             </div>
             <p>{dateTransform(date)}</p>
-            <div className="d-flex gap-2">
+            <div className="flex gap-2">
               category:
-              <a href={`/${category}`} className="card px-1 d-inline">
+              <a href={`/${category}`} className="shadow-sm px-2 inline-block">
                 {category}
               </a>
             </div>
             <div className="d-flex gap-2">
               tags:
-              <ul className="list-inline d-flex gap-2">
+              <ul className="list-none flex gap-2">
                 {entry.data.tags.map((tag) => (
-                  <li className="card px-1" key={tag}>
+                  <li className="shadow-sm px-1" key={tag}>
                     <a href={`/tags/${tag}`}>{tag}</a>
                   </li>
                 ))}

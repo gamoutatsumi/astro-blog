@@ -3,9 +3,9 @@ type Props = {
 };
 export const Header = ({ title }: Props) => (
   <header>
-    <nav className="navbar navbar-extend-md navbar-light container-fluid bg-primary">
-      <div className="container-md">
-        <a className="navbar-brand text-white fw-bold" href="/">
+    <nav className="flex items-center md:flex-row w-full bg-blue-500">
+      <div className="max-w-screen-md mx-auto">
+        <a className="text-lg font-bold text-white" href="/">
           {title}
         </a>
       </div>
