@@ -1,10 +1,6 @@
-import { defineConfig } from "astro/config";
-
-// https://astro.build/config
-import react from "@astrojs/react";
-
 // https://astro.build/config
 import sitemap from "@astrojs/sitemap";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 import partytown from "@astrojs/partytown";
@@ -17,7 +13,6 @@ import mcp from "astro-mcp";
 export default defineConfig({
   site: "https://blog.gamou.dev",
   integrations: [
-    react(),
     UnoCSS({ injectReset: true }),
     sitemap({
       customPages: ["https://blog.gamou.dev"],
