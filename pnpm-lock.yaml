@@ -33,7 +33,7 @@ importers:
         specifier: 5.6.1
         version: 5.6.1(@types/node@22.14.0)(jiti@2.4.2)(rollup@4.39.0)(sass@1.86.3)(typescript@5.8.3)(yaml@2.7.1)
       astro-mcp:
-        specifier: ^0.3.0
+        specifier: 0.3.0
         version: 0.3.0(astro@5.6.1(@types/node@22.14.0)(jiti@2.4.2)(rollup@4.39.0)(sass@1.86.3)(typescript@5.8.3)(yaml@2.7.1))(vite@6.2.5(@types/node@22.14.0)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1))
       astro-seo:
         specifier: 0.8.4
@@ -100,7 +100,7 @@ importers:
         specifier: 66.1.0-beta.9
         version: 66.1.0-beta.9(postcss@8.5.3)(vite@6.2.5(@types/node@22.14.0)(jiti@2.4.2)(sass@1.86.3)(yaml@2.7.1))(vue@3.5.13(typescript@5.8.3))
       unocss-language-server:
-        specifier: ^0.1.7
+        specifier: 0.1.7
         version: 0.1.7
       wrangler:
         specifier: 4.7.2
