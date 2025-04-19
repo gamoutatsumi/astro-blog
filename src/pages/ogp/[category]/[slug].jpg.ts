@@ -1,9 +1,9 @@
-import path from "path";
-import type { APIContext, GetStaticPaths } from "astro";
+import path from "node:path";
 import { getCollection, getEntry } from "astro:content";
 import type { CollectionEntry } from "astro:content";
+import { GlobalFonts, type SKRSContext2D, createCanvas } from "@napi-rs/canvas";
 import { tokenizer } from "@utils/kuromoji";
-import { createCanvas, GlobalFonts, type SKRSContext2D } from "@napi-rs/canvas";
+import type { APIContext, GetStaticPaths } from "astro";
 
 export interface Props {
   entry: CollectionEntry<"posts">;
@@ -63,7 +63,7 @@ const drawTitle = async (ctx: SKRSContext2D, title: string) => {
 };
 
 const drawName = (ctx: SKRSContext2D) => {
-  ctx.font = `40px Noto Sans JP`;
+  ctx.font = "40px Noto Sans JP";
   ctx.textBaseline = "bottom";
   const { width } = ctx.measureText(BLOG_NAME);
   ctx.fillText(BLOG_NAME, CANVAS_WIDTH - 80 - width, CANVAS_HEIGHT - 80);

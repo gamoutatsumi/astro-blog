@@ -1,45 +1,8 @@
 {
-  description = "Oreore flake";
+  description = "Tatsumi GAMOU's Blog";
 
   inputs = {
     # keep-sorted start block=yes
-    cachix = {
-      url = "github:cachix/cachix";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-        git-hooks = {
-          follows = "pre-commit-hooks";
-        };
-        flake-compat = {
-          follows = "flake-compat";
-        };
-        devenv = {
-          follows = "devenv";
-        };
-      };
-    };
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-        cachix = {
-          follows = "cachix";
-        };
-        pre-commit-hooks = {
-          follows = "pre-commit-hooks";
-        };
-        nix = {
-          follows = "nix";
-        };
-        flake-compat = {
-          follows = "flake-compat";
-        };
-      };
-    };
     flake-compat = {
       url = "github:edolstra/flake-compat";
     };
@@ -51,25 +14,8 @@
         };
       };
     };
-    nix = {
-      url = "github:domenkozar/nix/devenv-2.24";
-      inputs = {
-        nixpkgs = {
-          follows = "nixpkgs";
-        };
-        flake-parts = {
-          follows = "flake-parts";
-        };
-        flake-compat = {
-          follows = "flake-compat";
-        };
-        pre-commit-hooks = {
-          follows = "pre-commit-hooks";
-        };
-      };
-    };
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-24.05";
+      url = "github:NixOS/nixpkgs/nixos-24.11";
     };
     nixpkgs-unstable = {
       url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -78,9 +24,6 @@
       url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs = {
-          follows = "nixpkgs";
-        };
-        nixpkgs-stable = {
           follows = "nixpkgs";
         };
         flake-compat = {
@@ -120,10 +63,9 @@
       {
         systems = import systems;
         imports =
-          [ flake-parts.flakeModules.easyOverlay ]
+          [ ]
           ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ inputs.pre-commit-hooks.flakeModule ]
-          ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ]
-          ++ lib.optionals (inputs.devenv ? flakeModule) [ inputs.devenv.flakeModule ];
+          ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ];
 
         perSystem =
           {
@@ -133,7 +75,11 @@
             ...
           }:
           let
-            upkgs = import nixpkgs-unstable { inherit system; };
+            upkgs = import nixpkgs-unstable {
+              inherit system;
+              overlays = [ (final: prev: { nodejs = prev.nodejs_22; }) ];
+            };
+            treefmtBuild = config.treefmt.build;
           in
           {
             devShells = {
@@ -156,10 +102,10 @@
                 pkgs.mkShell {
                   buildInputs =
                     buildInputs
-                    ++ (lib.optionals (system == "aarch64-darwin") (
-                      with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]
-                    ));
-                  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}:${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
+                    ++ (lib.optionals (pkgs.stdenv.isDarwin) (with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]));
+                  LD_LIBRARY_PATH =
+                    "${pkgs.lib.makeLibraryPath buildInputs}"
+                    + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
                   packages =
                     (with pkgs; [
                       nil
@@ -168,18 +114,18 @@
                       pinact
                     ])
                     ++ (with upkgs; [
-                      eslint_d
-                      prettierd
                       astro-language-server
+                      vtsls
+                      nodejs
                       (with nodePackages; [
-                        nodejs_22
-                        corepack_22
-                        typescript-language-server
+                        pnpm
+                        vscode-json-languageserver
                       ])
                     ]);
                   inputsFrom =
                     [ ]
-                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ];
+                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ]
+                    ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ treefmtBuild.devShell ];
                 };
             };
           }
@@ -191,39 +137,45 @@
               settings = {
                 src = ./.;
                 hooks = {
+                  biome = {
+                    enable = true;
+                    package = upkgs.biome;
+                  };
                   treefmt = {
                     enable = true;
-                    packageOverrides.treefmt = config.treefmt.build.wrapper;
+                    packageOverrides = {
+                      treefmt = treefmtBuild.wrapper;
+                    };
                   };
                 };
               };
             };
           }
           // lib.optionalAttrs (inputs.treefmt-nix ? flakeModule) {
-            formatter = config.treefmt.build.wrapper;
+            formatter = treefmtBuild.wrapper;
             treefmt = {
               projectRootFile = "flake.nix";
               flakeCheck = false;
               settings = {
                 formatter = {
-                  prettier = {
-                    settingsFile = "./.prettierrc.mjs";
-                    excludes = [
-                      "node_modules"
-                      "pnpm-lock.yaml"
+                  biome = {
+                    includes = [
+                      "*.astro"
+                      "*.xml"
                     ];
                   };
                 };
               };
               programs = {
                 # keep-sorted start block=yes
+                biome = {
+                  enable = true;
+                  package = upkgs.biome;
+                };
                 keep-sorted = {
                   enable = true;
                 };
                 nixfmt = {
-                  enable = true;
-                };
-                prettier = {
                   enable = true;
                 };
                 shfmt = {

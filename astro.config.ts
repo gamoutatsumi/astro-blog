@@ -9,11 +9,16 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 import partytown from "@astrojs/partytown";
 
+import UnoCSS from "unocss/astro";
+
+import mcp from "astro-mcp";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://blog.gamou.dev",
   integrations: [
     react(),
+    UnoCSS({ injectReset: true }),
     sitemap({
       customPages: ["https://blog.gamou.dev"],
       serialize(item) {
@@ -26,5 +31,6 @@ export default defineConfig({
     partytown({
       config: {},
     }),
+    mcp(),
   ],
 });

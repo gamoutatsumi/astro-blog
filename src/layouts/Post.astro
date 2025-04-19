@@ -1,9 +1,7 @@
 ---
-import { dateTransform } from "@utils/dateTransform";
 import type { CollectionEntry } from "astro:content";
+import { dateTransform } from "@utils/dateTransform";
 import Layout from "./Layout.astro";
-
-import "bootstrap/dist/css/bootstrap.min.css";
 
 export interface Props {
   title: string;
@@ -23,35 +21,36 @@ const { title, metadata, body } = Astro.props;
   image={`/ogp/${metadata.category}/${metadata.slug}.jpg`}
   description={body.replaceAll("\n", "").substring(0, 80)}
 >
-  <div class="card-header">
-    <h1 class="card-title">{title}</h1>
-    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap">
-      <div class="d-inline-flex gap-1">
-        <p class="d-inline">tags:</p>
-        <ul class="list-inline d-inline-flex gap-2">
+  <div class="p-4 border-b">
+    <h1 class="font-bold text-xl">{title}</h1>
+    <div class="flex justify-between flex-wrap md:flex-nowrap">
+      <div class="inline-flex gap-1">
+        <p class="inline">tags:</p>
+        <ul class="list-none flex">
           {
             metadata.tags.map((tag) => (
-              <li class="card px-1">
-                <a href={`/tags/${tag}`}>{tag}</a>
+              <li>
+                <a class="px-2 bg-gray-2 rounded-md hover:underline" href={`/tags/${tag}`}>{tag}</a>
               </li>
             ))
           }
         </ul>
       </div>
-      <div class="d-inline-flex gap-1">
-        <p class="d-inline">category:</p>
+      <div class="inline-flex gap-1">
+        <p class="inline">category:</p>
         <p>
-          <a class="card px-1" href={`/${metadata.category}`}
+          <a class="px-2 bg-gray-2 rounded-md hover:underline" href={`/${metadata.category}`}
             >{metadata.category}</a
           >
         </p>
       </div>
-      <p title={dateTransform(metadata.publishDate, true)} class="d-inline">
+      <p title={dateTransform(metadata.publishDate, true)} class="inline">
         {dateTransform(metadata.publishDate)}
       </p>
     </div>
   </div>
-  <div class="card-body">
+  <div class="p-4">
     <slot />
   </div>
 </Layout>
+

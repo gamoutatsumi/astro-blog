@@ -1,7 +1,7 @@
 ---
+import { Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { dateTransform } from "@utils/dateTransform";
-import { Picture } from "astro:assets";
 
 export type Props = {
   entry: CollectionEntry<"posts">;
@@ -13,62 +13,40 @@ const link = `/${entry.slug}`;
 const category = entry.slug.split("/")[0];
 ---
 
-<div class="card">
-  <div class="row g-0">
-    <a class="col-md-4" href={link}>
-      <Picture
-        src={entry.data.image}
-        alt={entry.data.title}
-        class="w-100 h-100"
-        width={660}
-        height={438}
-        formats={["avif", "webp"]}
-      />
-    </a>
-    <div class="col-md-8">
-      <div class="card-body d-flex flex-column gap-1">
-        <div
-          style={{
-            WebkitLineClamp: 2,
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "horizontal",
-          }}
-        >
-          <a class="card-title" href={link}>
-            {entry.data.title}
-          </a>
-        </div>
-        <p>{dateTransform(date)}</p>
-        <div class="d-flex gap-2">
-          category:
-          <a href={`/${category}`} class="card px-1 d-inline">
-            {category}
-          </a>
-        </div>
-        <div class="d-flex gap-2">
-          tags:
-          <ul class="list-inline d-flex gap-2">
-            {
-              entry.data.tags.map((tag) => (
-                <li class="card px-1">
-                  <a href={`/tags/${tag}`}>{tag}</a>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
-        <div
-          style={{
-            WebkitLineClamp: 3,
-            display: "-webkit-box",
-            overflow: "hidden",
-            WebkitBoxOrient: "vertical",
-          }}
-        >
-          <p>{entry.body}</p>
-        </div>
+<div class="shadow-md rounded-md col-span-1 relative overflow-hidden before:pt-full before:block before:content-empty hover:scale-105 duration-100 transform">
+  <a href={link} class="top-0 left-0 absolute inset-0 z-1 peer" />
+    <Picture
+      src={entry.data.image}
+      alt={entry.data.title}
+      class="inset-0 object-cover top-0 left-0 w-full h-full absolute"
+      width={660}
+      height={438}
+      formats={["avif", "webp"]}
+    />
+    <div class="absolute inset-0 bg-black bg-opacity-30 flex peer-hover:bg-opacity-50 transition  flex-col justify-end p-4 text-white has-[a:hover]:bg-opacity-50">
+      <div class="line-clamp-2 font-bold text-lg">
+        {entry.data.title}
+      </div>
+      <p class="text-sm">{dateTransform(date)}</p>
+      <div class="flex gap-2 text-sm justify-start">
+        category:
+        <a href={`/${category}`} class="hover:underline z-2">
+          {category}
+        </a>
+      </div>
+      <div class="flex gap-2 text-sm">
+        tags:
+        <ul class="list-none flex gap-2 z-2">
+          {
+            entry.data.tags.map((tag) => (
+              <li>
+                <a href={`/tags/${tag}`} class="hover:underline">
+                  {tag}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     </div>
-  </div>
 </div>

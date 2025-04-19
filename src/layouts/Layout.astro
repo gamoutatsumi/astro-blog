@@ -1,11 +1,8 @@
 ---
 import { getImage } from "astro:assets";
-import { Header } from "@components/Header";
-import { Footer } from "@components/Footer";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
 import { SEO } from "astro-seo";
-import { Styles } from "./styles";
-
-import "bootstrap/dist/css/bootstrap.min.css";
 
 const { title, image, description, pageType } = Astro.props;
 
@@ -72,24 +69,18 @@ const pageTitle = `${title} | ${APPNAME}`;
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
+    <div class="flex flex-col min-h-screen bg-gray-1">
     <Header title={APPNAME} />
-    <div class="d-flex flex-column min-vh-100">
-      <div
-        class="container-md d-md-flex flex-row justify-content-between mt-5 gap-5 align-items-start mb-auto"
-      >
-        <div class="card col-md-12 shadow-sm">
-          <main>
+          <main class="shadow-md mt-10 mx-5 md:mx-10 flex-grow md:flex-grow-0 mb-10 md:mb-auto bg-white">
             <slot />
           </main>
-        </div>
-      </div>
-      <Footer title={APPNAME} />
+      <Footer />
     </div>
-    <Styles client:only="react" />
     <!-- Cloudflare Web Analytics -->
     {
       import.meta.env.PROD && (
         <script
+    is:inline
           defer
           type="text/partytown"
           src="https://static.cloudflareinsights.com/beacon.min.js"

@@ -1,6 +1,6 @@
-import type { APIContext, GetStaticPaths } from "astro";
-import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import rss from "@astrojs/rss";
+import type { APIContext, GetStaticPaths } from "astro";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogEntries = await getCollection("posts");
