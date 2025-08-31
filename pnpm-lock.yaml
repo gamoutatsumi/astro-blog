@@ -51,8 +51,8 @@ importers:
         specifier: 0.34.1
         version: 0.34.1
       zod:
-        specifier: 3.24.3
-        version: 3.24.3
+        specifier: 4.1.5
+        version: 4.1.5
     devDependencies:
       '@astrojs/ts-plugin':
         specifier: 1.10.4
@@ -3204,6 +3204,9 @@ packages:
 
   zod@3.24.3:
     resolution: {integrity: sha512-HhY1oqzWCQWuUqvBFnsyrtZRhyPeR7SUGv+C4+MsisMuVfSPx8HpwWqH8tRahSlt6M3PiFAcoeFhZAqIXTxoSg==}
+
+  zod@4.1.5:
+    resolution: {integrity: sha512-rcUUZqlLJgBC33IT3PNMgsCq6TzLQEG/Ei/KTCU0PedSWRMAXoOUN+4t/0H+Q8bdnLPdqUYnvboJT0bn/229qg==}
 
   zwitch@2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}
@@ -6710,5 +6713,7 @@ snapshots:
   zod@3.24.2: {}
 
   zod@3.24.3: {}
+
+  zod@4.1.5: {}
 
   zwitch@2.0.4: {}
