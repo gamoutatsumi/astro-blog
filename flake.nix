@@ -107,7 +107,6 @@
                       efm-langserver
                       nil
                       nixfmt-rfc-style
-                      pinact
                       vtsls
                       # keep-sorted end
                     ]
@@ -164,6 +163,9 @@
                   enable = true;
                 };
                 nixfmt = {
+                  enable = true;
+                };
+                pinact = {
                   enable = true;
                 };
                 shfmt = {
