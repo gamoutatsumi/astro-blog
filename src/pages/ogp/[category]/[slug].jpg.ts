@@ -1,6 +1,6 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection, getEntry } from "astro:content";
-import path from "node:path";
+import * as path from "node:path";
 import { createCanvas, GlobalFonts, type SKRSContext2D } from "@napi-rs/canvas";
 import { tokenizer } from "@utils/kuromoji";
 import type { APIContext, GetStaticPaths } from "astro";
