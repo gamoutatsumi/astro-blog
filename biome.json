@@ -1,9 +1,12 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
-  "vcs": { "enabled": false, "clientKind": "git", "useIgnoreFile": false },
+  "$schema": "https://biomejs.dev/schemas/2.2.2/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
   "files": {
-    "ignoreUnknown": false,
-    "ignore": [".direnv/", ".astro/", ".pre-commit-config.yaml"]
+    "ignoreUnknown": false
   },
   "formatter": {
     "enabled": true,
@@ -16,8 +19,19 @@
     "attributePosition": "auto",
     "bracketSpacing": true
   },
-  "organizeImports": { "enabled": true },
-  "linter": { "enabled": true, "rules": { "recommended": true } },
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true
+    }
+  },
   "javascript": {
     "globals": ["Astro"],
     "formatter": {
@@ -34,7 +48,7 @@
   },
   "overrides": [
     {
-      "include": ["*.astro"],
+      "includes": ["*.astro"],
       "linter": {
         "rules": {
           "style": {
