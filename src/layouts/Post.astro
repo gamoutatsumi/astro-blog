@@ -4,12 +4,12 @@ import { dateTransform } from "@utils/dateTransform";
 import Layout from "./Layout.astro";
 
 export interface Props {
-  title: string;
-  body: string;
-  metadata: CollectionEntry<"posts">["data"] & {
-    category: string;
-    slug: string;
-  };
+	title: string;
+	body: string;
+	metadata: CollectionEntry<"posts">["data"] & {
+		category: string;
+		slug: string;
+	};
 }
 
 const { title, metadata, body } = Astro.props;

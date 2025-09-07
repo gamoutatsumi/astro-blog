@@ -7,17 +7,17 @@ import { SEO } from "astro-seo";
 const { title, image, description, pageType } = Astro.props;
 
 const proliantImg = await getImage({
-  src: import("@images/proliant.jpg"),
-  format: "webp",
-  alt: "proliant",
-  width: 300,
+	src: import("@images/proliant.jpg"),
+	format: "webp",
+	alt: "proliant",
+	width: 300,
 });
 
 export interface Props {
-  title: string;
-  image?: string;
-  description?: string;
-  pageType?: "website" | "article";
+	title: string;
+	image?: string;
+	description?: string;
+	pageType?: "website" | "article";
 }
 
 const APPNAME = "通算n度目のブログ";
