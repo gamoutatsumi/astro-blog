@@ -1,5 +1,7 @@
 {
-  "baseBranches": ["develop"],
+  "baseBranchPatterns": [
+    "develop"
+  ],
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended",
@@ -7,12 +9,19 @@
     "helpers:pinGitHubActionDigests"
   ],
   "timezone": "Asia/Tokyo",
-  "labels": ["renovate"],
-  "schedule": ["every weekend"],
+  "labels": [
+    "renovate"
+  ],
+  "schedule": [
+    "every weekend"
+  ],
   "packageRules": [
     {
       "groupName": "astro monorepo",
-      "matchPackageNames": ["astro", "/^@astrojs//"]
+      "matchPackageNames": [
+        "astro",
+        "/^@astrojs//"
+      ]
     }
   ],
   "minor": {
@@ -21,7 +30,9 @@
   "patch": {
     "groupName": "all patch updates"
   },
-  "postUpdateOptions": ["pnpmDedupe"],
+  "postUpdateOptions": [
+    "pnpmDedupe"
+  ],
   "nix": {
     "enabled": true
   }
