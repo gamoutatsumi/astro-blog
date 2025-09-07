@@ -3,9 +3,6 @@
 
   inputs = {
     # keep-sorted start block=yes
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs = {
@@ -22,9 +19,6 @@
       inputs = {
         nixpkgs = {
           follows = "nixpkgs";
-        };
-        flake-compat = {
-          follows = "flake-compat";
         };
       };
     };
@@ -58,10 +52,10 @@
       }:
       {
         systems = import systems;
-        imports =
-          [ ]
-          ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ inputs.pre-commit-hooks.flakeModule ]
-          ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ];
+        imports = [
+          inputs.pre-commit-hooks.flakeModule
+          inputs.treefmt-nix.flakeModule
+        ];
 
         perSystem =
           {
@@ -117,8 +111,6 @@
                   ];
                 };
             };
-          }
-          // lib.optionalAttrs (inputs.pre-commit-hooks ? flakeModule) {
             pre-commit = {
               check = {
                 enable = true;
@@ -128,6 +120,18 @@
                 hooks = {
                   biome = {
                     enable = true;
+                    types_or = [
+                      # keep-sorted start
+                      "astro"
+                      "javascript"
+                      "json"
+                      "jsx"
+                      "markdown"
+                      "ts"
+                      "tsx"
+                      "xml"
+                      # keep-sorted end
+                    ];
                   };
                   treefmt = {
                     enable = true;
@@ -138,27 +142,12 @@
                 };
               };
             };
-          }
-          // lib.optionalAttrs (inputs.treefmt-nix ? flakeModule) {
             formatter = treefmtBuild.wrapper;
             treefmt = {
               projectRootFile = "flake.nix";
               flakeCheck = false;
-              settings = {
-                formatter = {
-                  biome = {
-                    includes = [
-                      "*.astro"
-                      "*.xml"
-                    ];
-                  };
-                };
-              };
               programs = {
                 # keep-sorted start block=yes
-                biome = {
-                  enable = true;
-                };
                 keep-sorted = {
                   enable = true;
                 };
