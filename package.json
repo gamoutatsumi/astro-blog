@@ -44,5 +44,5 @@
     "unocss-language-server": "0.1.7",
     "wrangler": "4.34.0"
   },
-  "packageManager": "pnpm@10.8.1"
+  "packageManager": "pnpm@10.15.1"
 }
