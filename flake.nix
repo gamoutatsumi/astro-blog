@@ -15,10 +15,7 @@
       };
     };
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-24.11";
-    };
-    nixpkgs-unstable = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
@@ -50,7 +47,6 @@
       self,
       flake-parts,
       systems,
-      nixpkgs-unstable,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
@@ -75,10 +71,6 @@
             ...
           }:
           let
-            upkgs = import nixpkgs-unstable {
-              inherit system;
-              overlays = [ (final: prev: { nodejs = prev.nodejs_22; }) ];
-            };
             treefmtBuild = config.treefmt.build;
           in
           {
@@ -86,7 +78,7 @@
               default =
                 let
                   buildInputs = (
-                    with upkgs;
+                    with pkgs;
                     [
                       cairo
                       pkg-config
@@ -106,26 +98,24 @@
                   LD_LIBRARY_PATH =
                     "${pkgs.lib.makeLibraryPath buildInputs}"
                     + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
-                  packages =
-                    (with pkgs; [
+                  packages = (
+                    with pkgs;
+                    [
+                      # keep-sorted start
+                      astro-language-server
+                      bun
+                      efm-langserver
                       nil
                       nixfmt-rfc-style
-                      efm-langserver
                       pinact
-                    ])
-                    ++ (with upkgs; [
-                      astro-language-server
                       vtsls
-                      nodejs
-                      (with nodePackages; [
-                        pnpm
-                        vscode-json-languageserver
-                      ])
-                    ]);
-                  inputsFrom =
-                    [ ]
-                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ]
-                    ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ treefmtBuild.devShell ];
+                      # keep-sorted end
+                    ]
+                  );
+                  inputsFrom = [
+                    config.pre-commit.devShell
+                    treefmtBuild.devShell
+                  ];
                 };
             };
           }
@@ -139,7 +129,6 @@
                 hooks = {
                   biome = {
                     enable = true;
-                    package = upkgs.biome;
                   };
                   treefmt = {
                     enable = true;
@@ -170,7 +159,6 @@
                 # keep-sorted start block=yes
                 biome = {
                   enable = true;
-                  package = upkgs.biome;
                 };
                 keep-sorted = {
                   enable = true;
