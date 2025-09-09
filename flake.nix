@@ -74,24 +74,29 @@
                   buildInputs = (
                     with pkgs;
                     [
+                      # keep-sorted start
                       cairo
-                      pkg-config
-                      libjpeg
-                      pango
-                      libpng
                       giflib
+                      libjpeg
+                      libpng
                       librsvg
+                      pango
                       pixman
+                      pkg-config
+                      # keep-sorted end
                     ]
                   );
                 in
                 pkgs.mkShell {
-                  buildInputs =
-                    buildInputs
-                    ++ (lib.optionals (pkgs.stdenv.isDarwin) (with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]));
-                  LD_LIBRARY_PATH =
-                    "${pkgs.lib.makeLibraryPath buildInputs}"
-                    + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
+                  PFPATH = "${
+                    pkgs.buildEnv {
+                      name = "zsh-comp";
+                      paths = config.devShells.default.nativeBuildInputs;
+                      pathsToLink = [ "/share/zsh" ];
+                    }
+                  }/share/zsh/site-functions";
+                  inherit buildInputs;
+                  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}";
                   packages = (
                     with pkgs;
                     [
