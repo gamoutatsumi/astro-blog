@@ -69,7 +69,7 @@ const drawName = (ctx: SKRSContext2D) => {
 	ctx.fillText(BLOG_NAME, CANVAS_WIDTH - 80 - width, CANVAS_HEIGHT - 80);
 };
 
-const drawOGImage = async (title: string): Promise<Buffer> => {
+const drawOGImage = async (title: string): Promise<ReadableStream<Buffer>> => {
 	GlobalFonts.registerFromPath(
 		path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"),
 	);
@@ -78,7 +78,7 @@ const drawOGImage = async (title: string): Promise<Buffer> => {
 	fill(ctx);
 	await drawTitle(ctx, title);
 	drawName(ctx);
-	return canvas.toBuffer("image/jpeg");
+	return canvas.encodeStream("jpeg") as ReadableStream<Buffer>;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {

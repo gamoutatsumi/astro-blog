@@ -66,55 +66,60 @@
           }:
           let
             treefmtBuild = config.treefmt.build;
+            nodejs = pkgs.nodejs_24;
+            inherit (pkgs) importNpmLock;
+            npmDeps = importNpmLock.buildNodeModules {
+              inherit nodejs;
+              npmRoot = ./node-pkgs;
+              derivationArgs = {
+                nativeBuildInputs = with pkgs; [
+                  # keep-sorted start
+                  cairo
+                  giflib
+                  libjpeg
+                  libpng
+                  librsvg
+                  pango
+                  pixman
+                  pkg-config
+                  # keep-sorted end
+                ];
+              };
+            };
           in
           {
             devShells = {
-              default =
-                let
-                  buildInputs = (
-                    with pkgs;
-                    [
-                      # keep-sorted start
-                      cairo
-                      giflib
-                      libjpeg
-                      libpng
-                      librsvg
-                      pango
-                      pixman
-                      pkg-config
-                      # keep-sorted end
-                    ]
-                  );
-                in
-                pkgs.mkShell {
-                  PFPATH = "${
-                    pkgs.buildEnv {
-                      name = "zsh-comp";
-                      paths = config.devShells.default.nativeBuildInputs;
-                      pathsToLink = [ "/share/zsh" ];
-                    }
-                  }/share/zsh/site-functions";
-                  inherit buildInputs;
-                  LD_LIBRARY_PATH = "${pkgs.lib.makeLibraryPath buildInputs}";
-                  packages = (
-                    with pkgs;
-                    [
-                      # keep-sorted start
-                      astro-language-server
-                      bun
-                      efm-langserver
-                      nil
-                      nixfmt-rfc-style
-                      vtsls
-                      # keep-sorted end
-                    ]
-                  );
-                  inputsFrom = [
-                    config.pre-commit.devShell
-                    treefmtBuild.devShell
-                  ];
-                };
+              default = pkgs.mkShell {
+                inherit npmDeps;
+                PFPATH = "${
+                  pkgs.buildEnv {
+                    name = "zsh-comp";
+                    paths = config.devShells.default.nativeBuildInputs;
+                    pathsToLink = [ "/share/zsh" ];
+                  }
+                }/share/zsh/site-functions";
+                inputsFrom = [
+                  treefmtBuild.devShell
+                ];
+                shellHook = ''
+                  ${config.pre-commit.installationScript}
+                  source ${importNpmLock.hooks.linkNodeModulesHook}/nix-support/setup-hook
+                  linkNodeModulesHook
+                '';
+                packages = (
+                  with pkgs;
+                  [
+                    # keep-sorted start
+                    astro-language-server
+                    efm-langserver
+                    nil
+                    nixfmt-rfc-style
+                    nodePackages.npm
+                    vtsls
+                    # keep-sorted end
+                  ]
+                );
+              };
             };
             pre-commit = {
               check = {
@@ -123,6 +128,16 @@
               settings = {
                 src = ./.;
                 hooks = {
+                  astro = {
+                    enable = true;
+                    entry = "${npmDeps}/node_modules/.bin/astro check";
+                    files = "\\.(astro|ts)$";
+                  };
+                  tsc = {
+                    enable = true;
+                    entry = "bash -c '${npmDeps}/node_modules/.bin/tsc --noEmit'";
+                    files = "\\.ts$";
+                  };
                   biome = {
                     enable = true;
                     types_or = [
@@ -153,6 +168,9 @@
               flakeCheck = false;
               programs = {
                 # keep-sorted start block=yes
+                biome = {
+                  enable = true;
+                };
                 keep-sorted = {
                   enable = true;
                 };

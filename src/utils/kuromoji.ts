@@ -1,6 +1,10 @@
-import kuromoji, { type IpadicFeatures, type Tokenizer } from "kuromoji";
+import {
+	type IpadicFeatures,
+	builder as kuromojiBuilder,
+	type Tokenizer,
+} from "kuromoji";
 
-const builder = kuromoji.builder({
+const builder = kuromojiBuilder({
 	dicPath: "node_modules/kuromoji/dict",
 });
 
