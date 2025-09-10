@@ -1,32 +1,23 @@
 ---
-import { Picture } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { dateTransform } from "@utils/dateTransform";
 
 export type Props = {
-  entry: CollectionEntry<"posts">;
+	entry: CollectionEntry<"posts">;
 };
 
 const { entry } = Astro.props;
 const date = entry.data.publishDate;
-const link = `/${entry.slug}`;
-const category = entry.slug.split("/")[0];
+const link = `/${entry.id}`;
+const category = entry.id.split("/")[0];
 ---
 
-<div class="shadow-md rounded-md col-span-1 relative overflow-hidden before:pt-full before:block before:content-empty hover:scale-105 duration-100 transform">
+<div class="hover:shadow-md border col-span-1 relative overflow-hidden">
   <a href={link} class="top-0 left-0 absolute inset-0 z-1 peer" />
-    <Picture
-      src={entry.data.image}
-      alt={entry.data.title}
-      class="inset-0 object-cover top-0 left-0 w-full h-full absolute"
-      width={660}
-      height={438}
-      formats={["avif", "webp"]}
-    />
-    <div class="absolute inset-0 bg-black bg-opacity-30 flex peer-hover:bg-opacity-50 transition  flex-col justify-end p-4 text-white has-[a:hover]:bg-opacity-50">
-      <div class="line-clamp-2 font-bold text-lg">
+    <div class="absolute inset-0  bg-opacity-30 flex transition flex-col justify-end p-4">
+      <span class="font-bold text-lg">
         {entry.data.title}
-      </div>
+      </span>
       <p class="text-sm">{dateTransform(date)}</p>
       <div class="flex gap-2 text-sm justify-start">
         category:

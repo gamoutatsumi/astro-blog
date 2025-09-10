@@ -3,9 +3,6 @@
 
   inputs = {
     # keep-sorted start block=yes
-    flake-compat = {
-      url = "github:edolstra/flake-compat";
-    };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs = {
@@ -15,19 +12,13 @@
       };
     };
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-24.11";
-    };
-    nixpkgs-unstable = {
-      url = "github:NixOS/nixpkgs/nixos-unstable";
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
     pre-commit-hooks = {
       url = "github:cachix/git-hooks.nix";
       inputs = {
         nixpkgs = {
           follows = "nixpkgs";
-        };
-        flake-compat = {
-          follows = "flake-compat";
         };
       };
     };
@@ -50,7 +41,6 @@
       self,
       flake-parts,
       systems,
-      nixpkgs-unstable,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
@@ -62,10 +52,10 @@
       }:
       {
         systems = import systems;
-        imports =
-          [ ]
-          ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ inputs.pre-commit-hooks.flakeModule ]
-          ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ inputs.treefmt-nix.flakeModule ];
+        imports = [
+          inputs.pre-commit-hooks.flakeModule
+          inputs.treefmt-nix.flakeModule
+        ];
 
         perSystem =
           {
@@ -75,61 +65,60 @@
             ...
           }:
           let
-            upkgs = import nixpkgs-unstable {
-              inherit system;
-              overlays = [ (final: prev: { nodejs = prev.nodejs_22; }) ];
-            };
             treefmtBuild = config.treefmt.build;
+            nodejs = pkgs.nodejs_24;
+            inherit (pkgs) importNpmLock;
+            npmDeps = importNpmLock.buildNodeModules {
+              inherit nodejs;
+              npmRoot = ./node-pkgs;
+              derivationArgs = {
+                nativeBuildInputs = with pkgs; [
+                  # keep-sorted start
+                  cairo
+                  giflib
+                  libjpeg
+                  libpng
+                  librsvg
+                  pango
+                  pixman
+                  pkg-config
+                  # keep-sorted end
+                ];
+              };
+            };
           in
           {
             devShells = {
-              default =
-                let
-                  buildInputs = (
-                    with upkgs;
-                    [
-                      cairo
-                      pkg-config
-                      libjpeg
-                      pango
-                      libpng
-                      giflib
-                      librsvg
-                      pixman
-                    ]
-                  );
-                in
-                pkgs.mkShell {
-                  buildInputs =
-                    buildInputs
-                    ++ (lib.optionals (pkgs.stdenv.isDarwin) (with pkgs; [ darwin.apple_sdk.frameworks.CoreText ]));
-                  LD_LIBRARY_PATH =
-                    "${pkgs.lib.makeLibraryPath buildInputs}"
-                    + lib.optionalString pkgs.stdenv.isDarwin ":${pkgs.darwin.apple_sdk.frameworks.CoreText}/LIbrary/Frameworks";
-                  packages =
-                    (with pkgs; [
-                      nil
-                      nixfmt-rfc-style
-                      efm-langserver
-                      pinact
-                    ])
-                    ++ (with upkgs; [
-                      astro-language-server
-                      vtsls
-                      nodejs
-                      (with nodePackages; [
-                        pnpm
-                        vscode-json-languageserver
-                      ])
-                    ]);
-                  inputsFrom =
-                    [ ]
-                    ++ lib.optionals (inputs.pre-commit-hooks ? flakeModule) [ config.pre-commit.devShell ]
-                    ++ lib.optionals (inputs.treefmt-nix ? flakeModule) [ treefmtBuild.devShell ];
-                };
+              default = pkgs.mkShell {
+                inherit npmDeps;
+                PFPATH = "${
+                  pkgs.buildEnv {
+                    name = "zsh-comp";
+                    paths = config.devShells.default.nativeBuildInputs;
+                    pathsToLink = [ "/share/zsh" ];
+                  }
+                }/share/zsh/site-functions";
+                inputsFrom = [
+                  treefmtBuild.devShell
+                ];
+                shellHook = ''
+                  ${config.pre-commit.installationScript}
+                  source ${importNpmLock.hooks.linkNodeModulesHook}/nix-support/setup-hook
+                  linkNodeModulesHook
+                '';
+                packages = with pkgs; [
+                  # keep-sorted start
+                  astro-language-server
+                  efm-langserver
+                  go-task
+                  nil
+                  nixfmt-rfc-style
+                  nodePackages.npm
+                  vtsls
+                  # keep-sorted end
+                ];
+              };
             };
-          }
-          // lib.optionalAttrs (inputs.pre-commit-hooks ? flakeModule) {
             pre-commit = {
               check = {
                 enable = true;
@@ -137,9 +126,30 @@
               settings = {
                 src = ./.;
                 hooks = {
+                  astro = {
+                    enable = true;
+                    entry = "${npmDeps}/node_modules/.bin/astro check";
+                    files = "\\.(astro|ts)$";
+                  };
+                  tsc = {
+                    enable = true;
+                    entry = "bash -c '${npmDeps}/node_modules/.bin/tsc --noEmit'";
+                    files = "\\.ts$";
+                  };
                   biome = {
                     enable = true;
-                    package = upkgs.biome;
+                    types_or = [
+                      # keep-sorted start
+                      "astro"
+                      "javascript"
+                      "json"
+                      "jsx"
+                      "markdown"
+                      "ts"
+                      "tsx"
+                      "xml"
+                      # keep-sorted end
+                    ];
                   };
                   treefmt = {
                     enable = true;
@@ -150,27 +160,14 @@
                 };
               };
             };
-          }
-          // lib.optionalAttrs (inputs.treefmt-nix ? flakeModule) {
             formatter = treefmtBuild.wrapper;
             treefmt = {
               projectRootFile = "flake.nix";
               flakeCheck = false;
-              settings = {
-                formatter = {
-                  biome = {
-                    includes = [
-                      "*.astro"
-                      "*.xml"
-                    ];
-                  };
-                };
-              };
               programs = {
                 # keep-sorted start block=yes
                 biome = {
                   enable = true;
-                  package = upkgs.biome;
                 };
                 keep-sorted = {
                   enable = true;

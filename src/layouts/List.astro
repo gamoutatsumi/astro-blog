@@ -2,14 +2,14 @@
 import Layout from "./Layout.astro";
 
 export interface Props {
-  title: string;
+	title: string;
 }
 
 const { title } = Astro.props;
 ---
 
 <Layout title={title} pageType="website">
-    <div class="m-4 h-25vh grid md:grid-cols-4">
+    <div class="m-4 h-25vh grid">
       <slot />
     </div>
 </Layout>
