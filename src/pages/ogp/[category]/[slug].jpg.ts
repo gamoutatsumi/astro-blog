@@ -2,7 +2,6 @@ import type { CollectionEntry } from "astro:content";
 import { getCollection, getEntry } from "astro:content";
 import * as path from "node:path";
 import { createCanvas, GlobalFonts, type SKRSContext2D } from "@napi-rs/canvas";
-import { tokenizer } from "@utils/kuromoji";
 import type { APIContext, GetStaticPaths } from "astro";
 
 export interface Props {
@@ -17,41 +16,39 @@ const SPACING = 1.5;
 const FONT_HEIGHT = FONT_SIZE * SPACING;
 const BLOG_NAME = "@gamoutatsumi";
 
-const wrapText = async (
+const wrapText = (
 	ctx: SKRSContext2D,
 	text: string,
 	maxWidth: number,
-): Promise<string[]> => {
-	const kuromoji = await tokenizer();
-	return kuromoji
-		.tokenize(text)
-		.map((token) => token.surface_form)
-		.reduce(
-			(lines, segment) => {
-				const tmpLines = lines;
-				const { width } = ctx.measureText(
-					tmpLines[tmpLines.length - 1] + segment.trim(),
-				);
-				if (width > maxWidth) {
-					tmpLines.push("");
-				}
-				tmpLines[tmpLines.length - 1] += segment;
-				return tmpLines;
-			},
-			[""],
-		);
+): string[] => {
+	const segmenterJa = new Intl.Segmenter("ja-JP", { granularity: "word" });
+	const segments = Array.from(segmenterJa.segment(text));
+	return segments.reduce(
+		(lines, { segment }) => {
+			const tmpLines = lines;
+			const { width } = ctx.measureText(
+				tmpLines[tmpLines.length - 1] + segment.trim(),
+			);
+			if (width > maxWidth) {
+				tmpLines.push("");
+			}
+			tmpLines[tmpLines.length - 1] += segment;
+			return tmpLines;
+		},
+		[""],
+	);
 };
 
 const fill = (ctx: SKRSContext2D) => {
-	ctx.fillStyle = "#111";
+	ctx.fillStyle = "#fff";
 	ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 };
 
-const drawTitle = async (ctx: SKRSContext2D, title: string) => {
-	ctx.font = `${FONT_SIZE}px Noto Sans JP`;
+const drawTitle = (ctx: SKRSContext2D, title: string) => {
+	ctx.font = `bold ${FONT_SIZE}px Noto Sans JP`;
 	ctx.textBaseline = "middle";
-	ctx.fillStyle = "#fff";
-	const lines = await wrapText(ctx, title, CANVAS_WIDTH * 0.8);
+	ctx.fillStyle = "#111";
+	const lines = wrapText(ctx, title, CANVAS_WIDTH * 0.8);
 	lines.forEach((line, i) => {
 		const { width } = ctx.measureText(line);
 		ctx.fillText(
@@ -65,18 +62,19 @@ const drawTitle = async (ctx: SKRSContext2D, title: string) => {
 const drawName = (ctx: SKRSContext2D) => {
 	ctx.font = "40px Noto Sans JP";
 	ctx.textBaseline = "bottom";
+	ctx.fillStyle = "#111";
 	const { width } = ctx.measureText(BLOG_NAME);
 	ctx.fillText(BLOG_NAME, CANVAS_WIDTH - 80 - width, CANVAS_HEIGHT - 80);
 };
 
-const drawOGImage = async (title: string): Promise<ReadableStream<Buffer>> => {
+const drawOGImage = (title: string): ReadableStream<Buffer> => {
 	GlobalFonts.registerFromPath(
 		path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"),
 	);
 	const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
 	const ctx = canvas.getContext("2d");
 	fill(ctx);
-	await drawTitle(ctx, title);
+	drawTitle(ctx, title);
 	drawName(ctx);
 	return canvas.encodeStream("jpeg") as ReadableStream<Buffer>;
 };
@@ -100,5 +98,5 @@ export const GET = async ({ params }: APIContext): Promise<Response> => {
 	if (entry === undefined) {
 		return new Response("Not Found", { status: 404 });
 	}
-	return new Response(await drawOGImage(entry.data.title), { status: 200 });
+	return new Response(drawOGImage(entry.data.title), { status: 200 });
 };
