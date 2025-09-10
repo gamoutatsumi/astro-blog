@@ -16,6 +16,12 @@
 			"@lib/*": ["./src/lib/*"]
 		}
 	},
-	"include": ["./astro.config.ts", ".*.cjs", "src/", "./.astro/"],
-	"exclude": ["./node-pkgs/node_modules"]
+	"include": [
+		"./astro.config.ts",
+		".*.cjs",
+		"src/",
+		"./.astro/types.d.ts",
+		"**/*"
+	],
+	"exclude": ["./node-pkgs/node_modules", "dist"]
 }

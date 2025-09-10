@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
 				(entry) =>
 					entry.data.tags.includes(tag) &&
 					!entry.data.isDraft &&
-					entry.slug.split("/")[0] !== "nsfw",
+					entry.id.split("/")[0] !== "nsfw",
 			),
 			{ pageSize: 10, params: { tag }, props: { tag } },
 		),

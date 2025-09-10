@@ -5,10 +5,10 @@ import type { APIContext } from "astro";
 export const GET = async (context: APIContext) => {
 	const entries = await getCollection("posts");
 	const items = entries
-		.filter((entry) => entry.slug.split("/")[0] !== "nsfw")
+		.filter((entry) => entry.id.split("/")[0] !== "nsfw")
 		.map((entry) => ({
 			title: entry.data.title,
-			link: entry.slug,
+			link: entry.id,
 			pubDate: entry.data.publishDate,
 		}));
 

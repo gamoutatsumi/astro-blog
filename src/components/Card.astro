@@ -8,8 +8,8 @@ export type Props = {
 
 const { entry } = Astro.props;
 const date = entry.data.publishDate;
-const link = `/${entry.slug}`;
-const category = entry.slug.split("/")[0];
+const link = `/${entry.id}`;
+const category = entry.id.split("/")[0];
 ---
 
 <div class="hover:shadow-md border col-span-1 relative overflow-hidden">

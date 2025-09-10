@@ -84,8 +84,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	return blogEntries
 		.filter((entry) => !entry.data.isDraft)
 		.map((entry) => {
-			const category = entry.slug.split("/")[0];
-			const slug = entry.slug.split("/")[1];
+			const category = entry.id.split("/")[0];
+			const slug = entry.id.split("/")[1];
 			return {
 				params: { slug, category },
 				props: { entry, category },

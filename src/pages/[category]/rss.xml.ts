@@ -7,7 +7,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	return blogEntries
 		.filter((entry) => !entry.data.isDraft)
 		.map((entry) => {
-			const category = entry.slug.split("/")[0];
+			const category = entry.id.split("/")[0];
 			return {
 				params: { category },
 				props: { category },
@@ -18,10 +18,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const GET = async (context: APIContext) => {
 	const entries = await getCollection("posts");
 	const items = entries
-		.filter((entry) => entry.slug.split("/")[0] === context.params.category)
+		.filter((entry) => entry.id.split("/")[0] === context.params.category)
 		.map((entry) => ({
 			title: entry.data.title,
-			link: entry.slug,
+			link: entry.id,
 			pubDate: entry.data.publishDate,
 		}));
 
