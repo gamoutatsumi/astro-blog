@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
       - uses: cachix/install-nix-action@7be5dee1421f63d07e71ce6e0a9f8a4b07c2a487 # v31.6.1
+        with:
+          github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: DeterminateSystems/magic-nix-cache-action@565684385bcd71bad329742eefe8d12f2e765b39 # v13
       - uses: nicknovitski/nix-develop@9be7cfb4b10451d3390a75dc18ad0465bed4932a # v1.2.1
         with:
           arguments: --accept-flake-config
