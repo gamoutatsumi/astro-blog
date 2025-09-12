@@ -32,7 +32,7 @@
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.4",
-		"@types/node": "^24.3.1",
+		"@types/node": "24.3.1",
 		"@unocss/reset": "66.5.0",
 		"concurrently": "9.2.1",
 		"lint-staged": "16.1.6",
