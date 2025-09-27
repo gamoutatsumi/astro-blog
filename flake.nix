@@ -106,17 +106,18 @@
                   source ${importNpmLock.hooks.linkNodeModulesHook}/nix-support/setup-hook
                   linkNodeModulesHook
                 '';
-                packages = with pkgs; [
-                  # keep-sorted start
-                  astro-language-server
-                  efm-langserver
-                  go-task
-                  nil
-                  nixfmt-rfc-style
-                  nodePackages.npm
-                  vtsls
-                  # keep-sorted end
-                ];
+                packages =
+                  (with pkgs; [
+                    # keep-sorted start
+                    astro-language-server
+                    efm-langserver
+                    go-task
+                    nil
+                    nixfmt-rfc-style
+                    vtsls
+                    # keep-sorted end
+                  ])
+                  ++ [ nodejs ];
               };
             };
             pre-commit = {
