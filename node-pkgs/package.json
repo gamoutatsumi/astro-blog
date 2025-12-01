@@ -33,12 +33,12 @@
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.4",
 		"@types/node": "24.5.2",
-		"@unocss/reset": "66.5.0",
+		"@unocss/reset": "66.5.9",
 		"concurrently": "9.2.1",
 		"lint-staged": "16.2.1",
 		"simple-git-hooks": "2.13.1",
 		"typescript": "5.9.2",
-		"unocss": "66.5.0",
+		"unocss": "66.5.9",
 		"unocss-language-server": "0.1.7",
 		"wrangler": "4.40.2"
 	}
