@@ -18,7 +18,7 @@
 		"@astrojs/partytown": "2.1.4",
 		"@astrojs/rss": "4.0.12",
 		"@astrojs/sitemap": "3.6.0",
-		"@napi-rs/canvas": "0.1.83",
+		"@napi-rs/canvas": "0.1.84",
 		"@popperjs/core": "2.11.8",
 		"astro": "5.14.1",
 		"astro-mcp": "0.4.2",
