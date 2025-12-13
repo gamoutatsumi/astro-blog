@@ -16,11 +16,11 @@
 	},
 	"dependencies": {
 		"@astrojs/partytown": "2.1.4",
-		"@astrojs/rss": "4.0.12",
+		"@astrojs/rss": "4.0.14",
 		"@astrojs/sitemap": "3.6.0",
 		"@napi-rs/canvas": "0.1.84",
 		"@popperjs/core": "2.11.8",
-		"astro": "5.14.1",
+		"astro": "5.16.5",
 		"astro-mcp": "0.4.2",
 		"astro-seo": "0.8.4",
 		"autoprefixer": "10.4.22",
@@ -31,7 +31,7 @@
 		"zod": "4.1.13"
 	},
 	"devDependencies": {
-		"@astrojs/ts-plugin": "1.10.4",
+		"@astrojs/ts-plugin": "1.10.6",
 		"@types/node": "24.5.2",
 		"@unocss/reset": "66.5.10",
 		"concurrently": "9.2.1",
