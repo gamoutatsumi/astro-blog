@@ -20,7 +20,7 @@
 		"@astrojs/sitemap": "3.6.0",
 		"@napi-rs/canvas": "0.1.84",
 		"@popperjs/core": "2.11.8",
-		"astro": "5.16.5",
+		"astro": "5.16.6",
 		"astro-mcp": "0.4.2",
 		"astro-seo": "0.8.4",
 		"autoprefixer": "10.4.22",
