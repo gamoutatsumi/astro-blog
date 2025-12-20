@@ -88,3 +88,92 @@ Uses `@napi-rs/canvas` to generate OGP images at build time. Requires Noto Sans 
 - **@astrojs/sitemap** - Sitemap generation (excludes `/nsfw/` pages)
 - **@astrojs/partytown** - Third-party script optimization (Cloudflare Analytics)
 - **astro-mcp** - MCP server integration for editor tooling
+
+## MCP Workflow
+
+フロントエンドの改善やコード修正を行う際の標準的な作業フローです。
+
+### 1. 現状分析フェーズ
+
+```
+1. Astro MCP で設定・ルート情報を取得
+   - mcp__astro__get-astro-config
+   - mcp__astro__list-astro-routes
+   - mcp__astro__get-astro-server-address
+
+2. Playwright MCP でビジュアル確認
+   - browser_navigate でページにアクセス
+   - browser_take_screenshot でスクリーンショット取得
+   - browser_resize でレスポンシブ確認
+   - browser_snapshot でアクセシビリティツリー取得
+
+3. Serena MCP でコード構造を分析
+   - activate_project でプロジェクトをアクティベート
+   - list_dir でディレクトリ構造確認
+   - read_file / find_symbol でコード詳細確認
+```
+
+### 2. 計画立案フェーズ
+
+```
+1. 問題点を洗い出してリスト化
+
+2. Codex MCP で実行計画を立案
+   - prompt: 計画を .claude/PLAN.md に書き出すよう指示
+   - sandbox: workspace-write
+   - approval-policy: never
+
+3. Context7 MCP でライブラリドキュメントを参照
+   - resolve-library-id でライブラリID取得
+   - get-library-docs でドキュメント取得
+```
+
+### 3. 実装フェーズ
+
+```
+1. TodoWrite でタスクを細分化して管理
+   - 各タスクを独立してコミット可能な単位に分割
+   - status: pending → in_progress → completed
+
+2. Serena MCP でコード編集
+   - replace_content: 正規表現またはリテラル置換
+   - replace_symbol_body: シンボル単位の置換
+
+3. Playwright MCP で修正結果を視覚的に確認
+```
+
+### 4. コミットフェーズ
+
+```
+1. タスクごとに独立したコミットを作成
+2. コミットメッセージ形式:
+   - fix: バグ修正
+   - style: スタイル変更
+   - feat: 新機能追加
+```
+
+### MCP サーバー一覧
+
+| MCP | 用途 |
+|-----|------|
+| **Astro MCP** | Astro設定・ルート・開発サーバー情報 |
+| **Playwright MCP** | ブラウザ操作・スクリーンショット・視覚的検証 |
+| **Serena MCP** | コード解析・シンボル操作・ファイル編集 |
+| **Codex MCP** | 実行計画立案・タスク委任 |
+| **Context7 MCP** | ライブラリドキュメント参照 |
+| **Git MCP** | Gitリポジトリ操作 |
+
+### Codex MCP 使用時の注意
+
+```typescript
+// 推奨オプション
+{
+  sandbox: "workspace-write",
+  "approval-policy": "never",
+  cwd: "/path/to/project"
+}
+```
+
+- 計画は `.claude/PLAN.md` などに書き出す
+- タスクは細分化して進捗を追いやすくする
+- 追加コンテキストが必要な場合は `mcp__codex__codex-reply` で対話継続
