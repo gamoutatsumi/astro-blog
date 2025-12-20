@@ -30,4 +30,4 @@ pnpm-debug.log*
 .pre-commit-config.yaml
 .mcp.json
 .cursor
-.claude
+.serena
