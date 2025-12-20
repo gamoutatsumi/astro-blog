@@ -19,6 +19,8 @@ export default defineConfig({
 	},
 	markdown: {
 		remarkPlugins: [remarkDirective],
+		syntaxHighlight: "shiki",
+		gfm: true,
 	},
 	integrations: [
 		UnoCSS({ injectReset: true }),
