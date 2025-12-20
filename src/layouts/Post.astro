@@ -61,7 +61,7 @@ const isNsfw = metadata.category === "nsfw";
       </p>
     </div>
   </div>
-  <div class="p-4">
+  <div class="p-4" data-pagefind-body={!isNsfw ? "" : undefined}>
     <slot />
   </div>
   <SidebarLayout slot="sidebar">
