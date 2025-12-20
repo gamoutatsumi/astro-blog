@@ -32,7 +32,9 @@
 			"Bash(task build:*)",
 			"mcp__playwright__browser_type",
 			"Bash(grep:*)",
-			"Bash(git diff:*)"
+			"Bash(git diff:*)",
+			"mcp__serena__search_for_pattern",
+			"mcp__playwright__browser_wait_for"
 		]
 	},
 	"enabledMcpjsonServers": ["astro", "playwright"],

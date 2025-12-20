@@ -14,7 +14,7 @@ export interface ProfileData {
 export const profileData: ProfileData = {
 	avatarSrc: "https://www.gravatar.com/avatar/084796c04c555da9002216a4852c2f3c",
 	name: "@gamoutatsumi",
-	bio: "開発者・ブロガー",
+	bio: "Vimmer",
 	links: [
 		{
 			label: "X",
