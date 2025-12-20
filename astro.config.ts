@@ -2,6 +2,7 @@ import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import mcp from "astro-mcp";
+import pagefind from "astro-pagefind";
 import remarkDirective from "remark-directive";
 import UnoCSS from "unocss/astro";
 
@@ -23,6 +24,7 @@ export default defineConfig({
 		gfm: true,
 	},
 	integrations: [
+		pagefind(),
 		UnoCSS({ injectReset: true }),
 		sitemap({
 			customPages: ["https://blog.gamou.dev"],
