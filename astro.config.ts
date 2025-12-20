@@ -8,6 +8,14 @@ import UnoCSS from "unocss/astro";
 export default defineConfig({
 	image: { responsiveStyles: true, layout: "constrained" },
 	site: "https://blog.gamou.dev",
+	vite: {
+		server: {
+			fs: {
+				// Allow serving files from Nix store (for dev toolbar in Nix environment)
+				allow: ["/nix/store"],
+			},
+		},
+	},
 	integrations: [
 		UnoCSS({ injectReset: true }),
 		sitemap({
