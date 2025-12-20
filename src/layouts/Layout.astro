@@ -50,7 +50,7 @@ const pageTitle = `${title} | ${APPNAME}`;
       }}
       openGraph={{
         basic: {
-          title,
+          title: pageTitle,
           image: new URL(image ?? proliantImg.src ?? "", Astro.url).toString(),
           type: pageType ?? "website",
         },
@@ -62,7 +62,7 @@ const pageTitle = `${title} | ${APPNAME}`;
           { rel: "icon", href: new URL("/favicon.ico", Astro.url).toString() },
         ],
         meta: [
-          { name: "twitter:title", content: title },
+          { name: "twitter:title", content: pageTitle },
           {
             name: "twitter:image",
             content: new URL(
