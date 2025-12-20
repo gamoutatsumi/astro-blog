@@ -30,7 +30,7 @@ const { title, metadata, body } = Astro.props;
           {
             metadata.tags.map((tag) => (
               <li>
-                <a class="px-2 bg-gray-2 rounded-md hover:underline" href={`/tags/${tag}`}>{tag}</a>
+                <a class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400" href={`/tags/${tag}`}>{tag}</a>
               </li>
             ))
           }
@@ -39,7 +39,7 @@ const { title, metadata, body } = Astro.props;
       <div class="inline-flex gap-1">
         <p class="inline">category:</p>
         <p>
-          <a class="px-2 bg-gray-2 rounded-md hover:underline" href={`/${metadata.category}`}
+          <a class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400" href={`/${metadata.category}`}
             >{metadata.category}</a
           >
         </p>

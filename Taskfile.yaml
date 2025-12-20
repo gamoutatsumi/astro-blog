@@ -3,3 +3,6 @@ tasks:
   build:
     cmds:
       - astro build
+  dev:
+    cmds:
+      - astro dev

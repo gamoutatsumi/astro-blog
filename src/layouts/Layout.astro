@@ -25,8 +25,21 @@ const pageTitle = `${title} | ${APPNAME}`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja" class="">
   <head>
+    <script is:inline>
+      // Check saved preference first, then system preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+      }
+      // Listen for system preference changes (only if no saved preference)
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.classList.toggle('dark', e.matches);
+        }
+      });
+    </script>
     <SEO
       title={pageTitle}
       twitter={{
@@ -69,11 +82,16 @@ const pageTitle = `${title} | ${APPNAME}`;
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <div class="flex flex-col min-h-screen bg-gray-1">
-    <Header title={APPNAME} />
-          <main class="shadow-md mt-10 mx-5 md:mx-10 flex-grow md:flex-grow-0 mb-10 md:mb-auto bg-white">
-            <slot />
-          </main>
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded focus:outline-none focus:ring-2 focus:ring-white">
+      メインコンテンツへスキップ
+    </a>
+    <div class="flex flex-col min-h-screen bg-base text-base">
+      <Header title={APPNAME} />
+      <div class="flex-1 flex justify-center px-5 py-10">
+        <main id="main-content" class="shadow-md bg-surface border-base border max-w-screen-md w-full">
+          <slot />
+        </main>
+      </div>
       <Footer />
     </div>
     <!-- Cloudflare Web Analytics -->

@@ -11,6 +11,14 @@
         };
       };
     };
+    mcp-servers-nix = {
+      url = "github:natsukium/mcp-servers-nix";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
@@ -55,6 +63,7 @@
         imports = [
           inputs.pre-commit-hooks.flakeModule
           inputs.treefmt-nix.flakeModule
+          inputs.mcp-servers-nix.flakeModule
         ];
 
         perSystem =
@@ -88,6 +97,26 @@
             };
           in
           {
+            mcp-servers = {
+              settings = {
+                servers = {
+                  astro = {
+                    url = "http://localhost:4321/__mcp/sse";
+                    type = "sse";
+                  };
+                };
+              };
+              programs = {
+                playwright = {
+                  enable = true;
+                };
+              };
+              flavors = {
+                claude-code = {
+                  enable = true;
+                };
+              };
+            };
             devShells = {
               default = pkgs.mkShell {
                 inherit npmDeps;
@@ -100,23 +129,25 @@
                 }/share/zsh/site-functions";
                 inputsFrom = [
                   treefmtBuild.devShell
+                  config.mcp-servers.devShell
                 ];
                 shellHook = ''
                   ${config.pre-commit.installationScript}
                   source ${importNpmLock.hooks.linkNodeModulesHook}/nix-support/setup-hook
                   linkNodeModulesHook
                 '';
-                packages = with pkgs; [
-                  # keep-sorted start
-                  astro-language-server
-                  efm-langserver
-                  go-task
-                  nil
-                  nixfmt-rfc-style
-                  nodePackages.npm
-                  vtsls
-                  # keep-sorted end
-                ];
+                packages =
+                  (with pkgs; [
+                    # keep-sorted start
+                    astro-language-server
+                    efm-langserver
+                    go-task
+                    nil
+                    nixfmt-rfc-style
+                    vtsls
+                    # keep-sorted end
+                  ])
+                  ++ [ nodejs ];
               };
             };
             pre-commit = {
@@ -126,6 +157,11 @@
               settings = {
                 src = ./.;
                 hooks = {
+                  textlint = {
+                    enable = true;
+                    entry = "${npmDeps}/node_modules/.bin/textlint";
+                    files = "\\.md$";
+                  };
                   astro = {
                     enable = true;
                     entry = "${npmDeps}/node_modules/.bin/astro check";
@@ -150,6 +186,7 @@
                       "xml"
                       # keep-sorted end
                     ];
+                    excludes = [ "node-pkgs/package-lock.json" ];
                   };
                   treefmt = {
                     enable = true;

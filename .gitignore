@@ -28,3 +28,10 @@ pnpm-debug.log*
 .direnv
 /direnv
 .pre-commit-config.yaml
+.mcp.json
+.cursor
+.serena
+.playwright-mcp
+
+# Claude plan files
+.claude/PLAN*.md

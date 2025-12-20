@@ -1,12 +1,27 @@
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
+import mcp from "astro-mcp";
+import remarkDirective from "remark-directive";
 import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
 	image: { responsiveStyles: true, layout: "constrained" },
 	site: "https://blog.gamou.dev",
+	vite: {
+		server: {
+			fs: {
+				// Allow serving files from Nix store (for dev toolbar in Nix environment)
+				allow: ["/nix/store"],
+			},
+		},
+	},
+	markdown: {
+		remarkPlugins: [remarkDirective],
+		syntaxHighlight: "shiki",
+		gfm: true,
+	},
 	integrations: [
 		UnoCSS({ injectReset: true }),
 		sitemap({
@@ -21,5 +36,6 @@ export default defineConfig({
 		partytown({
 			config: {},
 		}),
+		mcp({ editor: "cursor" }),
 	],
 });
