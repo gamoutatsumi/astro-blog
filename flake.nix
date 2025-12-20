@@ -102,7 +102,8 @@
               settings = {
                 servers = {
                   astro = {
-                    url = "http://localhost:4321/sse";
+                    url = "http://localhost:4321/__mcp/sse";
+                    type = "sse";
                   };
                 };
               };

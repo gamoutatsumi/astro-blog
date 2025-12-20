@@ -29,3 +29,5 @@ pnpm-debug.log*
 /direnv
 .pre-commit-config.yaml
 .mcp.json
+.cursor
+.claude

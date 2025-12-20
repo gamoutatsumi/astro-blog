@@ -1,6 +1,7 @@
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
+import mcp from "astro-mcp";
 import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
@@ -21,5 +22,6 @@ export default defineConfig({
 		partytown({
 			config: {},
 		}),
+		mcp({ editor: "cursor" }),
 	],
 });
