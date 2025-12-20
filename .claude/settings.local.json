@@ -22,7 +22,12 @@
 			"Bash(git commit:*)",
 			"Bash(treefmt:*)",
 			"mcp__playwright__browser_network_requests",
-			"Bash(cat:*)"
+			"Bash(cat:*)",
+			"mcp__playwright__browser_evaluate",
+			"mcp__playwright__browser_click",
+			"mcp__playwright__browser_console_messages",
+			"mcp__playwright__browser_press_key",
+			"Bash(ls:*)"
 		]
 	},
 	"enabledMcpjsonServers": ["astro", "playwright"],
