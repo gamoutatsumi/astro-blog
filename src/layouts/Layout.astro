@@ -28,13 +28,16 @@ const pageTitle = `${title} | ${APPNAME}`;
 <html lang="ja" class="">
   <head>
     <script is:inline>
-      // Check system preference and apply dark mode
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      // Check saved preference first, then system preference
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.classList.add('dark');
       }
-      // Listen for system preference changes
+      // Listen for system preference changes (only if no saved preference)
       window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        document.documentElement.classList.toggle('dark', e.matches);
+        if (!localStorage.getItem('theme')) {
+          document.documentElement.classList.toggle('dark', e.matches);
+        }
       });
     </script>
     <SEO
