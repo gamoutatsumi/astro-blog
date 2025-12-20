@@ -33,36 +33,38 @@ const isNsfw = metadata.category === "nsfw";
   image={`/ogp/${metadata.category}/${metadata.slug}.jpg`}
   description={body ? body.replaceAll("\n", "").substring(0, 80): ""}
 >
-  <div class="p-4 border-b">
-    <h1 class="font-bold text-xl">{title}</h1>
-    <div class="flex justify-between flex-wrap md:flex-nowrap">
-      <div class="inline-flex gap-1">
-        <p class="inline">tags:</p>
-        <ul class="list-none flex">
-          {
-            metadata.tags.map((tag) => (
-              <li>
-                <a class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400" href={`/tags/${tag}`}>{tag}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <div class="inline-flex gap-1">
-        <p class="inline">category:</p>
-        <p>
-          <a class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400" href={`/${metadata.category}`}
-            >{metadata.category}</a
-          >
+  <div data-pagefind-body={!isNsfw ? "" : undefined}>
+    <div class="p-4 border-b">
+      <h1 class="font-bold text-xl">{title}</h1>
+      <div class="flex justify-between flex-wrap md:flex-nowrap" data-pagefind-ignore>
+        <div class="inline-flex gap-1">
+          <p class="inline">tags:</p>
+          <ul class="list-none flex">
+            {
+              metadata.tags.map((tag) => (
+                <li>
+                  <a class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400" href={`/tags/${tag}`}>{tag}</a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+        <div class="inline-flex gap-1">
+          <p class="inline">category:</p>
+          <p>
+            <a class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400" href={`/${metadata.category}`}
+              >{metadata.category}</a
+            >
+          </p>
+        </div>
+        <p title={dateTransform(metadata.publishDate, true)} class="inline">
+          {dateTransform(metadata.publishDate)}
         </p>
       </div>
-      <p title={dateTransform(metadata.publishDate, true)} class="inline">
-        {dateTransform(metadata.publishDate)}
-      </p>
     </div>
-  </div>
-  <div class="p-4" data-pagefind-body={!isNsfw ? "" : undefined}>
-    <slot />
+    <div class="p-4">
+      <slot />
+    </div>
   </div>
   <SidebarLayout slot="sidebar">
     <SidebarSearch />
