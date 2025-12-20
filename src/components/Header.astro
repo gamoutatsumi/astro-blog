@@ -5,9 +5,9 @@ interface Props {
 const { title } = Astro.props as Props;
 ---
 <header>
-  <nav class="flex items-center md:flex-row w-full bg-blue-500 py-3">
+  <nav class="flex items-center md:flex-row w-full bg-primary py-3">
     <div class="max-w-screen-md mx-auto">
-      <a class="text-lg font-bold text-white hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-blue-500 rounded" href="/">
+      <a class="text-lg font-bold text-on-primary hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-white rounded" href="/">
         {title}
       </a>
     </div>
