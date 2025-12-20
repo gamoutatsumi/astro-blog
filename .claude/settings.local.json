@@ -27,7 +27,12 @@
 			"mcp__playwright__browser_click",
 			"mcp__playwright__browser_console_messages",
 			"mcp__playwright__browser_press_key",
-			"Bash(ls:*)"
+			"Bash(ls:*)",
+			"Bash(astro check:*)",
+			"Bash(task build:*)",
+			"mcp__playwright__browser_type",
+			"Bash(grep:*)",
+			"Bash(git diff:*)"
 		]
 	},
 	"enabledMcpjsonServers": ["astro", "playwright"],
