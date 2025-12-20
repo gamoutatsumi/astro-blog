@@ -10,7 +10,7 @@ const { class: className } = Astro.props as Props;
 
 <SidebarCard title="検索" class={className}>
   <link rel="stylesheet" href="/pagefind/pagefind-ui.css" />
-  <div id="sidebar-search"></div>
+  <div id="sidebar-search" class="sidebar-search"></div>
   <script is:inline src="/pagefind/pagefind-ui.js" defer></script>
   <script>
     const initPagefind = () => {
@@ -64,7 +64,17 @@ const { class: className } = Astro.props as Props;
   --pagefind-ui-scale: 0.95;
   --pagefind-ui-font: inherit;
   --pagefind-ui-image-border-radius: 6px;
+}
+
+:global(.sidebar-search) {
+  position: relative;
   width: 100%;
+  overflow: visible;
+}
+
+:global(.sidebar-search .pagefind-ui) {
+  width: 100%;
+  position: relative;
 }
 
 :global(#sidebar-search) {
@@ -86,8 +96,21 @@ const { class: className } = Astro.props as Props;
   padding: 0.5rem 0.75rem;
 }
 
-:global(.pagefind-ui__drawer) {
-  padding: 0;
+:global(.sidebar-search .pagefind-ui__drawer) {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--sidebar-search-surface);
+  border: 1px solid var(--sidebar-search-border);
+  border-radius: 10px;
+  box-shadow: 0 15px 45px rgba(15, 23, 42, 0.18);
+  margin-top: 6px;
+  padding: 12px;
+}
+
+:global(.dark .sidebar-search .pagefind-ui__drawer) {
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
 }
 
 :global(.pagefind-ui__results) {

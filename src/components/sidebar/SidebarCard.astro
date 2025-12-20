@@ -7,7 +7,7 @@ interface Props {
 const { title, class: className } = Astro.props as Props;
 
 const classes = [
-	"bg-surface border-base border shadow-md hover:shadow-lg transition-shadow p-4",
+	"bg-surface border-base border shadow-md hover:shadow-lg transition-shadow p-4 overflow-visible",
 	className,
 ]
 	.filter(Boolean)
