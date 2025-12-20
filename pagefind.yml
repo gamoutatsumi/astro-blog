@@ -1,0 +1,3 @@
+site: dist
+output_subdir: pagefind
+force_language: ja
