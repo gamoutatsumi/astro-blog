@@ -14,7 +14,15 @@
 			"mcp__playwright__browser_take_screenshot",
 			"mcp__playwright__browser_resize",
 			"mcp__serena__replace_content",
-			"mcp__playwright__browser_snapshot"
+			"mcp__playwright__browser_snapshot",
+			"mcp__codex__codex",
+			"mcp__context7__resolve-library-id",
+			"mcp__context7__get-library-docs",
+			"Bash(git add:*)",
+			"Bash(git commit:*)",
+			"Bash(treefmt:*)",
+			"mcp__playwright__browser_network_requests",
+			"Bash(cat:*)"
 		]
 	},
 	"enabledMcpjsonServers": ["astro", "playwright"],
