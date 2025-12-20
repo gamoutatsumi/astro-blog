@@ -106,9 +106,9 @@ const pageTitle = `${title} | ${APPNAME}`;
               <slot name="sidebar" />
             </div>
           ) : (
-            <main id="main-content" class="shadow-md bg-surface border-base border max-w-screen-md w-full">
-              <slot />
-            </main>
+            <main id="main-content" class="shadow-md bg-surface border-base border max-w-screen-md w-full" data-pagefind-ignore={excludeFromSearch ? "all" : undefined}>
+                <slot />
+              </main>
           )
         }
       </div>
