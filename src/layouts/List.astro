@@ -9,15 +9,16 @@ import Layout from "./Layout.astro";
 
 export interface Props {
 	title: string;
+	excludeFromSearch?: boolean;
 }
 
-const { title } = Astro.props;
+const { title, excludeFromSearch = false } = Astro.props;
 const categories = await getCategories();
 const tags = await getTags();
 const recentPosts = await getRecentPosts(5);
 ---
 
-<Layout title={title} pageType="website" showSidebar={true}>
+<Layout title={title} pageType="website" showSidebar={true} excludeFromSearch={excludeFromSearch}>
     <div class="m-4 grid grid-cols-1 gap-4">
       <slot />
     </div>
