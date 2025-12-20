@@ -10,8 +10,15 @@ export default defineConfig({
 	rules: [
 		["object-cover", { "object-fit": "cover" }],
 		["object-container", { "object-fit": "contain" }],
+		["clip-rect-0", { clip: "rect(0, 0, 0, 0)" }],
+		["clip-auto", { clip: "auto" }],
 	],
 	shortcuts: {
+		// Accessibility
+		"sr-only":
+			"absolute w-1px h-1px p-0 -m-1px overflow-hidden clip-rect-0 whitespace-nowrap border-0",
+		"not-sr-only":
+			"static w-auto h-auto p-0 m-0 overflow-visible clip-auto whitespace-normal",
 		// Background
 		"bg-base": "bg-slate-50 dark:bg-slate-900",
 		"bg-surface": "bg-white dark:bg-slate-800",
