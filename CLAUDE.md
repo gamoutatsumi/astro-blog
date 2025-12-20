@@ -138,18 +138,40 @@ Uses `@napi-rs/canvas` to generate OGP images at build time. Requires Noto Sans 
 2. Serena MCP でコード編集
    - replace_content: 正規表現またはリテラル置換
    - replace_symbol_body: シンボル単位の置換
-
-3. Playwright MCP で修正結果を視覚的に確認
 ```
 
-### 4. コミットフェーズ
+### 4. 検証フェーズ（コミット前に必須）
 
 ```
-1. タスクごとに独立したコミットを作成
-2. コミットメッセージ形式:
+1. Playwright MCP で修正結果を確認
+   - browser_navigate でページにアクセス
+   - browser_take_screenshot でスクリーンショット取得
+   - browser_network_requests でエラーがないか確認
+   - browser_snapshot でDOM構造を確認
+
+2. 確認項目
+   - 修正が意図通りに反映されているか
+   - コンソールエラーが発生していないか
+   - 既存機能が壊れていないか
+
+3. 問題がある場合
+   - 実装フェーズに戻って修正
+   - 再度検証を行う
+
+4. 確認が完了してからコミットフェーズへ進む
+```
+
+### 5. コミットフェーズ
+
+```
+1. 検証完了後にコミットを作成
+2. タスクごとに独立したコミットを作成
+3. コミットメッセージ形式:
    - fix: バグ修正
    - style: スタイル変更
    - feat: 新機能追加
+   - a11y: アクセシビリティ改善
+   - docs: ドキュメント更新
 ```
 
 ### MCP サーバー一覧
