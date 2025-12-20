@@ -71,7 +71,6 @@
             system,
             pkgs,
             config,
-            inputs',
             ...
           }:
           let
