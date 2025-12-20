@@ -86,10 +86,12 @@ const pageTitle = `${title} | ${APPNAME}`;
       メインコンテンツへスキップ
     </a>
     <div class="flex flex-col min-h-screen bg-base text-base">
-    <Header title={APPNAME} />
-          <main id="main-content" class="shadow-md mt-10 mx-5 mb-10 bg-surface border-base border max-w-screen-md w-full md:mx-auto">
-            <slot />
-          </main>
+      <Header title={APPNAME} />
+      <div class="flex-1 flex justify-center px-5 py-10">
+        <main id="main-content" class="shadow-md bg-surface border-base border max-w-screen-md w-full">
+          <slot />
+        </main>
+      </div>
       <Footer />
     </div>
     <!-- Cloudflare Web Analytics -->
