@@ -6,7 +6,15 @@
 			"mcp__serena__list_dir",
 			"mcp__serena__read_file",
 			"mcp__serena__write_memory",
-			"mcp__serena__create_text_file"
+			"mcp__serena__create_text_file",
+			"mcp__astro__get-astro-config",
+			"mcp__astro__list-astro-routes",
+			"mcp__astro__get-astro-server-address",
+			"mcp__playwright__browser_navigate",
+			"mcp__playwright__browser_take_screenshot",
+			"mcp__playwright__browser_resize",
+			"mcp__serena__replace_content",
+			"mcp__playwright__browser_snapshot"
 		]
 	},
 	"enabledMcpjsonServers": ["astro", "playwright"],

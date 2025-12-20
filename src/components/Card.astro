@@ -12,32 +12,32 @@ const link = `/${entry.id}`;
 const category = entry.id.split("/")[0];
 ---
 
-<div class="hover:shadow-md border col-span-1 relative overflow-hidden">
-  <a href={link} class="top-0 left-0 absolute inset-0 z-1 peer" />
-    <div class="absolute inset-0  bg-opacity-30 flex transition flex-col justify-end p-4">
-      <span class="font-bold text-lg">
-        {entry.data.title}
-      </span>
-      <p class="text-sm">{dateTransform(date)}</p>
-      <div class="flex gap-2 text-sm justify-start">
-        category:
-        <a href={`/${category}`} class="hover:underline z-2">
-          {category}
-        </a>
-      </div>
-      <div class="flex gap-2 text-sm">
-        tags:
-        <ul class="list-none flex gap-2 z-2">
-          {
-            entry.data.tags.map((tag) => (
-              <li>
-                <a href={`/tags/${tag}`} class="hover:underline">
-                  {tag}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+<div class="hover:shadow-md border col-span-1 relative overflow-hidden bg-white">
+  <a href={link} class="absolute inset-0 z-1"></a>
+  <div class="flex flex-col p-4">
+    <span class="font-bold text-lg">
+      {entry.data.title}
+    </span>
+    <p class="text-sm">{dateTransform(date)}</p>
+    <div class="flex gap-2 text-sm justify-start">
+      category:
+      <a href={`/${category}`} class="hover:underline z-2 relative">
+        {category}
+      </a>
     </div>
+    <div class="flex gap-2 text-sm">
+      tags:
+      <ul class="list-none flex gap-2 z-2">
+        {
+          entry.data.tags.map((tag) => (
+            <li>
+              <a href={`/tags/${tag}`} class="hover:underline relative">
+                {tag}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
 </div>
