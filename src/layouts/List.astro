@@ -4,6 +4,7 @@ import SidebarProfile from "@components/sidebar/SidebarProfile.astro";
 import SidebarRecentPosts from "@components/sidebar/SidebarRecentPosts.astro";
 import SidebarSearch from "@components/sidebar/SidebarSearch.astro";
 import SidebarTaxonomy from "@components/sidebar/SidebarTaxonomy.astro";
+import { profileData } from "@lib/profileData";
 import { getCategories, getRecentPosts, getTags } from "@lib/sidebarData";
 import Layout from "./Layout.astro";
 
@@ -26,14 +27,6 @@ const recentPosts = await getRecentPosts(5);
       <SidebarSearch />
       <SidebarTaxonomy categories={categories} tags={tags} />
       <SidebarRecentPosts posts={recentPosts} />
-      <SidebarProfile
-        avatarSrc="/avatar.jpg"
-        name="@gamoutatsumi"
-        bio="開発者・ブロガー"
-        links={[
-          { label: "X", href: "https://x.com/gamoutatsumi", icon: "i-simple-icons-x" },
-          { label: "GitHub", href: "https://github.com/gamoutatsumi", icon: "i-simple-icons-github" }
-        ]}
-      />
+      <SidebarProfile {...profileData} />
     </SidebarLayout>
 </Layout>
