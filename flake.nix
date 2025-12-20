@@ -11,6 +11,14 @@
         };
       };
     };
+    mcp-servers-nix = {
+      url = "github:natsukium/mcp-servers-nix";
+      inputs = {
+        nixpkgs = {
+          follows = "nixpkgs";
+        };
+      };
+    };
     nixpkgs = {
       url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     };
@@ -55,6 +63,7 @@
         imports = [
           inputs.pre-commit-hooks.flakeModule
           inputs.treefmt-nix.flakeModule
+          inputs.mcp-servers-nix.flakeModule
         ];
 
         perSystem =
@@ -62,6 +71,7 @@
             system,
             pkgs,
             config,
+            inputs',
             ...
           }:
           let
@@ -88,6 +98,25 @@
             };
           in
           {
+            mcp-servers = {
+              settings = {
+                servers = {
+                  astro = {
+                    url = "http://localhost:4321/sse";
+                  };
+                };
+              };
+              programs = {
+                playwright = {
+                  enable = true;
+                };
+              };
+              flavors = {
+                claude-code = {
+                  enable = true;
+                };
+              };
+            };
             devShells = {
               default = pkgs.mkShell {
                 inherit npmDeps;
@@ -100,6 +129,7 @@
                 }/share/zsh/site-functions";
                 inputsFrom = [
                   treefmtBuild.devShell
+                  config.mcp-servers.devShell
                 ];
                 shellHook = ''
                   ${config.pre-commit.installationScript}
@@ -127,6 +157,11 @@
               settings = {
                 src = ./.;
                 hooks = {
+                  textlint = {
+                    enable = true;
+                    entry = "${npmDeps}/node_modules/.bin/textlint";
+                    files = "\\.md$";
+                  };
                   astro = {
                     enable = true;
                     entry = "${npmDeps}/node_modules/.bin/astro check";
