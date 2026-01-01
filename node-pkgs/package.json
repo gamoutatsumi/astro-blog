@@ -31,7 +31,7 @@
 		"rollup": "4.54.0",
 		"sass": "1.97.1",
 		"sharp": "0.34.5",
-		"zod": "4.2.1"
+		"zod": "4.3.4"
 	},
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.6",
