@@ -4,6 +4,7 @@ import { defineConfig } from "astro/config";
 import mcp from "astro-mcp";
 import pagefind from "astro-pagefind";
 import remarkDirective from "remark-directive";
+import remarkLinkCard from "remark-link-card-plus";
 import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
@@ -19,13 +20,23 @@ export default defineConfig({
 		},
 	},
 	markdown: {
-		remarkPlugins: [remarkDirective],
+		remarkPlugins: [
+			remarkDirective,
+			[
+				remarkLinkCard,
+				{
+					cache: false,
+					shortenUrl: true,
+					thumbnailPosition: "right",
+				},
+			],
+		],
 		syntaxHighlight: "shiki",
 		gfm: true,
 	},
 	integrations: [
 		pagefind(),
-		UnoCSS({ injectReset: true }),
+		UnoCSS({ injectReset: true, configFile: "./uno.config.ts" }),
 		sitemap({
 			customPages: ["https://blog.gamou.dev"],
 			serialize(item) {

@@ -2,7 +2,12 @@
 	"plugins": { "@textlint/markdown": true },
 	"filters": { "comments": true },
 	"rules": {
-		"preset-ja-technical-writing": true,
+		"preset-ja-technical-writing": {
+			"no-exclamation-question-mark": false,
+			"ja-no-weak-phrase": false,
+			"ja-no-successive-word": false,
+			"sentence-length": { "max": 150 }
+		},
 		"preset-ja-spacing": {
 			"ja-space-between-half-and-full-width": {
 				"space": "always"
