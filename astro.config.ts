@@ -1,8 +1,11 @@
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import { defineConfig } from "astro/config";
+import expressiveCode from "astro-expressive-code";
 import mcp from "astro-mcp";
 import pagefind from "astro-pagefind";
+import remarkBudoux from "remark-budoux";
 import remarkDirective from "remark-directive";
 import remarkLinkCard from "remark-link-card-plus";
 import UnoCSS from "unocss/astro";
@@ -30,8 +33,9 @@ export default defineConfig({
 					thumbnailPosition: "right",
 				},
 			],
+			remarkBudoux,
 		],
-		syntaxHighlight: "shiki",
+		syntaxHighlight: false,
 		gfm: true,
 	},
 	integrations: [
@@ -50,5 +54,6 @@ export default defineConfig({
 			config: {},
 		}),
 		mcp({ editor: "cursor" }),
+		expressiveCode({ plugins: [pluginLineNumbers] }),
 	],
 });
