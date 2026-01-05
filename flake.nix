@@ -46,7 +46,6 @@
 
   outputs =
     {
-      self,
       flake-parts,
       systems,
       ...
@@ -54,8 +53,6 @@
     flake-parts.lib.mkFlake { inherit inputs; } (
       {
         inputs,
-        lib,
-        withSystem,
         ...
       }:
       {
@@ -68,7 +65,6 @@
 
         perSystem =
           {
-            system,
             pkgs,
             config,
             ...
