@@ -37,7 +37,6 @@
 		"rollup": "4.54.0",
 		"sass": "1.97.1",
 		"sharp": "0.34.5",
-		"shiki-transformer-copy-button": "^0.0.5",
 		"zod": "4.3.5"
 	},
 	"devDependencies": {
