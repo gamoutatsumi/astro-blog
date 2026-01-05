@@ -15,16 +15,8 @@ jobs:
     steps:
       - uses: gr2m/merge-schedule-action@a9b6ddcf1282dfd66907bda8e7941dff59f03bad # v2.7.0
         with:
-          # Merge method to use. Possible values are merge, squash or
-          # rebase. Default is merge.
           merge_method: squash
-          # Time zone to use. Default is UTC.
-          time_zone: 'Asia/Tokyo'
-          # Require all pull request statuses to be successful before
-          # merging. Default is `false`.
           require_statuses_success: 'true'
-          # Label to apply to the pull request if the merge fails. Default is
-          # `automerge-fail`.
           automerge_fail_label: 'merge-schedule-failed'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
