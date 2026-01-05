@@ -176,7 +176,6 @@
                       "javascript"
                       "json"
                       "jsx"
-                      "markdown"
                       "ts"
                       "tsx"
                       "xml"
