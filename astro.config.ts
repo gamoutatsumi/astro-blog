@@ -1,9 +1,13 @@
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
+import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
 import { defineConfig } from "astro/config";
+import expressiveCode from "astro-expressive-code";
 import mcp from "astro-mcp";
 import pagefind from "astro-pagefind";
+import remarkBudoux from "remark-budoux";
 import remarkDirective from "remark-directive";
+import remarkLinkCard from "remark-link-card-plus";
 import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
@@ -19,13 +23,24 @@ export default defineConfig({
 		},
 	},
 	markdown: {
-		remarkPlugins: [remarkDirective],
-		syntaxHighlight: "shiki",
+		remarkPlugins: [
+			remarkDirective,
+			[
+				remarkLinkCard,
+				{
+					cache: false,
+					shortenUrl: true,
+					thumbnailPosition: "right",
+				},
+			],
+			remarkBudoux,
+		],
+		syntaxHighlight: false,
 		gfm: true,
 	},
 	integrations: [
 		pagefind(),
-		UnoCSS({ injectReset: true }),
+		UnoCSS({ injectReset: true, configFile: "./uno.config.ts" }),
 		sitemap({
 			customPages: ["https://blog.gamou.dev"],
 			serialize(item) {
@@ -39,5 +54,6 @@ export default defineConfig({
 			config: {},
 		}),
 		mcp({ editor: "cursor" }),
+		expressiveCode({ plugins: [pluginLineNumbers] }),
 	],
 });

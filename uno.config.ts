@@ -1,9 +1,10 @@
 import {
 	defineConfig,
+	presetAttributify,
 	presetIcons,
-	presetMini,
 	presetTypography,
 	presetWebFonts,
+	presetWind4,
 } from "unocss";
 
 export default defineConfig({
@@ -40,10 +41,11 @@ export default defineConfig({
 	},
 	presets: [
 		presetIcons(),
-		presetMini({
+		presetWind4({
 			dark: "class",
 		}),
 		presetWebFonts(),
+		presetAttributify(),
 		presetTypography(),
 	],
 });
