@@ -282,4 +282,24 @@ const pageTitle = `${title} | ${APPNAME}`;
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  /* Expressive Code blocks overflow fix for mobile */
+  .prose .expressive-code {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .prose .expressive-code pre {
+    overflow-x: auto;
+  }
+
+  .prose .expressive-code code {
+    display: block;
+  }
+
+  /* Inline code overflow fix for mobile */
+  .prose :not(.expressive-code) > code,
+  .prose p > code {
+    word-break: break-all;
+  }
 </style>
