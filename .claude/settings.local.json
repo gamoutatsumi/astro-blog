@@ -38,7 +38,8 @@
 			"mcp__serena__get_symbols_overview",
 			"mcp__serena__find_symbol",
 			"mcp__serena__find_file",
-			"mcp__git__git_diff_unstaged"
+			"mcp__git__git_diff_unstaged",
+			"mcp__serena__get_current_config"
 		]
 	},
 	"enabledMcpjsonServers": ["astro", "playwright"],
