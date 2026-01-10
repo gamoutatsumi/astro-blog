@@ -35,7 +35,7 @@
 		"remark-directive": "4.0.0",
 		"remark-link-card-plus": "^0.7.2",
 		"rollup": "4.54.0",
-		"sass": "1.97.1",
+		"sass": "1.97.2",
 		"sharp": "0.34.5",
 		"temporal-polyfill": "^0.3.0",
 		"zod": "4.3.5",
@@ -44,7 +44,7 @@
 	"devDependencies": {
 		"@astrojs/ts-plugin": "1.10.6",
 		"@textlint/textlint-plugin-markdown": "15.5.0",
-		"@types/node": "24.10.4",
+		"@types/node": "24.10.7",
 		"@unocss/reset": "66.5.12",
 		"concurrently": "9.2.1",
 		"lint-staged": "16.2.7",
