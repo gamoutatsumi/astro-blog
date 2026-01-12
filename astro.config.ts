@@ -12,6 +12,10 @@ import UnoCSS from "unocss/astro";
 
 // https://astro.build/config
 export default defineConfig({
+	trailingSlash: "never",
+	build: {
+		format: "file",
+	},
 	image: { responsiveStyles: true, layout: "constrained" },
 	site: "https://blog.gamou.dev",
 	vite: {
