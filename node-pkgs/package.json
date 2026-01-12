@@ -34,7 +34,7 @@
 		"remark-budoux": "1.0.0",
 		"remark-directive": "4.0.0",
 		"remark-link-card-plus": "0.7.2",
-		"rollup": "4.54.0",
+		"rollup": "4.55.1",
 		"sass": "1.97.2",
 		"sharp": "0.34.5",
 		"temporal-polyfill": "0.3.0",
@@ -56,6 +56,6 @@
 		"typescript": "5.9.3",
 		"unocss": "66.5.12",
 		"unocss-language-server": "0.1.8",
-		"wrangler": "4.56.0"
+		"wrangler": "4.58.0"
 	}
 }
