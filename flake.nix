@@ -67,6 +67,7 @@
           {
             pkgs,
             config,
+            system,
             ...
           }:
           let
@@ -93,6 +94,16 @@
             };
           in
           {
+            _module = {
+              args = {
+                pkgs = import inputs.nixpkgs {
+                  inherit system;
+                  config = {
+                    allowUnfree = true;
+                  };
+                };
+              };
+            };
             mcp-servers = {
               settings = {
                 servers = {
