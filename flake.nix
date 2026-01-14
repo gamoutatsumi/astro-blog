@@ -74,9 +74,9 @@
             treefmtBuild = config.treefmt.build;
             nodejs = pkgs.nodejs_24;
             inherit (pkgs) importNpmLock;
-            npmDeps = importNpmLock.buildNodeModules {
+            nodeModules = importNpmLock.buildNodeModules {
               inherit nodejs;
-              npmRoot = ./node-pkgs;
+              npmRoot = ./.;
               derivationArgs = {
                 nativeBuildInputs = with pkgs; [
                   # keep-sorted start
@@ -124,9 +124,31 @@
                 };
               };
             };
+            packages = {
+              default = pkgs.buildNpmPackage {
+                inherit nodejs;
+                npmDeps = importNpmLock {
+                  npmRoot = ./.;
+                };
+                src = ./.;
+                installPhase = ''
+                  runHook preInstall
+                  mkdir -p $out
+                  cp -r dist/* $out/
+                  runHook postInstall
+                '';
+                pname = "tatsumi-gamou-blog";
+                version = "0.1.0";
+                npmConfigHook = importNpmLock.npmConfigHook;
+                npmInstallFlags = [
+                  "--package-lock-only=false"
+                  "--legacy-peer-deps"
+                ];
+              };
+            };
             devShells = {
               default = pkgs.mkShell {
-                inherit npmDeps;
+                npmDeps = nodeModules;
                 PFPATH = "${
                   pkgs.buildEnv {
                     name = "zsh-comp";
@@ -167,17 +189,17 @@
                 hooks = {
                   textlint = {
                     enable = true;
-                    entry = "${npmDeps}/node_modules/.bin/textlint";
+                    entry = "${nodeModules}/node_modules/.bin/textlint";
                     files = "\\.md$";
                   };
                   astro = {
                     enable = true;
-                    entry = "${npmDeps}/node_modules/.bin/astro check";
+                    entry = "${nodeModules}/node_modules/.bin/astro check";
                     files = "\\.(astro|ts)$";
                   };
                   tsc = {
                     enable = true;
-                    entry = "bash -c '${npmDeps}/node_modules/.bin/tsc --noEmit'";
+                    entry = "bash -c '${nodeModules}/node_modules/.bin/tsc --noEmit'";
                     files = "\\.ts$";
                   };
                   biome = {
