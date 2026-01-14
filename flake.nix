@@ -162,6 +162,7 @@
                 enable = true;
               };
               settings = {
+                package = pkgs.prek;
                 src = ./.;
                 hooks = {
                   textlint = {
