@@ -35,3 +35,4 @@ pnpm-debug.log*
 
 # Claude plan files
 .claude/PLAN*.md
+result
