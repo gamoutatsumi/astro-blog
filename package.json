@@ -20,6 +20,7 @@
 		"@astrojs/sitemap": "3.7.0",
 		"@expressive-code/plugin-line-numbers": "0.41.6",
 		"@napi-rs/canvas": "0.1.88",
+		"@nazo6/remark-zenn-directive": "^0.1.4",
 		"@popperjs/core": "2.11.8",
 		"@remark-embedder/core": "3.0.3",
 		"@remark-embedder/transformer-oembed": "5.0.1",
