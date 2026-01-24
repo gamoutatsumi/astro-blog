@@ -215,7 +215,7 @@
                       "xml"
                       # keep-sorted end
                     ];
-                    excludes = [ "node-pkgs/package-lock.json" ];
+                    excludes = [ "package-lock.json" ];
                   };
                   treefmt = {
                     enable = true;
