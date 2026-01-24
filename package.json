@@ -35,10 +35,10 @@
 		"remark-directive": "4.0.0",
 		"remark-link-card-plus": "0.7.3",
 		"rollup": "4.56.0",
-		"sass": "1.97.2",
+		"sass": "1.97.3",
 		"sharp": "0.34.5",
 		"temporal-polyfill": "0.3.0",
-		"zod": "4.3.5",
+		"zod": "4.3.6",
 		"zod-temporal": "2.0.1"
 	},
 	"devDependencies": {
