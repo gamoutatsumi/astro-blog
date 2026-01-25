@@ -197,15 +197,10 @@
                     entry = "${nodeModules}/node_modules/.bin/astro check";
                     files = "\\.(astro|ts)$";
                   };
-                  tsc = {
-                    enable = true;
-                    entry = "bash -c '${nodeModules}/node_modules/.bin/tsc --noEmit'";
-                    files = "\\.ts$";
-                  };
                   eslint = {
                     enable = true;
                     settings = {
-                      binPath = "./node_modules/.bin/eslint";
+                      binPath = "${nodeModules}/node_modules/.bin/eslint";
                       extensions = "\\.(js|ts|astro)$";
                     };
                   };
@@ -218,7 +213,7 @@
                   prettier = {
                     enable = true;
                     settings = {
-                      binPath = "./node_modules/.bin/prettier";
+                      binPath = "${nodeModules}/node_modules/.bin/prettier";
                     };
                   };
                 };
