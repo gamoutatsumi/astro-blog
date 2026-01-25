@@ -2,14 +2,20 @@
 import ThemeSwitcher from "./ThemeSwitcher.astro";
 
 interface Props {
-	title: string;
+  title: string;
 }
 const { title } = Astro.props as Props;
 ---
+
 <header>
   <nav class="flex items-center md:flex-row w-full bg-primary py-3 px-4">
-    <div class="max-w-screen-md w-full mx-auto flex items-center justify-between">
-      <a class="text-lg font-bold text-on-primary hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-white rounded" href="/">
+    <div
+      class="max-w-screen-md w-full mx-auto flex items-center justify-between"
+    >
+      <a
+        class="text-lg font-bold text-on-primary hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-white rounded"
+        href="/"
+      >
         {title}
       </a>
       <ThemeSwitcher />

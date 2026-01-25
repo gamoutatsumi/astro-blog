@@ -3,7 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import { dateTransform } from "@utils/dateTransform";
 
 export type Props = {
-	entry: CollectionEntry<"posts">;
+  entry: CollectionEntry<"posts">;
 };
 
 const { entry } = Astro.props;
@@ -12,7 +12,9 @@ const link = `/${entry.id}`;
 const category = entry.id.split("/")[0];
 ---
 
-<div class="hover:shadow-md border col-span-1 relative overflow-hidden bg-surface border-base">
+<div
+  class="hover:shadow-md border col-span-1 relative overflow-hidden bg-surface border-base"
+>
   <a href={link} class="absolute inset-0 z-1"></a>
   <div class="flex flex-col p-4">
     <span class="font-bold text-lg">
@@ -21,7 +23,10 @@ const category = entry.id.split("/")[0];
     <p class="text-sm">{dateTransform(date)}</p>
     <div class="flex gap-2 text-sm justify-start">
       category:
-      <a href={`/${category}`} class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400 z-2 relative">
+      <a
+        href={`/${category}`}
+        class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400 z-2 relative"
+      >
         {category}
       </a>
     </div>
@@ -31,7 +36,10 @@ const category = entry.id.split("/")[0];
         {
           entry.data.tags.map((tag) => (
             <li>
-              <a href={`/tags/${tag}`} class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400 relative">
+              <a
+                href={`/tags/${tag}`}
+                class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400 relative"
+              >
                 {tag}
               </a>
             </li>

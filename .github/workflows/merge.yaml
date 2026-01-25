@@ -7,7 +7,7 @@ on:
       - edited
       - synchronize
   schedule:
-    - cron: '0 * * * *'
+    - cron: "0 * * * *"
 
 jobs:
   merge_schedule:
@@ -16,7 +16,7 @@ jobs:
       - uses: gr2m/merge-schedule-action@a9b6ddcf1282dfd66907bda8e7941dff59f03bad # v2.7.0
         with:
           merge_method: squash
-          require_statuses_success: 'true'
-          automerge_fail_label: 'merge-schedule-failed'
+          require_statuses_success: "true"
+          automerge_fail_label: "merge-schedule-failed"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

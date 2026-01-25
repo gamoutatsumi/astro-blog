@@ -1,27 +1,27 @@
 {
-	"extends": "astro/tsconfigs/strict",
-	"compilerOptions": {
-		"plugins": [
-			{
-				"name": "@astrojs/ts-plugin"
-			}
-		],
-		"baseUrl": "./",
-		"paths": {
-			"@utils/*": ["./src/utils/*"],
-			"@components/*": ["./src/components/*"],
-			"@layouts/*": ["./src/layouts/*"],
-			"astro:*": ["./.astro/types.d.ts"],
-			"@images/*": ["./src/images/*"],
-			"@lib/*": ["./src/lib/*"]
-		}
-	},
-	"include": [
-		"./astro.config.ts",
-		".*.cjs",
-		"src/",
-		"./.astro/types.d.ts",
-		"**/*"
-	],
-	"exclude": ["./node-pkgs/node_modules", "dist"]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@astrojs/ts-plugin"
+      }
+    ],
+    "baseUrl": "./",
+    "paths": {
+      "@utils/*": ["./src/utils/*"],
+      "@components/*": ["./src/components/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "astro:*": ["./.astro/types.d.ts"],
+      "@images/*": ["./src/images/*"],
+      "@lib/*": ["./src/lib/*"]
+    }
+  },
+  "include": [
+    "./astro.config.ts",
+    ".*.cjs",
+    "src/",
+    "./.astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": ["./node-pkgs/node_modules", "dist"]
 }
