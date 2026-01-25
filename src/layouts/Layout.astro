@@ -459,4 +459,44 @@ const pageTitle = `${title} | ${APPNAME}`;
   .prose .admonition > *:last-child {
     margin-bottom: 0;
   }
+
+  /* Figure and figcaption styles */
+  .figure {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
+
+  .figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: #6b7280;
+    font-style: italic;
+    text-align: center;
+  }
+
+  .dark .figcaption {
+    color: #9ca3af;
+  }
+
+  /* Override prose styles for figures */
+  .prose .figure {
+    margin: 1.5rem 0;
+  }
+
+  .prose .figure img {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  .prose .figcaption {
+    margin-top: 0.5rem;
+  }
 </style>
