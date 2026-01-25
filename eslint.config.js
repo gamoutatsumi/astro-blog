@@ -14,14 +14,6 @@ export default [
         Astro: "readonly",
       },
     },
-    rules: {
-      "@typescript-eslint/ban-ts-comment": [
-        "error",
-        {
-          "ts-ignore": "allow-with-description",
-        },
-      ],
-    },
   },
   {
     files: ["**/*.ts"],
@@ -37,7 +29,6 @@ export default [
     rules: {
       "prefer-const": "off",
       "@typescript-eslint/consistent-type-imports": "off",
-      "astro/jsx-a11y/anchor-has-content": "warn",
     },
   },
   {
