@@ -175,7 +175,6 @@
                     nil
                     nixfmt-rfc-style
                     prettierd
-                    vtsls
                     # keep-sorted end
                   ])
                   ++ [ nodejs ];
