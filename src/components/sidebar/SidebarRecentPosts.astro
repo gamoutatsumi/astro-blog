@@ -1,12 +1,9 @@
 ---
 import { dateTransform } from "@utils/dateTransform";
 import SidebarCard from "./SidebarCard.astro";
+import { getRecentPosts } from "@lib/sidebarData";
 
-interface Props {
-  posts: { title: string; href: string; publishDate: Date }[];
-}
-
-const { posts } = Astro.props as Props;
+const posts = await getRecentPosts(5);
 ---
 
 <SidebarCard title="最近の記事">

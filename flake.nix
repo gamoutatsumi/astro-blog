@@ -170,9 +170,11 @@
                     # keep-sorted start
                     astro-language-server
                     efm-langserver
+                    eslint_d
                     go-task
                     nil
                     nixfmt-rfc-style
+                    prettierd
                     vtsls
                     # keep-sorted end
                   ])

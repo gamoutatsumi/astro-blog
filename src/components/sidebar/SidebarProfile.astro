@@ -1,14 +1,8 @@
 ---
 import SidebarCard from "./SidebarCard.astro";
+import { profileData } from "@lib/profileData";
 
-interface Props {
-  avatarSrc: string;
-  name: string;
-  bio: string;
-  links?: { label: string; href: string; icon?: string }[];
-}
-
-const { avatarSrc, name, bio, links = [] } = Astro.props as Props;
+const { avatarSrc, name, bio, links = [] } = profileData;
 ---
 
 <SidebarCard title="プロフィール">
