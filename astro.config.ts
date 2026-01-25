@@ -10,6 +10,7 @@ import remarkDirective from "remark-directive";
 import remarkLinkCard from "remark-link-card-plus";
 import UnoCSS from "unocss/astro";
 import { remarkAdmonitions } from "./src/lib/remark/admonitions";
+import { remarkFigure } from "./src/lib/remark/figure";
 
 // https://astro.build/config
 export default defineConfig({
@@ -40,6 +41,7 @@ export default defineConfig({
       remarkBudoux,
       remarkDirective,
       remarkAdmonitions,
+      remarkFigure,
     ],
     syntaxHighlight: false,
     gfm: true,
