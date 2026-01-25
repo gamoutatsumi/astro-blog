@@ -1,0 +1,8 @@
+dist/
+node_modules/
+.astro/
+.wrangler/
+package-lock.json
+pnpm-lock.yaml
+flake.lock
+result

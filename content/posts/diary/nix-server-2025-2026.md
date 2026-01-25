@@ -26,7 +26,7 @@ isDraft: false
 - CPU
   - Intel Core i3-12100
 - Memory
-  - 恐らく前のデスクトップで使っていたであろう Team のメモリ（16GB * 2）
+  - 恐らく前のデスクトップで使っていたであろう Team のメモリ（16GB \* 2）
 - ストレージ
   - Silicon Power 256GB M.2 SSD
 - 拡張ボード

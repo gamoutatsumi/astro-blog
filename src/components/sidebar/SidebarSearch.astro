@@ -2,7 +2,7 @@
 import SidebarCard from "./SidebarCard.astro";
 
 interface Props {
-	class?: string;
+  class?: string;
 }
 
 const { class: className } = Astro.props as Props;
@@ -14,7 +14,9 @@ const { class: className } = Astro.props as Props;
   <script is:inline src="/pagefind/pagefind-ui.js" defer></script>
   <script>
     const initPagefind = () => {
-      const target = document.querySelector("#sidebar-search") as HTMLElement | null;
+      const target = document.querySelector(
+        "#sidebar-search",
+      ) as HTMLElement | null;
       if (!target || target.dataset.pagefindInitialized === "true") return;
 
       const Pagefind = (window as any).PagefindUI;
@@ -35,111 +37,113 @@ const { class: className } = Astro.props as Props;
 </SidebarCard>
 
 <style>
-:global(:root) {
-  --sidebar-search-surface: #fff;
-  --sidebar-search-border: #e2e8f0;
-  --sidebar-search-text: #0f172a;
-  --sidebar-search-muted: #475569;
-  --sidebar-search-primary: #2563eb;
-  --sidebar-search-tag: #e0f2fe;
-}
+  :global(:root) {
+    --sidebar-search-surface: #fff;
+    --sidebar-search-border: #e2e8f0;
+    --sidebar-search-text: #0f172a;
+    --sidebar-search-muted: #475569;
+    --sidebar-search-primary: #2563eb;
+    --sidebar-search-tag: #e0f2fe;
+  }
 
-:global(.dark) {
-  --sidebar-search-surface: #1e293b;
-  --sidebar-search-border: #334155;
-  --sidebar-search-text: #e2e8f0;
-  --sidebar-search-muted: #cbd5e1;
-  --sidebar-search-primary: #3b82f6;
-  --sidebar-search-tag: #0b1727;
-}
+  :global(.dark) {
+    --sidebar-search-surface: #1e293b;
+    --sidebar-search-border: #334155;
+    --sidebar-search-text: #e2e8f0;
+    --sidebar-search-muted: #cbd5e1;
+    --sidebar-search-primary: #3b82f6;
+    --sidebar-search-tag: #0b1727;
+  }
 
-:global(.pagefind-ui) {
-  --pagefind-ui-primary: var(--sidebar-search-primary);
-  --pagefind-ui-text: var(--sidebar-search-text);
-  --pagefind-ui-background: var(--sidebar-search-surface);
-  --pagefind-ui-border: var(--sidebar-search-border);
-  --pagefind-ui-tag: var(--sidebar-search-tag);
-  --pagefind-ui-border-radius: 8px;
-  --pagefind-ui-spacing: 8px;
-  --pagefind-ui-scale: 0.95;
-  --pagefind-ui-font: inherit;
-  --pagefind-ui-image-border-radius: 6px;
-}
+  :global(.pagefind-ui) {
+    --pagefind-ui-primary: var(--sidebar-search-primary);
+    --pagefind-ui-text: var(--sidebar-search-text);
+    --pagefind-ui-background: var(--sidebar-search-surface);
+    --pagefind-ui-border: var(--sidebar-search-border);
+    --pagefind-ui-tag: var(--sidebar-search-tag);
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-spacing: 8px;
+    --pagefind-ui-scale: 0.95;
+    --pagefind-ui-font: inherit;
+    --pagefind-ui-image-border-radius: 6px;
+  }
 
-:global(.sidebar-search) {
-  position: relative;
-  width: 100%;
-  overflow: visible;
-}
+  :global(.sidebar-search) {
+    position: relative;
+    width: 100%;
+    overflow: visible;
+  }
 
-:global(.sidebar-search .pagefind-ui) {
-  width: 100%;
-  position: relative;
-}
+  :global(.sidebar-search .pagefind-ui) {
+    width: 100%;
+    position: relative;
+  }
 
-:global(#sidebar-search) {
-  width: 100%;
-}
+  :global(#sidebar-search) {
+    width: 100%;
+  }
 
-:global(.pagefind-ui__form) {
-  width: 100%;
-  box-shadow: none;
-}
+  :global(.pagefind-ui__form) {
+    width: 100%;
+    box-shadow: none;
+  }
 
-:global(.pagefind-ui__form),
-:global(.pagefind-ui__form:focus-within) {
-  border-color: var(--sidebar-search-border);
-}
+  :global(.pagefind-ui__form),
+  :global(.pagefind-ui__form:focus-within) {
+    border-color: var(--sidebar-search-border);
+  }
 
-:global(.pagefind-ui__input) {
-  width: 100%;
-  padding: 0.5rem 0.75rem;
-}
+  :global(.pagefind-ui__input) {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+  }
 
-:global(.sidebar-search .pagefind-ui__drawer) {
-  position: absolute;
-  left: 0;
-  right: 0;
-  z-index: 20;
-  background: var(--sidebar-search-surface);
-  border: 1px solid var(--sidebar-search-border);
-  border-radius: 10px;
-  box-shadow: 0 15px 45px rgba(15, 23, 42, 0.18);
-  margin-top: 6px;
-  padding: 12px;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: opacity 150ms ease, visibility 150ms ease;
-}
+  :global(.sidebar-search .pagefind-ui__drawer) {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 20;
+    background: var(--sidebar-search-surface);
+    border: 1px solid var(--sidebar-search-border);
+    border-radius: 10px;
+    box-shadow: 0 15px 45px rgba(15, 23, 42, 0.18);
+    margin-top: 6px;
+    padding: 12px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 150ms ease,
+      visibility 150ms ease;
+  }
 
-:global(.sidebar-search .pagefind-ui:focus-within .pagefind-ui__drawer) {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-}
+  :global(.sidebar-search .pagefind-ui:focus-within .pagefind-ui__drawer) {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
 
-:global(.dark .sidebar-search .pagefind-ui__drawer) {
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
-}
+  :global(.dark .sidebar-search .pagefind-ui__drawer) {
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+  }
 
-:global(.pagefind-ui__results) {
-  max-height: 420px;
-  overflow-y: auto;
-}
+  :global(.pagefind-ui__results) {
+    max-height: 420px;
+    overflow-y: auto;
+  }
 
-:global(.pagefind-ui__result) {
-  border-color: var(--sidebar-search-border);
-  background: var(--sidebar-search-surface);
-}
+  :global(.pagefind-ui__result) {
+    border-color: var(--sidebar-search-border);
+    background: var(--sidebar-search-surface);
+  }
 
-:global(.pagefind-ui__result-title) {
-  font-weight: 600;
-  color: var(--sidebar-search-text);
-}
+  :global(.pagefind-ui__result-title) {
+    font-weight: 600;
+    color: var(--sidebar-search-text);
+  }
 
-:global(.pagefind-ui__result-excerpt),
-:global(.pagefind-ui__supplemental) {
-  color: var(--sidebar-search-muted);
-}
+  :global(.pagefind-ui__result-excerpt),
+  :global(.pagefind-ui__supplemental) {
+    color: var(--sidebar-search-muted);
+  }
 </style>

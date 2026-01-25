@@ -9,8 +9,8 @@ import { getCategories, getRecentPosts, getTags } from "@lib/sidebarData";
 import Layout from "./Layout.astro";
 
 export interface Props {
-	title: string;
-	excludeFromSearch?: boolean;
+  title: string;
+  excludeFromSearch?: boolean;
 }
 
 const { title, excludeFromSearch = false } = Astro.props;
@@ -19,14 +19,19 @@ const tags = await getTags();
 const recentPosts = await getRecentPosts(5);
 ---
 
-<Layout title={title} pageType="website" showSidebar={true} excludeFromSearch={excludeFromSearch}>
-    <div class="m-4 grid grid-cols-1 gap-4">
-      <slot />
-    </div>
-    <SidebarLayout slot="sidebar">
-      <SidebarSearch />
-      <SidebarTaxonomy categories={categories} tags={tags} />
-      <SidebarRecentPosts posts={recentPosts} />
-      <SidebarProfile {...profileData} />
-    </SidebarLayout>
+<Layout
+  title={title}
+  pageType="website"
+  showSidebar={true}
+  excludeFromSearch={excludeFromSearch}
+>
+  <div class="m-4 grid grid-cols-1 gap-4">
+    <slot />
+  </div>
+  <SidebarLayout slot="sidebar">
+    <SidebarSearch />
+    <SidebarTaxonomy categories={categories} tags={tags} />
+    <SidebarRecentPosts posts={recentPosts} />
+    <SidebarProfile {...profileData} />
+  </SidebarLayout>
 </Layout>

@@ -202,25 +202,23 @@
                     entry = "bash -c '${nodeModules}/node_modules/.bin/tsc --noEmit'";
                     files = "\\.ts$";
                   };
-                  biome = {
+                  eslint = {
                     enable = true;
-                    types_or = [
-                      # keep-sorted start
-                      "astro"
-                      "javascript"
-                      "json"
-                      "jsx"
-                      "ts"
-                      "tsx"
-                      "xml"
-                      # keep-sorted end
-                    ];
-                    excludes = [ "package-lock.json" ];
+                    settings = {
+                      binPath = "./node_modules/.bin/eslint";
+                      extensions = "\\.(js|ts|astro)$";
+                    };
                   };
                   treefmt = {
                     enable = true;
                     packageOverrides = {
                       treefmt = treefmtBuild.wrapper;
+                    };
+                  };
+                  prettier = {
+                    enable = true;
+                    settings = {
+                      binPath = "./node_modules/.bin/prettier";
                     };
                   };
                 };
@@ -232,9 +230,6 @@
               flakeCheck = false;
               programs = {
                 # keep-sorted start block=yes
-                biome = {
-                  enable = true;
-                };
                 keep-sorted = {
                   enable = true;
                 };

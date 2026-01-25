@@ -5,28 +5,28 @@ import Header from "@components/Header.astro";
 import { SEO } from "astro-seo";
 
 const {
-	title,
-	image,
-	description,
-	pageType,
-	showSidebar = false,
-	excludeFromSearch = false,
+  title,
+  image,
+  description,
+  pageType,
+  showSidebar = false,
+  excludeFromSearch = false,
 } = Astro.props;
 
 const proliantImg = await getImage({
-	src: import("@images/proliant.jpg"),
-	format: "webp",
-	alt: "proliant",
-	width: 300,
+  src: import("@images/proliant.jpg"),
+  format: "webp",
+  alt: "proliant",
+  width: 300,
 });
 
 export interface Props {
-	title: string;
-	image?: string;
-	description?: string;
-	pageType?: "website" | "article";
-	showSidebar?: boolean;
-	excludeFromSearch?: boolean;
+  title: string;
+  image?: string;
+  description?: string;
+  pageType?: "website" | "article";
+  showSidebar?: boolean;
+  excludeFromSearch?: boolean;
 }
 
 const APPNAME = "通算n度目のブログ";
@@ -38,16 +38,22 @@ const pageTitle = `${title} | ${APPNAME}`;
   <head>
     <script is:inline>
       // Check saved preference first, then system preference
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-        document.documentElement.classList.add('dark');
+      const savedTheme = localStorage.getItem("theme");
+      if (
+        savedTheme === "dark" ||
+        (!savedTheme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
       }
       // Listen for system preference changes (only if no saved preference)
-      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
-          document.documentElement.classList.toggle('dark', e.matches);
-        }
-      });
+      window
+        .matchMedia("(prefers-color-scheme: dark)")
+        .addEventListener("change", (e) => {
+          if (!localStorage.getItem("theme")) {
+            document.documentElement.classList.toggle("dark", e.matches);
+          }
+        });
     </script>
     <SEO
       title={pageTitle}
@@ -91,7 +97,10 @@ const pageTitle = `${title} | ${APPNAME}`;
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded focus:outline-none focus:ring-2 focus:ring-white">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-on-primary focus:rounded focus:outline-none focus:ring-2 focus:ring-white"
+    >
       メインコンテンツへスキップ
     </a>
     <div class="flex flex-col min-h-screen bg-base text-base">
@@ -100,32 +109,39 @@ const pageTitle = `${title} | ${APPNAME}`;
         {
           showSidebar ? (
             <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_280px] gap-6 items-start">
-              <main id="main-content" class="shadow-md bg-surface border-base border" data-pagefind-ignore={excludeFromSearch ? "all" : undefined}>
+              <main
+                id="main-content"
+                class="shadow-md bg-surface border-base border"
+                data-pagefind-ignore={excludeFromSearch ? "all" : undefined}
+              >
                 <slot />
               </main>
               <slot name="sidebar" />
             </div>
           ) : (
-            <main id="main-content" class="shadow-md bg-surface border-base border max-w-screen-md w-full" data-pagefind-ignore={excludeFromSearch ? "all" : undefined}>
-                <slot />
-              </main>
+            <main
+              id="main-content"
+              class="shadow-md bg-surface border-base border max-w-screen-md w-full"
+              data-pagefind-ignore={excludeFromSearch ? "all" : undefined}
+            >
+              <slot />
+            </main>
           )
         }
       </div>
       <Footer />
     </div>
-    <!-- Cloudflare Web Analytics -->
     {
       import.meta.env.PROD && (
         <script
-    is:inline
+          is:inline
           defer
           type="text/partytown"
           src="https://static.cloudflareinsights.com/beacon.min.js"
           data-cf-beacon={`{"token": "886de7f777fc43f498089c4ac5e54961"}`}
         />
       )
-    }<!-- End Cloudflare Web Analytics -->
+    }
   </body>
 </html>
 
