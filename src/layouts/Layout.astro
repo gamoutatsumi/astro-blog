@@ -1,5 +1,4 @@
 ---
-import { getImage } from "astro:assets";
 import Footer from "@components/Footer.astro";
 import Header from "@components/Header.astro";
 import { SEO } from "astro-seo";
@@ -11,19 +10,12 @@ import SidebarTaxonomy from "@components/sidebar/SidebarTaxonomy.astro";
 
 const {
   title,
-  image,
+  image = "@/assets/no_image_yoko.png",
   description,
   pageType,
   showSidebar = false,
   excludeFromSearch = false,
 } = Astro.props;
-
-const proliantImg = await getImage({
-  src: import("@images/proliant.jpg"),
-  format: "webp",
-  alt: "proliant",
-  width: 300,
-});
 
 export interface Props {
   title: string;
@@ -65,13 +57,13 @@ const pageTitle = `${title} | ${APPNAME}`;
       twitter={{
         creator: "@gamoutatsumi",
         title: pageTitle,
-        image: new URL(image ?? proliantImg.src ?? "", Astro.url).toString(),
+        image: new URL(image, Astro.url).toString(),
         description: description ?? "@gamoutatsumi のブログ",
       }}
       openGraph={{
         basic: {
           title: pageTitle,
-          image: new URL(image ?? proliantImg.src ?? "", Astro.url).toString(),
+          image: new URL(image, Astro.url).toString(),
           type: pageType ?? "website",
         },
         image: { alt: pageTitle },
@@ -85,10 +77,7 @@ const pageTitle = `${title} | ${APPNAME}`;
           { name: "twitter:title", content: pageTitle },
           {
             name: "twitter:image",
-            content: new URL(
-              image ?? proliantImg.src ?? "",
-              Astro.url,
-            ).toString(),
+            content: new URL(image ?? "", Astro.url).toString(),
           },
           {
             name: "twitter:description",
