@@ -1,14 +1,15 @@
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
-import remarkZennDirective from "@nazo6/remark-zenn-directive";
 import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import mcp from "astro-mcp";
 import pagefind from "astro-pagefind";
 import remarkBudoux from "remark-budoux";
+import remarkDirective from "remark-directive";
 import remarkLinkCard from "remark-link-card-plus";
 import UnoCSS from "unocss/astro";
+import { remarkAdmonitions } from "./src/lib/remark/admonitions";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +29,6 @@ export default defineConfig({
 	},
 	markdown: {
 		remarkPlugins: [
-			remarkZennDirective,
 			[
 				remarkLinkCard,
 				{
@@ -38,6 +38,8 @@ export default defineConfig({
 				},
 			],
 			remarkBudoux,
+			remarkDirective,
+			remarkAdmonitions,
 		],
 		syntaxHighlight: false,
 		gfm: true,
