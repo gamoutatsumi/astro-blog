@@ -52,9 +52,31 @@ export default defineConfig({
     sitemap({
       customPages: ["https://blog.gamou.dev"],
       serialize(item) {
-        if (/\/nsfw/.test(item.url)) {
+        const path = new URL(item.url).pathname;
+
+        // Exclude /nsfw pages
+        if (/\/nsfw/.test(path)) {
           return undefined;
         }
+
+        // Exclude tag listing pages (e.g., /tags/astro, /tags/nix/2)
+        if (/^\/tags\//.test(path)) {
+          return undefined;
+        }
+
+        // Exclude category listing pages and pagination
+        const segments = path.split("/").filter(Boolean);
+
+        // Single segment (e.g., /diary, /tech) - category listing page
+        if (segments.length === 1 && path !== "/") {
+          return undefined;
+        }
+
+        // Two segments with second being a number (e.g., /diary/2) - pagination
+        if (segments.length === 2 && /^\d+$/.test(segments[1])) {
+          return undefined;
+        }
+
         return item;
       },
     }),
