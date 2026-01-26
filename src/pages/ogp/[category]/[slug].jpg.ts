@@ -69,7 +69,18 @@ const drawName = (ctx: SKRSContext2D) => {
 
 const drawOGImage = (title: string): ReadableStream<Buffer> => {
   GlobalFonts.registerFromPath(
-    path.resolve(process.cwd(), "fonts/NotoSansJP-Regular.otf"),
+    path.resolve(
+      process.cwd(),
+      "node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-400-normal.woff2",
+    ),
+    "Noto Sans JP",
+  );
+  GlobalFonts.registerFromPath(
+    path.resolve(
+      process.cwd(),
+      "node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-700-normal.woff2",
+    ),
+    "Noto Sans JP",
   );
   const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
   const ctx = canvas.getContext("2d");

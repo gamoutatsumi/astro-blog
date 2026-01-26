@@ -74,7 +74,7 @@ Pre-commit hooks automatically run: textlint, astro check, tsc, biome, treefmt.
 
 ### OGP Image Generation
 
-Uses `@napi-rs/canvas` to generate OGP images at build time. Requires Noto Sans JP font in `fonts/` directory.
+Uses `@napi-rs/canvas` to generate OGP images at build time. Uses Noto Sans JP font from `@fontsource/noto-sans-jp` package.
 
 ### Path Aliases
 
