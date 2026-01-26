@@ -1,14 +1,8 @@
 ---
 import SidebarCard from "./SidebarCard.astro";
+import { profileData } from "@lib/profileData";
 
-interface Props {
-	avatarSrc: string;
-	name: string;
-	bio: string;
-	links?: { label: string; href: string; icon?: string }[];
-}
-
-const { avatarSrc, name, bio, links = [] } = Astro.props as Props;
+const { avatarSrc, name, bio, links = [] } = profileData;
 ---
 
 <SidebarCard title="プロフィール">
@@ -24,21 +18,23 @@ const { avatarSrc, name, bio, links = [] } = Astro.props as Props;
       <p class="text-sm text-muted mt-1">{bio}</p>
     </div>
 
-    {links.length > 0 && (
-      <ul class="flex items-center gap-3">
-        {links.map(({ label, href, icon }) => (
-          <li>
-            <a
-              href={href}
-              class="inline-flex items-center gap-1 text-sm hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-sm"
-              aria-label={label}
-            >
-              {icon && <span class={`${icon} text-lg`} aria-hidden="true"></span>}
-              <span>{label}</span>
-            </a>
-          </li>
-        ))}
-      </ul>
-    )}
+    {
+      links.length > 0 && (
+        <ul class="flex items-center gap-3">
+          {links.map(({ label, href, icon }) => (
+            <li>
+              <a
+                href={href}
+                class="inline-flex items-center gap-1 text-sm hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-sm"
+                aria-label={label}
+              >
+                {icon && <span class={`${icon} text-lg`} aria-hidden="true" />}
+                <span>{label}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </SidebarCard>

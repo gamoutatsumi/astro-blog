@@ -170,10 +170,11 @@
                     # keep-sorted start
                     astro-language-server
                     efm-langserver
+                    eslint_d
                     go-task
                     nil
                     nixfmt-rfc-style
-                    vtsls
+                    prettierd
                     # keep-sorted end
                   ])
                   ++ [ nodejs ];
@@ -197,30 +198,23 @@
                     entry = "${nodeModules}/node_modules/.bin/astro check";
                     files = "\\.(astro|ts)$";
                   };
-                  tsc = {
+                  eslint = {
                     enable = true;
-                    entry = "bash -c '${nodeModules}/node_modules/.bin/tsc --noEmit'";
-                    files = "\\.ts$";
-                  };
-                  biome = {
-                    enable = true;
-                    types_or = [
-                      # keep-sorted start
-                      "astro"
-                      "javascript"
-                      "json"
-                      "jsx"
-                      "ts"
-                      "tsx"
-                      "xml"
-                      # keep-sorted end
-                    ];
-                    excludes = [ "node-pkgs/package-lock.json" ];
+                    settings = {
+                      binPath = "${nodeModules}/node_modules/.bin/eslint";
+                      extensions = "\\.(js|ts|astro)$";
+                    };
                   };
                   treefmt = {
                     enable = true;
                     packageOverrides = {
                       treefmt = treefmtBuild.wrapper;
+                    };
+                  };
+                  prettier = {
+                    enable = true;
+                    settings = {
+                      binPath = "${nodeModules}/node_modules/.bin/prettier";
                     };
                   };
                 };
@@ -232,9 +226,6 @@
               flakeCheck = false;
               programs = {
                 # keep-sorted start block=yes
-                biome = {
-                  enable = true;
-                };
                 keep-sorted = {
                   enable = true;
                 };

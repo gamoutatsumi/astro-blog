@@ -1,28 +1,18 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import SidebarLayout from "@components/sidebar/SidebarLayout.astro";
-import SidebarProfile from "@components/sidebar/SidebarProfile.astro";
-import SidebarRecentPosts from "@components/sidebar/SidebarRecentPosts.astro";
-import SidebarSearch from "@components/sidebar/SidebarSearch.astro";
-import SidebarTaxonomy from "@components/sidebar/SidebarTaxonomy.astro";
-import { profileData } from "@lib/profileData";
-import { getCategories, getRecentPosts, getTags } from "@lib/sidebarData";
 import { dateTransform } from "@utils/dateTransform";
 import Layout from "./Layout.astro";
 
 export interface Props {
-	title: string;
-	body?: string;
-	metadata: CollectionEntry<"posts">["data"] & {
-		category: string;
-		slug: string;
-	};
+  title: string;
+  body?: string;
+  metadata: CollectionEntry<"posts">["data"] & {
+    category: string;
+    slug: string;
+  };
 }
 
 const { title, metadata, body } = Astro.props;
-const categories = await getCategories();
-const tags = await getTags();
-const recentPosts = await getRecentPosts(5);
 const isNsfw = metadata.category === "nsfw";
 ---
 
@@ -32,19 +22,27 @@ const isNsfw = metadata.category === "nsfw";
   showSidebar={true}
   excludeFromSearch={isNsfw}
   image={`/ogp/${metadata.category}/${metadata.slug}.jpg`}
-  description={body ? body.replaceAll("\n", "").substring(0, 80): ""}
+  description={body ? body.replaceAll("\n", "").substring(0, 80) : ""}
 >
   <div data-pagefind-body={!isNsfw ? "" : undefined}>
     <div class="p-4 border-b">
       <h1 class="font-bold text-xl">{title}</h1>
-      <div class="flex justify-between flex-wrap md:flex-nowrap" data-pagefind-ignore>
+      <div
+        class="flex justify-between flex-wrap md:flex-nowrap"
+        data-pagefind-ignore
+      >
         <div class="inline-flex gap-1">
           <p class="inline">tags:</p>
           <ul class="list-none flex">
             {
               metadata.tags.map((tag) => (
                 <li>
-                  <a class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400" href={`/tags/${tag}`}>{tag}</a>
+                  <a
+                    class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400"
+                    href={`/tags/${tag}`}
+                  >
+                    {tag}
+                  </a>
                 </li>
               ))
             }
@@ -53,8 +51,9 @@ const isNsfw = metadata.category === "nsfw";
         <div class="inline-flex gap-1">
           <p class="inline">category:</p>
           <p>
-            <a class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400" href={`/${metadata.category}`}
-              >{metadata.category}</a
+            <a
+              class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
+              href={`/${metadata.category}`}>{metadata.category}</a
             >
           </p>
         </div>
@@ -67,10 +66,4 @@ const isNsfw = metadata.category === "nsfw";
       <slot />
     </div>
   </div>
-  <SidebarLayout slot="sidebar">
-    <SidebarSearch />
-    <SidebarTaxonomy categories={categories} tags={tags} />
-    <SidebarRecentPosts posts={recentPosts} />
-    <SidebarProfile {...profileData} />
-  </SidebarLayout>
 </Layout>

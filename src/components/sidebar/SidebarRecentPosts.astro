@@ -1,26 +1,25 @@
 ---
 import { dateTransform } from "@utils/dateTransform";
 import SidebarCard from "./SidebarCard.astro";
+import { getRecentPosts } from "@lib/sidebarData";
 
-interface Props {
-	posts: { title: string; href: string; publishDate: Date }[];
-}
-
-const { posts } = Astro.props as Props;
+const posts = await getRecentPosts(5);
 ---
 
 <SidebarCard title="最近の記事">
   <ul class="flex flex-col gap-3">
-    {posts.map(({ title, href, publishDate }) => (
-      <li class="flex flex-col gap-1">
-        <a
-          href={href}
-          class="font-medium hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-sm"
-        >
-          {title}
-        </a>
-        <span class="text-xs text-muted">{dateTransform(publishDate)}</span>
-      </li>
-    ))}
+    {
+      posts.map(({ title, href, publishDate }) => (
+        <li class="flex flex-col gap-1">
+          <a
+            href={href}
+            class="font-medium hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400 rounded-sm"
+          >
+            {title}
+          </a>
+          <span class="text-xs text-muted">{dateTransform(publishDate)}</span>
+        </li>
+      ))
+    }
   </ul>
 </SidebarCard>

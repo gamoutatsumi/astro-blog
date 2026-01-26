@@ -1,32 +1,21 @@
 ---
-import SidebarLayout from "@components/sidebar/SidebarLayout.astro";
-import SidebarProfile from "@components/sidebar/SidebarProfile.astro";
-import SidebarRecentPosts from "@components/sidebar/SidebarRecentPosts.astro";
-import SidebarSearch from "@components/sidebar/SidebarSearch.astro";
-import SidebarTaxonomy from "@components/sidebar/SidebarTaxonomy.astro";
-import { profileData } from "@lib/profileData";
-import { getCategories, getRecentPosts, getTags } from "@lib/sidebarData";
 import Layout from "./Layout.astro";
 
 export interface Props {
-	title: string;
-	excludeFromSearch?: boolean;
+  title: string;
+  excludeFromSearch?: boolean;
 }
 
 const { title, excludeFromSearch = false } = Astro.props;
-const categories = await getCategories();
-const tags = await getTags();
-const recentPosts = await getRecentPosts(5);
 ---
 
-<Layout title={title} pageType="website" showSidebar={true} excludeFromSearch={excludeFromSearch}>
-    <div class="m-4 grid grid-cols-1 gap-4">
-      <slot />
-    </div>
-    <SidebarLayout slot="sidebar">
-      <SidebarSearch />
-      <SidebarTaxonomy categories={categories} tags={tags} />
-      <SidebarRecentPosts posts={recentPosts} />
-      <SidebarProfile {...profileData} />
-    </SidebarLayout>
+<Layout
+  title={title}
+  pageType="website"
+  showSidebar={true}
+  excludeFromSearch={excludeFromSearch}
+>
+  <div class="m-4 grid grid-cols-1 gap-4">
+    <slot />
+  </div>
 </Layout>

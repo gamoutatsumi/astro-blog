@@ -1,46 +1,47 @@
 ---
 import SidebarCard from "./SidebarCard.astro";
+import { getCategories, getTags } from "@lib/sidebarData";
 
-interface Props {
-	categories: { slug: string; count: number }[];
-	tags: { name: string; count: number }[];
-}
-
-const { categories, tags } = Astro.props as Props;
+const categories = await getCategories();
+const tags = await getTags();
 ---
 
 <SidebarCard>
   <section class="flex flex-col gap-2">
     <h3 class="font-bold text-sm text-muted">カテゴリ</h3>
     <ul class="flex flex-col gap-2">
-      {categories.map(({ slug, count }) => (
-        <li class="flex items-center justify-between">
-          <a
-            href={`/${slug}`}
-            class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
-          >
-            {slug}
-          </a>
-          <span class="text-sm text-muted">{count}</span>
-        </li>
-      ))}
+      {
+        categories.map(({ slug, count }) => (
+          <li class="flex items-center justify-between">
+            <a
+              href={`/${slug}`}
+              class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              {slug}
+            </a>
+            <span class="text-sm text-muted">{count}</span>
+          </li>
+        ))
+      }
     </ul>
   </section>
 
   <section class="mt-4 flex flex-col gap-2">
     <h3 class="font-bold text-sm text-muted">タグ</h3>
     <ul class="flex flex-wrap gap-2">
-      {tags.map(({ name, count }) => (
-        <li>
-          <a
-            href={`/tags/${name}`}
-            class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400 inline-flex items-center gap-1"
-          >
-            <span>{name}</span>
-            <span class="text-xs text-muted">({count})</span>
-          </a>
-        </li>
-      ))}
+      {
+        tags.map(({ name, count }) => (
+          <li>
+            <a
+              href={`/tags/${name}`}
+              class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400 inline-flex items-center gap-1"
+            >
+              <span>{name}</span>
+              <span class="text-xs text-muted">({count})</span>
+            </a>
+          </li>
+        ))
+      }
     </ul>
   </section>
 </SidebarCard>

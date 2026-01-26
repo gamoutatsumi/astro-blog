@@ -58,12 +58,14 @@ Pre-commit hooks automatically run: textlint, astro check, tsc, biome, treefmt.
 ## Architecture
 
 ### Content System
+
 - Blog posts: Markdown files in `content/posts/{category}/{slug}.md`
 - Content collection defined in `src/content.config.ts` with Zod schema
 - Post schema: `title`, `tags[]`, `image?`, `publishDate`, `isDraft`
 - Posts with `isDraft: true` or in `nsfw/` category are filtered from public listings
 
 ### Routing Structure
+
 - `src/pages/[...page].astro` - Paginated home listing
 - `src/pages/[category]/[slug].astro` - Individual post pages
 - `src/pages/[category]/[...page].astro` - Category listings
@@ -71,9 +73,11 @@ Pre-commit hooks automatically run: textlint, astro check, tsc, biome, treefmt.
 - `src/pages/rss.xml.ts` - RSS feed
 
 ### OGP Image Generation
+
 Uses `@napi-rs/canvas` to generate OGP images at build time. Requires Noto Sans JP font in `fonts/` directory.
 
 ### Path Aliases
+
 ```
 @components/* → src/components/*
 @layouts/*    → src/layouts/*
@@ -83,6 +87,7 @@ Uses `@napi-rs/canvas` to generate OGP images at build time. Requires Noto Sans 
 ```
 
 ### Key Integrations
+
 - **UnoCSS** - Atomic CSS (config: `uno.config.ts`)
 - **astro-seo** - SEO meta tags
 - **@astrojs/sitemap** - Sitemap generation (excludes `/nsfw/` pages)
@@ -176,14 +181,14 @@ Uses `@napi-rs/canvas` to generate OGP images at build time. Requires Noto Sans 
 
 ### MCP サーバー一覧
 
-| MCP | 用途 |
-|-----|------|
-| **Astro MCP** | Astro設定・ルート・開発サーバー情報 |
+| MCP                | 用途                                         |
+| ------------------ | -------------------------------------------- |
+| **Astro MCP**      | Astro設定・ルート・開発サーバー情報          |
 | **Playwright MCP** | ブラウザ操作・スクリーンショット・視覚的検証 |
-| **Serena MCP** | コード解析・シンボル操作・ファイル編集 |
-| **Codex MCP** | 実行計画立案・タスク委任 |
-| **Context7 MCP** | ライブラリドキュメント参照 |
-| **Git MCP** | Gitリポジトリ操作 |
+| **Serena MCP**     | コード解析・シンボル操作・ファイル編集       |
+| **Codex MCP**      | 実行計画立案・タスク委任                     |
+| **Context7 MCP**   | ライブラリドキュメント参照                   |
+| **Git MCP**        | Gitリポジトリ操作                            |
 
 ### Codex MCP 使用時の注意
 

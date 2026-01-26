@@ -1,23 +1,23 @@
 ---
 interface Props {
-	title?: string;
-	sticky?: boolean;
-	class?: string;
+  title?: string;
+  sticky?: boolean;
+  class?: string;
 }
 
 const {
-	title = "サイドバー",
-	sticky = true,
-	class: className,
+  title = "サイドバー",
+  sticky = true,
+  class: className,
 } = Astro.props as Props;
 
 const classes = [
-	"flex flex-col gap-4 w-full",
-	sticky && "sticky top-6",
-	className,
+  "flex flex-col gap-4 w-full",
+  sticky && "sticky top-6",
+  className,
 ]
-	.filter(Boolean)
-	.join(" ");
+  .filter(Boolean)
+  .join(" ");
 ---
 
 <aside aria-label={title} class={classes} data-pagefind-ignore>
