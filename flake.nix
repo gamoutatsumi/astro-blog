@@ -175,6 +175,7 @@
                     nil
                     nixfmt-rfc-style
                     prettierd
+                    vtsls
                     # keep-sorted end
                   ])
                   ++ [ nodejs ];
@@ -211,12 +212,6 @@
                       treefmt = treefmtBuild.wrapper;
                     };
                   };
-                  prettier = {
-                    enable = true;
-                    settings = {
-                      binPath = "${nodeModules}/node_modules/.bin/prettier";
-                    };
-                  };
                 };
               };
             };
@@ -224,6 +219,21 @@
             treefmt = {
               projectRootFile = "flake.nix";
               flakeCheck = false;
+              settings = {
+                formatter = {
+                  prettier = {
+                    command = "${nodeModules}/node_modules/.bin/prettier";
+                    options = [ "--write" ];
+                    includes = [
+                      "*.md"
+                      "*.ts"
+                      "*.js"
+                      "*.astro"
+                      "*.json"
+                    ];
+                  };
+                };
+              };
               programs = {
                 # keep-sorted start block=yes
                 keep-sorted = {

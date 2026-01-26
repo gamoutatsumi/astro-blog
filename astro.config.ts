@@ -1,10 +1,10 @@
 import partytown from "@astrojs/partytown";
 import sitemap from "@astrojs/sitemap";
 import { pluginLineNumbers } from "@expressive-code/plugin-line-numbers";
-import { defineConfig } from "astro/config";
 import expressiveCode from "astro-expressive-code";
 import mcp from "astro-mcp";
 import pagefind from "astro-pagefind";
+import { defineConfig } from "astro/config";
 import remarkBudoux from "remark-budoux";
 import remarkDirective from "remark-directive";
 import remarkLinkCard from "remark-link-card-plus";

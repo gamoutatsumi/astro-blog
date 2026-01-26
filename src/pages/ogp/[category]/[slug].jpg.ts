@@ -1,7 +1,7 @@
-import type { CollectionEntry } from "astro:content";
-import { getCollection, getEntry } from "astro:content";
 import { createCanvas, GlobalFonts, type SKRSContext2D } from "@napi-rs/canvas";
 import type { APIContext, GetStaticPaths } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import { createRequire } from "module";
 
 export interface Props {

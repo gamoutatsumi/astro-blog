@@ -1,7 +1,7 @@
-import { getCollection } from "astro:content";
 import { getRssString, type RSSFeedItem } from "@astrojs/rss";
-import type { APIContext } from "astro";
 import { getGitUpdatedAt } from "@lib/gitUpdatedAt";
+import type { APIContext } from "astro";
+import { getCollection } from "astro:content";
 
 export const GET = async (context: APIContext) => {
   const entries = await getCollection("posts");

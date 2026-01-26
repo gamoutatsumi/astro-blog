@@ -23,7 +23,7 @@
     "src/",
     "./.astro/types.d.ts",
     "**/*",
-    "./.prettierrc.ts",
+    "./.prettierrc.mjs",
     "./eslint.config.ts"
   ],
   "exclude": ["./node-pkgs/node_modules", "dist", "result"]
