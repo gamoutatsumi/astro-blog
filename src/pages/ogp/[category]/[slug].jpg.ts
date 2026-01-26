@@ -1,8 +1,8 @@
 import type { CollectionEntry } from "astro:content";
 import { getCollection, getEntry } from "astro:content";
-import * as path from "node:path";
 import { createCanvas, GlobalFonts, type SKRSContext2D } from "@napi-rs/canvas";
 import type { APIContext, GetStaticPaths } from "astro";
+import { createRequire } from "module";
 
 export interface Props {
   entry: CollectionEntry<"posts">;
@@ -68,18 +68,13 @@ const drawName = (ctx: SKRSContext2D) => {
 };
 
 const drawOGImage = (title: string): ReadableStream<Buffer> => {
+  const require = createRequire(import.meta.url);
   GlobalFonts.registerFromPath(
-    path.resolve(
-      process.cwd(),
-      "node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-400-normal.woff2",
-    ),
+    require.resolve("@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-400-normal.woff2"),
     "Noto Sans JP",
   );
   GlobalFonts.registerFromPath(
-    path.resolve(
-      process.cwd(),
-      "node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-700-normal.woff2",
-    ),
+    require.resolve("@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-700-normal.woff2"),
     "Noto Sans JP",
   );
   const canvas = createCanvas(CANVAS_WIDTH, CANVAS_HEIGHT);
