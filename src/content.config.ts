@@ -7,6 +7,7 @@ const blogCollection = defineCollection({
     tags: z.array(z.string()),
     image: z.string().default("/no_image_yoko.jpg"),
     publishDate: z.coerce.date(),
+    updatedDate: z.date().optional(),
     isDraft: z.boolean(),
   }),
   loader: glob({ pattern: "**/*.md", base: "./content/posts" }),
