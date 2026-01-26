@@ -2,36 +2,45 @@
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import Layout from "@layouts/Post.astro";
 import type { GetStaticPaths } from "astro";
+import { getUpdatedDate } from "@lib/gitUpdatedAt";
 
 export interface Props {
   entry: CollectionEntry<"posts">;
   category: string;
   slug: string;
+  metadata: CollectionEntry<"posts">["data"] & {
+    category: string;
+    slug: string;
+    updatedDate: Date;
+  };
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const blogEntries = await getCollection("posts");
-  return blogEntries
-    .filter((entry) => !entry.data.isDraft)
-    .map((entry) => {
+  const entries = blogEntries.filter((entry) => !entry.data.isDraft);
+  return Promise.all(
+    entries.map(async (entry) => {
       const category = entry.id.split("/")[0];
       const slug = entry.id.split("/")[1];
+      const filePath = `content/posts/${entry.id}.md`;
+      const updatedDate = await getUpdatedDate(
+        filePath,
+        entry.data.publishDate,
+      );
+      const metadata = { ...entry.data, category, slug, updatedDate };
       return {
         params: { slug, category },
-        props: { entry, category, slug },
+        props: { entry, category, slug, metadata },
       };
-    });
+    }),
+  );
 };
 
-const { entry, category, slug } = Astro.props;
+const { entry, metadata } = Astro.props;
 const { Content } = await render(entry);
 ---
 
-<Layout
-  title={entry.data.title}
-  metadata={{ ...entry.data, category, slug }}
-  body={entry.body}
->
+<Layout title={entry.data.title} metadata={metadata} body={entry.body}>
   <div class="text-base prose dark:prose-invert max-w-none">
     <Content />
   </div>

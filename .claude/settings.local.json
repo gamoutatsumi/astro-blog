@@ -46,7 +46,11 @@
       "mcp__serena__think_about_collected_information",
       "mcp__serena__replace_symbol_body",
       "WebSearch",
-      "WebFetch(domain:github.com)"
+      "WebFetch(domain:github.com)",
+      "mcp__codex__codex-reply",
+      "Bash(task dev)",
+      "mcp__playwright__browser_run_code",
+      "mcp__playwright__browser_close"
     ]
   },
   "enableAllProjectMcpServers": true,

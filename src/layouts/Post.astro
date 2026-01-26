@@ -9,6 +9,7 @@ export interface Props {
   metadata: CollectionEntry<"posts">["data"] & {
     category: string;
     slug: string;
+    updatedDate: Date;
   };
 }
 
@@ -57,9 +58,26 @@ const isNsfw = metadata.category === "nsfw";
             >
           </p>
         </div>
-        <p title={dateTransform(metadata.publishDate, true)} class="inline">
-          {dateTransform(metadata.publishDate)}
-        </p>
+        <div class="inline-flex flex-wrap gap-2">
+          <p class="inline">
+            <span>Published:</span>
+            <span
+              title={dateTransform(metadata.publishDate, true)}
+              class="ml-1"
+            >
+              {dateTransform(metadata.publishDate)}
+            </span>
+          </p>
+          <p class="inline">
+            <span>Updated:</span>
+            <span
+              title={dateTransform(metadata.updatedDate, true)}
+              class="ml-1"
+            >
+              {dateTransform(metadata.updatedDate)}
+            </span>
+          </p>
+        </div>
       </div>
     </div>
     <div class="p-4">

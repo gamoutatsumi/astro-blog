@@ -1,5 +1,8 @@
-/** @type {import("prettier").Config} */
-export default {
+/**
+ * @see https://prettier.io/docs/configuration
+ * @type {import("prettier").Config}
+ */
+const config = {
   tabWidth: 2,
   useTabs: false,
   endOfLine: "lf",
@@ -11,7 +14,7 @@ export default {
   bracketSpacing: true,
   bracketSameLine: false,
   quoteProps: "as-needed",
-  plugins: ["prettier-plugin-astro"],
+  plugins: ["prettier-plugin-astro", "prettier-plugin-organize-imports"],
   overrides: [
     {
       files: "*.astro",
@@ -21,3 +24,5 @@ export default {
     },
   ],
 };
+
+export default config;
