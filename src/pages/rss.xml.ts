@@ -1,5 +1,5 @@
 import { getRssString, type RSSFeedItem } from "@astrojs/rss";
-import { getGitUpdatedAt } from "@lib/gitUpdatedAt";
+import { getUpdatedDate } from "@lib/gitUpdatedAt";
 import type { APIContext } from "astro";
 import { getCollection } from "astro:content";
 
@@ -11,8 +11,10 @@ export const GET = async (context: APIContext) => {
       .map(async (entry): Promise<RSSFeedItem> => {
         const [category, slug] = entry.id.split("/");
         const filePath = `content/posts/${entry.id}.md`;
-        const updatedDate =
-          (await getGitUpdatedAt(filePath)) ?? entry.data.publishDate;
+        const updatedDate = await getUpdatedDate(
+          filePath,
+          entry.data.publishDate,
+        );
         return {
           title: entry.data.title,
           link: entry.id,

@@ -25,3 +25,13 @@ export const getGitUpdatedAt = async (
     return undefined;
   }
 };
+
+export const getUpdatedDate = async (
+  filePath: string,
+  publishDate: Date,
+): Promise<Date> => {
+  const gitUpdatedAt = await getGitUpdatedAt(filePath);
+  return gitUpdatedAt && gitUpdatedAt >= publishDate
+    ? gitUpdatedAt
+    : publishDate;
+};
