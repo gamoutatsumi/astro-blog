@@ -1,10 +1,10 @@
-// @ts-check
 import eslint from "@eslint/js";
 import eslintConfigPrettier from "eslint-config-prettier/flat";
 import eslintPluginAstro from "eslint-plugin-astro";
 import tseslint from "typescript-eslint";
+import { defineConfig } from "eslint/config";
 
-export default [
+export default defineConfig([
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...eslintPluginAstro.configs["flat/jsx-a11y-recommended"],
@@ -35,4 +35,4 @@ export default [
     ignores: ["dist/**", "node_modules/**", ".astro/**", ".wrangler/**"],
   },
   eslintConfigPrettier,
-];
+]);
