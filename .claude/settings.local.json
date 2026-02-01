@@ -50,7 +50,10 @@
       "mcp__codex__codex-reply",
       "Bash(task dev)",
       "mcp__playwright__browser_run_code",
-      "mcp__playwright__browser_close"
+      "mcp__playwright__browser_close",
+      "Bash(tsc:*)",
+      "Bash(biome check:*)",
+      "Bash(tee:*)"
     ]
   },
   "enableAllProjectMcpServers": true,
