@@ -11,6 +11,7 @@ import remarkLinkCard from "remark-link-card-plus";
 import UnoCSS from "unocss/astro";
 import { remarkAdmonitions } from "./src/lib/remark/admonitions";
 import { remarkFigure } from "./src/lib/remark/figure";
+import { remarkNicovideoEmbed } from "./src/lib/remark/nicovideoEmbed";
 import { remarkXEmbed } from "./src/lib/remark/xEmbed";
 
 // https://astro.build/config
@@ -42,6 +43,7 @@ export default defineConfig({
       remarkDirective,
       remarkAdmonitions,
       remarkXEmbed,
+      remarkNicovideoEmbed,
       remarkBudoux,
       remarkFigure,
     ],
