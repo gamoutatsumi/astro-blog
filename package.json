@@ -38,28 +38,28 @@
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
     "remark-link-card-plus": "0.7.3",
-    "rollup": "4.57.1",
-    "sass": "1.97.3",
+    "rollup": "4.59.0",
+    "sass": "1.98.0",
     "sharp": "0.34.5",
-    "simple-git": "3.30.0",
+    "simple-git": "3.33.0",
     "temporal-polyfill": "0.3.2",
     "unist-util-visit": "5.1.0",
     "zod": "4.3.6",
-    "zod-temporal": "2.0.1"
+    "zod-temporal": "2.1.1"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.6",
     "@textlint/textlint-plugin-markdown": "15.5.2",
-    "@types/node": "24.10.9",
+    "@types/node": "24.12.0",
     "@typescript-eslint/parser": "8.57.0",
     "@unocss/reset": "66.6.0",
     "concurrently": "9.2.1",
     "eslint": "9.39.4",
     "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-astro": "1.5.0",
+    "eslint-plugin-astro": "1.6.0",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "jiti": "2.6.1",
-    "lint-staged": "16.2.7",
+    "lint-staged": "16.4.0",
     "prettier": "3.8.1",
     "prettier-plugin-astro": "0.14.1",
     "prettier-plugin-organize-imports": "4.3.0",
@@ -72,6 +72,6 @@
     "typescript-eslint": "8.57.0",
     "unocss": "66.6.0",
     "unocss-language-server": "0.1.8",
-    "wrangler": "4.61.1"
+    "wrangler": "4.73.0"
   }
 }
