@@ -17,16 +17,16 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@astrojs/partytown": "2.1.4",
-    "@astrojs/rss": "4.0.15",
-    "@astrojs/sitemap": "3.7.0",
+    "@astrojs/partytown": "2.1.5",
+    "@astrojs/rss": "4.0.17",
+    "@astrojs/sitemap": "3.7.1",
     "@expressive-code/plugin-line-numbers": "0.41.7",
     "@fontsource/noto-sans-jp": "5.2.9",
     "@napi-rs/canvas": "0.1.96",
     "@popperjs/core": "2.11.8",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
-    "astro": "5.17.1",
+    "astro": "5.18.1",
     "astro-expressive-code": "0.41.7",
     "astro-mcp": "0.4.2",
     "astro-pagefind": "1.8.5",
@@ -48,7 +48,7 @@
     "zod-temporal": "2.1.1"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "1.10.6",
+    "@astrojs/ts-plugin": "1.10.7",
     "@textlint/textlint-plugin-markdown": "15.5.2",
     "@types/node": "24.12.0",
     "@typescript-eslint/parser": "8.57.0",
