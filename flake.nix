@@ -173,7 +173,6 @@
                     eslint_d
                     go-task
                     nil
-                    nixfmt-rfc-style
                     prettierd
                     vtsls
                     # keep-sorted end
