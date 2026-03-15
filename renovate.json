@@ -24,5 +24,14 @@
   "postUpdateOptions": ["pnpmDedupe"],
   "nix": {
     "enabled": true
+  },
+  "platformAutomerge": true,
+  "automergeType": "pr",
+  "automerge": true,
+  "automergeStrategy": "merge-commit",
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 5,
+  "github-actions": {
+    "enabled": true
   }
 }
