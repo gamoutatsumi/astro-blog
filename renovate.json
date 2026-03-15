@@ -28,5 +28,10 @@
   "platformAutomerge": true,
   "automergeType": "pr",
   "automerge": true,
-  "automergeStrategy": "merge-commit"
+  "automergeStrategy": "merge-commit",
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 5,
+  "github-actions": {
+    "enabled": true
+  }
 }
