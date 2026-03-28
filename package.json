@@ -17,9 +17,9 @@
     "format:check": "prettier --check ."
   },
   "dependencies": {
-    "@astrojs/partytown": "2.1.5",
-    "@astrojs/rss": "4.0.17",
-    "@astrojs/sitemap": "3.7.1",
+    "@astrojs/partytown": "2.1.6",
+    "@astrojs/rss": "4.0.18",
+    "@astrojs/sitemap": "3.7.2",
     "@expressive-code/plugin-line-numbers": "0.41.7",
     "@fontsource/noto-sans-jp": "5.2.9",
     "@napi-rs/canvas": "0.1.97",
