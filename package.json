@@ -22,7 +22,7 @@
     "@astrojs/sitemap": "3.7.2",
     "@expressive-code/plugin-line-numbers": "0.41.7",
     "@fontsource/noto-sans-jp": "5.2.9",
-    "@napi-rs/canvas": "0.1.98",
+    "@napi-rs/canvas": "0.1.99",
     "@popperjs/core": "2.11.8",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
