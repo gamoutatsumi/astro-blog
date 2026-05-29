@@ -72,7 +72,7 @@
     "typescript": "6.0.2",
     "typescript-eslint": "8.57.2",
     "unocss": "66.7.0",
-    "unocss-language-server": "0.1.8",
+    "unocss-language-server": "0.1.9",
     "wrangler": "4.94.0"
   }
 }
