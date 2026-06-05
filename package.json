@@ -38,7 +38,7 @@
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
     "remark-link-card-plus": "0.7.4",
-    "rollup": "4.60.4",
+    "rollup": "4.61.1",
     "sass": "1.100.0",
     "sharp": "0.34.5",
     "simple-git": "3.36.0",
@@ -50,7 +50,7 @@
   "devDependencies": {
     "@astrojs/ts-plugin": "1.10.9",
     "@textlint/textlint-plugin-markdown": "15.7.1",
-    "@types/node": "24.12.4",
+    "@types/node": "24.13.0",
     "@typescript-eslint/parser": "8.57.2",
     "@unocss/astro": "66.7.0",
     "@unocss/reset": "66.7.0",
@@ -73,6 +73,6 @@
     "typescript-eslint": "8.57.2",
     "unocss": "66.7.0",
     "unocss-language-server": "0.1.9",
-    "wrangler": "4.95.0"
+    "wrangler": "4.98.0"
   }
 }
