@@ -31,7 +31,7 @@
     "astro-mcp": "0.4.2",
     "astro-pagefind": "2.0.0",
     "astro-seo": "1.1.0",
-    "autoprefixer": "10.5.2",
+    "autoprefixer": "10.5.4",
     "cheerio": "1.2.0",
     "pagefind": "1.5.2",
     "postcss": "8.5.19",
@@ -73,6 +73,6 @@
     "typescript-eslint": "8.64.0",
     "unocss": "66.7.5",
     "unocss-language-server": "0.1.9",
-    "wrangler": "4.110.0"
+    "wrangler": "4.112.0"
   }
 }
