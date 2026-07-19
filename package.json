@@ -21,7 +21,7 @@
     "@astrojs/rss": "4.0.19",
     "@astrojs/sitemap": "3.7.3",
     "@expressive-code/plugin-line-numbers": "0.44.0",
-    "@fontsource/noto-sans-jp": "5.2.9",
+    "@fontsource/noto-sans-jp": "5.3.0",
     "@napi-rs/canvas": "1.0.0",
     "@popperjs/core": "2.11.8",
     "@remark-embedder/core": "3.0.3",
