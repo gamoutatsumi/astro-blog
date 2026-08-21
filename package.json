@@ -48,7 +48,7 @@
     "zod-temporal": "2.2.0"
   },
   "devDependencies": {
-    "@astrojs/ts-plugin": "1.10.10",
+    "@astrojs/ts-plugin": "1.10.11",
     "@textlint/textlint-plugin-markdown": "15.8.0",
     "@types/node": "24.13.3",
     "@typescript-eslint/parser": "8.67.0",
