@@ -38,8 +38,8 @@
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
     "remark-link-card-plus": "0.8.0",
-    "rollup": "4.62.4",
-    "sass": "1.102.0",
+    "rollup": "4.62.5",
+    "sass": "1.103.1",
     "sharp": "0.35.3",
     "simple-git": "3.36.0",
     "temporal-polyfill": "1.0.1",
@@ -73,6 +73,6 @@
     "typescript-eslint": "8.67.0",
     "unocss": "66.8.1",
     "unocss-language-server": "0.1.9",
-    "wrangler": "4.123.0"
+    "wrangler": "4.125.0"
   }
 }
