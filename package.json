@@ -52,8 +52,8 @@
     "@textlint/textlint-plugin-markdown": "15.8.0",
     "@types/node": "24.13.3",
     "@typescript-eslint/parser": "8.69.0",
-    "@unocss/astro": "66.8.1",
-    "@unocss/reset": "66.8.1",
+    "@unocss/astro": "66.10.0",
+    "@unocss/reset": "66.10.0",
     "concurrently": "10.0.0",
     "eslint": "10.4.1",
     "eslint-config-prettier": "10.1.8",
@@ -71,7 +71,7 @@
     "textlint-rule-preset-ja-technical-writing": "12.0.2",
     "typescript": "7.0.2",
     "typescript-eslint": "8.69.0",
-    "unocss": "66.8.1",
+    "unocss": "66.10.0",
     "unocss-language-server": "0.1.9",
     "wrangler": "4.125.0"
   }
