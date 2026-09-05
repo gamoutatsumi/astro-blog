@@ -42,7 +42,7 @@
     "sass": "1.104.0",
     "sharp": "0.35.4",
     "simple-git": "3.36.0",
-    "temporal-polyfill": "1.0.1",
+    "temporal-polyfill": "1.0.4",
     "unist-util-visit": "5.1.0",
     "zod": "4.5.4",
     "zod-temporal": "2.2.0"
