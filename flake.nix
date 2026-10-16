@@ -48,6 +48,7 @@
     {
       flake-parts,
       systems,
+      self,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
@@ -171,7 +172,6 @@
                     # keep-sorted start
                     astro-language-server
                     efm-langserver
-                    eslint_d
                     go-task
                     nil
                     prettierd
@@ -199,11 +199,11 @@
                   #   entry = "${nodeModules}/node_modules/.bin/astro check";
                   #   files = "\\.(astro|ts)$";
                   # };
-                  eslint = {
+                  oxlint = {
                     enable = true;
                     settings = {
-                      binPath = "${nodeModules}/node_modules/.bin/eslint";
-                      extensions = "\\.(js|ts|astro)$";
+                      binPath = "${nodeModules}/node_modules/.bin/oxlint";
+                      configPath = "${self}/.oxlintrc.json";
                     };
                   };
                   treefmt = {
