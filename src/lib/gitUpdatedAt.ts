@@ -1,4 +1,4 @@
-import simpleGit from "simple-git";
+import { simpleGit } from "simple-git";
 
 const cache = new Map<string, Date | undefined>();
 const git = simpleGit({ baseDir: process.cwd() });

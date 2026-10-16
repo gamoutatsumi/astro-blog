@@ -72,7 +72,7 @@
           }:
           let
             treefmtBuild = config.treefmt.build;
-            nodejs = pkgs.nodejs_24;
+            nodejs = pkgs.nodejs_26;
             inherit (pkgs) importNpmLock;
             nodeModules = importNpmLock.buildNodeModules {
               inherit nodejs;
@@ -194,11 +194,11 @@
                     entry = "${nodeModules}/node_modules/.bin/textlint";
                     files = "\\.md$";
                   };
-                  astro = {
-                    enable = true;
-                    entry = "${nodeModules}/node_modules/.bin/astro check";
-                    files = "\\.(astro|ts)$";
-                  };
+                  # astro = {
+                  #   enable = true;
+                  #   entry = "${nodeModules}/node_modules/.bin/astro check";
+                  #   files = "\\.(astro|ts)$";
+                  # };
                   eslint = {
                     enable = true;
                     settings = {
