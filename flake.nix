@@ -174,7 +174,6 @@
                     efm-langserver
                     go-task
                     nil
-                    prettierd
                     vtsls
                     # keep-sorted end
                   ])
