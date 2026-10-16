@@ -221,9 +221,12 @@
               flakeCheck = false;
               settings = {
                 formatter = {
-                  prettier = {
-                    command = "${nodeModules}/node_modules/.bin/prettier";
-                    options = [ "--write" ];
+                  oxfmt = {
+                    command = "${nodeModules}/node_modules/.bin/oxfmt";
+                    options = [
+                      "--write"
+                      "--config=${self}/.oxfmtrc.json"
+                    ];
                     includes = [
                       "*.md"
                       "*.ts"
