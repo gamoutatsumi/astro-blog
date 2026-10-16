@@ -78,6 +78,7 @@
               inherit nodejs;
               npmRoot = ./.;
               derivationArgs = {
+                npmFlags = [ "--legacy-peer-deps" ];
                 nativeBuildInputs = with pkgs; [
                   # keep-sorted start
                   cairo
