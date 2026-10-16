@@ -27,7 +27,7 @@
     "@popperjs/core": "2.11.8",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
-    "astro": "^6.4.8",
+    "astro": "^7.0.0",
     "astro-expressive-code": "^0.34.2",
     "astro-mcp": "0.4.2",
     "astro-pagefind": "2.0.0",
