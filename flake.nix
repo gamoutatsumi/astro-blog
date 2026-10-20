@@ -162,11 +162,6 @@
                   treefmtBuild.devShell
                   config.mcp-servers.devShell
                 ];
-                shellHook = ''
-                  ${config.pre-commit.installationScript}
-                  source ${importNpmLock.hooks.linkNodeModulesHook}/nix-support/setup-hook
-                  linkNodeModulesHook
-                '';
                 packages =
                   (with pkgs; [
                     # keep-sorted start
@@ -177,7 +172,11 @@
                     vtsls
                     # keep-sorted end
                   ])
-                  ++ [ nodejs ];
+                  ++ [
+                    nodejs
+                    config.pre-commit.installationScript
+                    importNpmLock.hooks.linkNodeModulesHook
+                  ];
               };
             };
             pre-commit = {
