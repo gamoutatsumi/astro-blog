@@ -79,7 +79,6 @@
               inherit nodejs;
               npmRoot = ./.;
               derivationArgs = {
-                npmFlags = [ "--legacy-peer-deps" ];
                 nativeBuildInputs = with pkgs; [
                   # keep-sorted start
                   cairo
@@ -144,7 +143,6 @@
                 npmConfigHook = importNpmLock.npmConfigHook;
                 npmInstallFlags = [
                   "--package-lock-only=false"
-                  "--legacy-peer-deps"
                 ];
               };
             };
