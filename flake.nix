@@ -48,6 +48,7 @@
     {
       flake-parts,
       systems,
+      self,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
@@ -201,6 +202,7 @@
                     enable = true;
                     settings = {
                       binPath = "${nodeModules}/node_modules/.bin/oxlint";
+                      configPath = "${self}/oxlint.config.ts";
                     };
                   };
                   treefmt = {
@@ -222,6 +224,7 @@
                     command = "${nodeModules}/node_modules/.bin/oxfmt";
                     options = [
                       "--write"
+                      "--config=${self}/oxfmt.config.ts"
                     ];
                     includes = [
                       "*.md"
