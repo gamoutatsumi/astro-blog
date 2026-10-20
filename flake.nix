@@ -79,6 +79,7 @@
               inherit nodejs;
               npmRoot = ./.;
               derivationArgs = {
+                npmFlags = [ "--legacy-peer-deps" ];
                 nativeBuildInputs = with pkgs; [
                   # keep-sorted start
                   cairo
@@ -142,6 +143,7 @@
                 version = "0.1.0";
                 npmConfigHook = importNpmLock.npmConfigHook;
                 npmInstallFlags = [
+                  "--legacy-peer-deps"
                   "--package-lock-only=false"
                 ];
               };
@@ -160,6 +162,12 @@
                   treefmtBuild.devShell
                   config.mcp-servers.devShell
                 ];
+
+                shellHook = ''
+                  ${config.pre-commit.installationScript}
+                  source ${importNpmLock.hooks.linkNodeModulesHook}/nix-support/setup-hook
+                  linkNodeModulesHook
+                '';
                 packages =
                   (with pkgs; [
                     # keep-sorted start
@@ -172,8 +180,6 @@
                   ])
                   ++ [
                     nodejs
-                    config.pre-commit.installationScript
-                    importNpmLock.hooks.linkNodeModulesHook
                   ];
               };
             };
