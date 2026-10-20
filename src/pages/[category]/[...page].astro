@@ -26,7 +26,9 @@ const { page, category } = Astro.props;
 ---
 
 <Layout title=`category: ${category}` excludeFromSearch={true}>
-  {page.data.map((entry) => <Card entry={entry} />)}
+  {page.data.map((entry) => (
+    <Card entry={entry} />
+  ))}
   <div class="inline-flex justiry-between">
     {page.url.prev ? <a href={page.url.prev}>Previous</a> : <div />}
     {page.url.next ? <a href={page.url.next}>Next</a> : null}

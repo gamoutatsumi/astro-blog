@@ -35,18 +35,16 @@ const isNsfw = metadata.category === "nsfw";
         <div class="inline-flex gap-1">
           <p class="inline">tags:</p>
           <ul class="list-none flex">
-            {
-              metadata.tags.map((tag) => (
-                <li>
-                  <a
-                    class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400"
-                    href={`/tags/${tag}`}
-                  >
-                    {tag}
-                  </a>
-                </li>
-              ))
-            }
+            {metadata.tags.map((tag) => (
+              <li>
+                <a
+                  class="badge-tag hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-green-400"
+                  href={`/tags/${tag}`}
+                >
+                  {tag}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
         <div class="inline-flex gap-1">
@@ -54,8 +52,10 @@ const isNsfw = metadata.category === "nsfw";
           <p>
             <a
               class="badge-category hover:underline focus:underline focus:outline-none focus:ring-2 focus:ring-blue-400"
-              href={`/${metadata.category}`}>{metadata.category}</a
+              href={`/${metadata.category}`}
             >
+              {metadata.category}
+            </a>
           </p>
         </div>
         <div class="inline-flex flex-wrap gap-2">

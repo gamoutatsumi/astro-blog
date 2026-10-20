@@ -19,7 +19,7 @@ const { class: className } = Astro.props as Props;
       ) as HTMLElement | null;
       if (!target || target.dataset.pagefindInitialized === "true") return;
 
-      const Pagefind = (window as any).PagefindUI;
+      const Pagefind = window.PagefindUI;
       if (!Pagefind) return;
 
       target.dataset.pagefindInitialized = "true";

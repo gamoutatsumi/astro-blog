@@ -22,7 +22,9 @@
     ".*.cjs",
     "src/",
     "./.astro/types.d.ts",
-    "**/*"
+    "**/*",
+    "./oxlint.config.ts",
+    "./oxfmt.config.ts"
   ],
   "exclude": ["./node-pkgs/node_modules", "dist", "result"]
 }

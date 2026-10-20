@@ -202,7 +202,6 @@
                     enable = true;
                     settings = {
                       binPath = "${nodeModules}/node_modules/.bin/oxlint";
-                      configPath = "${self}/.oxlintrc.json";
                     };
                   };
                   treefmt = {
@@ -224,7 +223,6 @@
                     command = "${nodeModules}/node_modules/.bin/oxfmt";
                     options = [
                       "--write"
-                      "--config=${self}/.oxfmtrc.json"
                     ];
                     includes = [
                       "*.md"
