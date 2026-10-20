@@ -48,7 +48,6 @@
     {
       flake-parts,
       systems,
-      self,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
