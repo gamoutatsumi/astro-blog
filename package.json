@@ -59,7 +59,7 @@
     "jiti": "2.7.0",
     "lint-staged": "17.6.0",
     "oxfmt": "0.74.0",
-    "oxlint": "1.88.0",
+    "oxlint": "1.89.0",
     "oxlint-tsgolint": "7.0.2005",
     "simple-git-hooks": "2.14.0",
     "textlint": "15.8.0",
