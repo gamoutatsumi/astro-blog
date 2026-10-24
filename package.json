@@ -44,7 +44,7 @@
     "sharp": "0.35.5",
     "simple-git": "4.0.2",
     "temporal-polyfill": "1.0.6",
-    "unist-util-visit": "5.1.0",
+    "unist-util-visit": "5.2.0",
     "zod": "4.6.7",
     "zod-temporal": "2.2.1"
   },
