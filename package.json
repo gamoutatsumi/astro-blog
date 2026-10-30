@@ -23,7 +23,7 @@
     "@astrojs/sitemap": "3.7.4",
     "@expressive-code/plugin-line-numbers": "0.44.3",
     "@fontsource/noto-sans-jp": "5.3.1",
-    "@napi-rs/canvas": "1.0.13",
+    "@napi-rs/canvas": "1.1.0",
     "@popperjs/core": "2.11.8",
     "@remark-embedder/core": "3.0.3",
     "@remark-embedder/transformer-oembed": "5.0.1",
@@ -39,8 +39,8 @@
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
     "remark-link-card-plus": "0.8.1",
-    "rollup": "4.65.0",
-    "sass": "1.106.1",
+    "rollup": "4.67.2",
+    "sass": "1.107.0",
     "sharp": "0.35.5",
     "simple-git": "4.0.2",
     "temporal-polyfill": "1.0.6",
@@ -58,7 +58,7 @@
     "concurrently": "10.0.6",
     "jiti": "2.7.0",
     "lint-staged": "17.6.0",
-    "oxfmt": "0.74.0",
+    "oxfmt": "0.75.0",
     "oxlint": "1.89.0",
     "oxlint-tsgolint": "7.0.2005",
     "simple-git-hooks": "2.14.0",
@@ -69,6 +69,6 @@
     "typescript": "7.0.2",
     "unocss": "66.11.0",
     "unocss-language-server": "0.1.9",
-    "wrangler": "4.152.0"
+    "wrangler": "4.156.0"
   }
 }
