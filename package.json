@@ -34,7 +34,7 @@
     "astro-seo": "1.2.0",
     "autoprefixer": "10.6.2",
     "cheerio": "1.2.0",
-    "pagefind": "1.5.2",
+    "pagefind": "1.6.0",
     "postcss": "8.5.32",
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
