@@ -39,8 +39,8 @@
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
     "remark-link-card-plus": "0.8.1",
-    "rollup": "4.67.4",
-    "sass": "1.107.1",
+    "rollup": "4.68.0",
+    "sass": "1.108.0",
     "sharp": "0.35.5",
     "simple-git": "4.0.2",
     "temporal-polyfill": "1.0.6",
@@ -58,7 +58,7 @@
     "concurrently": "10.0.6",
     "jiti": "2.7.0",
     "lint-staged": "17.6.0",
-    "oxfmt": "0.75.0",
+    "oxfmt": "0.77.0",
     "oxlint": "1.90.0",
     "oxlint-tsgolint": "7.0.2005",
     "simple-git-hooks": "2.14.0",
@@ -69,6 +69,6 @@
     "typescript": "7.0.2",
     "unocss": "66.12.0",
     "unocss-language-server": "0.1.9",
-    "wrangler": "4.156.0"
+    "wrangler": "4.158.0"
   }
 }
