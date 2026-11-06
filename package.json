@@ -43,7 +43,7 @@
     "sass": "1.108.0",
     "sharp": "0.35.5",
     "simple-git": "4.0.2",
-    "temporal-polyfill": "1.0.6",
+    "temporal-polyfill": "1.0.8",
     "unist-util-visit": "5.2.0",
     "zod": "4.6.7",
     "zod-temporal": "2.2.1"
@@ -60,7 +60,7 @@
     "lint-staged": "17.6.0",
     "oxfmt": "0.77.0",
     "oxlint": "1.90.0",
-    "oxlint-tsgolint": "7.0.2005",
+    "oxlint-tsgolint": "7.0.2006",
     "simple-git-hooks": "2.14.0",
     "textlint": "15.8.0",
     "textlint-filter-rule-comments": "1.3.0",
