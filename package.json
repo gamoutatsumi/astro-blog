@@ -35,7 +35,7 @@
     "autoprefixer": "10.6.2",
     "cheerio": "1.2.0",
     "pagefind": "1.6.0",
-    "postcss": "8.5.32",
+    "postcss": "8.5.33",
     "remark-budoux": "1.0.0",
     "remark-directive": "4.0.0",
     "remark-link-card-plus": "0.9.0",
