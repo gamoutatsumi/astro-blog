@@ -51,7 +51,7 @@
   "devDependencies": {
     "@astrojs/check": "0.9.12",
     "@astrojs/ts-plugin": "1.11.0",
-    "@textlint/textlint-plugin-markdown": "15.8.0",
+    "@textlint/textlint-plugin-markdown": "16.1.2",
     "@types/node": "26.6.6",
     "@unocss/astro": "66.13.0",
     "@unocss/reset": "66.13.0",
