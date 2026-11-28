@@ -57,7 +57,7 @@
     "@unocss/reset": "66.13.0",
     "concurrently": "10.0.7",
     "jiti": "2.7.0",
-    "lint-staged": "17.6.2",
+    "lint-staged": "17.6.3",
     "oxfmt": "0.80.0",
     "oxlint": "1.95.0",
     "oxlint-tsgolint": "7.0.2009",
